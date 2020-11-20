@@ -12,7 +12,9 @@ public class Enemy : MonoBehaviour
     public int health;
     public int speed;
     public int radius;
-
+    public int[] actionProbability;
+    private bool _isActive = false;
+    
     // Start is called before the first frame update
     void Start()
     {
@@ -23,6 +25,7 @@ public class Enemy : MonoBehaviour
     private void OnEnable()
     {
         _enemyBody = GetComponent<Rigidbody2D>();
+        actionProbability = new int[10];
     }
 
     public void Spawn(float xPosition)

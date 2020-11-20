@@ -57,26 +57,46 @@ public class GeneticController : MonoBehaviour
             }
 
             _skillPoints = 10;
-            
-            if (currentBot.health == 0)
+
+            CheckEmptyValues(currentBot);
+        }
+
+        RandomProbabilities();
+        
+    }
+
+    private void RandomProbabilities()
+    {
+        Random randRange = new Random();
+        for (int botCount = 0; botCount < 8; botCount++)
+        {
+            for (int actions = 0; actions != 10; actions++)
             {
-                currentBot.health+=2;
-                currentBot.radius--;
-                currentBot.speed--;
-            }else if (currentBot.speed == 0)
-            {
-                currentBot.health--;
-                currentBot.radius--;
-                currentBot.speed+=2;
-                
-            }else if (currentBot.radius == 0)
-            {
-                currentBot.health--;
-                currentBot.radius+=2;
-                currentBot.speed--;
+                int probability = randRange.Next(1, 5);
+                _pool[botCount].GetComponent<Enemy>().actionProbability[actions] = probability;
             }
         }
-        
+    }
+
+    private void CheckEmptyValues(Enemy currentBot)
+    {
+        if (currentBot.health == 0)
+        {
+            currentBot.health+=2;
+            currentBot.radius--;
+            currentBot.speed--;
+        }else if (currentBot.speed == 0)
+        {
+            currentBot.health--;
+            currentBot.radius--;
+            currentBot.speed+=2;
+                
+        }else if (currentBot.radius == 0)
+        {
+            currentBot.health--;
+            currentBot.radius+=2;
+            currentBot.speed--;
+        }
     }
     
     
