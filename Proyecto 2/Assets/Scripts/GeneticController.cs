@@ -99,7 +99,17 @@ public class GeneticController : MonoBehaviour
         }
     }
     
-    
+    private int[] cross(Enemy parent1, Enemy parent2)
+    {
+       int[] actions_parent1= parent1.actionProbability ;
+       int[] actions_parent2= parent2.actionProbability ;
+       actions_parent2[1]=actions_parent1[1];
+       actions_parent2[3]=actions_parent1[3];
+       actions_parent2[5]=actions_parent1[5];
+       actions_parent2[7]=actions_parent1[7];
+       actions_parent2[8]=actions_parent1[8];
+       return actions_parent2;
+    }
 
     // Update is called once per frame
     void Update()
