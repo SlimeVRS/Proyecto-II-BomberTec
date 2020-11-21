@@ -122,6 +122,20 @@ public class GeneticController : MonoBehaviour
        return actions_parent2;
     }
 
+    private void mutation()
+    {
+        Random randRange = new Random();
+        
+        for (int i=0;i<8;i++)
+        {
+            var num = 0; 
+            num =randRange.Next(1,3);
+            if (num==1){
+                _pool[i].GetComponent<Enemy>().actionProbability[randRange.Next(0,11)]=randRange.Next(1, 5);
+            }                
+        }
+    }
+
     // Update is called once per frame
     void Update()
     {
