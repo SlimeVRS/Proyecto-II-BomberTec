@@ -10,12 +10,15 @@ using Vector2 = UnityEngine.Vector2;
 
 public class CharacterManager : MonoBehaviour
 {
-    public int health;
+    public int health = 5;
     public float speed = 3f;
     private Rigidbody2D _playerBody;
     public PlayerActions playerInput;
     [SerializeField] private GameObject bomb;
     private Vector2 _lookDirection = new Vector2(1,0);
+    private bool _isInvincible = false;
+    private float _invincibleTime = 2f;
+    private float _invincibleTimer;
 
     private void Awake()
     {
@@ -35,6 +38,7 @@ public class CharacterManager : MonoBehaviour
     void Start()
     {
         _playerBody = GetComponent<Rigidbody2D>();
+        
     }
     
     private void MoveOnPerformed(InputAction.CallbackContext context)
@@ -59,24 +63,28 @@ public class CharacterManager : MonoBehaviour
         {
             bombPosition.Set(position.x-0.03f,position.y);
             GameObject bombObject = Instantiate(bomb,bombPosition, Quaternion.identity);
+            
         }
 
         if (_lookDirection.x > 0f)
         {
             bombPosition.Set(position.x+0.03f,position.y);
             GameObject bombObject = Instantiate(bomb,bombPosition, Quaternion.identity);
+            
         }
 
         if (_lookDirection.y < 0f)
         {
             bombPosition.Set(position.x,position.y-0.8f);
             GameObject bombObject = Instantiate(bomb,bombPosition, Quaternion.identity);
+            
         }
         
         if (_lookDirection.y > 0f)
         {
             bombPosition.Set(position.x,position.y+0.8f);
             GameObject bombObject = Instantiate(bomb,bombPosition, Quaternion.identity);
+            
         }
 
     }
@@ -98,9 +106,40 @@ public class CharacterManager : MonoBehaviour
 
     }
 
+    public void ReduceHealth()
+    {
+        if (_isInvincible)
+        {
+            return;
+        }
+        
+        health -= 1;
+        _isInvincible = true;
+        _invincibleTimer = _invincibleTime;
+        Debug.Log(health);
+    }
+
+    private void InvincibleTimeManager()
+    {
+        if (_isInvincible)
+        {
+            _invincibleTimer -= Time.deltaTime;
+            if (_invincibleTimer < 0)
+            {
+                _isInvincible = false;
+            }
+        }
+    }
+
+    private void CheckDeath()
+    {
+        if (health == 0) Destroy(gameObject);
+    }
+
     // Update is called once per frame
     void Update()
     {
-        
+        InvincibleTimeManager();
+        CheckDeath();
     }
 }
