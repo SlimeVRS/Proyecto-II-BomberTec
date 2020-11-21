@@ -48,44 +48,52 @@ public class CharacterManager : MonoBehaviour
         var vertical = move.y;
         
         _lookDirection.Set(horizontal,vertical);
+
+        if (_playerBody != null)
+        {
+            _playerBody.velocity = new Vector2(horizontal*speed*Time.fixedDeltaTime*100f,vertical*speed*Time.fixedDeltaTime*100f);
+        }
         
-        
-        _playerBody.velocity = new Vector2(horizontal*speed*Time.fixedDeltaTime*100f,vertical*speed*Time.fixedDeltaTime*100f);
         
     }
 
     private void PlaceBombOnPerformed(InputAction.CallbackContext context)
     {
-        Vector2 bombPosition = new Vector2();
-        var position = _playerBody.position;
-
-        if (_lookDirection.x < 0f)
+        if (_playerBody != null)
         {
-            bombPosition.Set(position.x-0.03f,position.y);
-            GameObject bombObject = Instantiate(bomb,bombPosition, Quaternion.identity);
             
-        }
+            Vector2 bombPosition = new Vector2();
+            var position = _playerBody.position;
 
-        if (_lookDirection.x > 0f)
-        {
-            bombPosition.Set(position.x+0.03f,position.y);
-            GameObject bombObject = Instantiate(bomb,bombPosition, Quaternion.identity);
+            if (_lookDirection.x < 0f)
+            {
+                bombPosition.Set(position.x-0.03f,position.y);
+                GameObject bombObject = Instantiate(bomb,bombPosition, Quaternion.identity);
             
-        }
+            }
 
-        if (_lookDirection.y < 0f)
-        {
-            bombPosition.Set(position.x,position.y-0.8f);
-            GameObject bombObject = Instantiate(bomb,bombPosition, Quaternion.identity);
+            if (_lookDirection.x > 0f)
+            {
+                bombPosition.Set(position.x+0.03f,position.y);
+                GameObject bombObject = Instantiate(bomb,bombPosition, Quaternion.identity);
             
+            }
+
+            if (_lookDirection.y < 0f)
+            {
+                bombPosition.Set(position.x,position.y-0.8f);
+                GameObject bombObject = Instantiate(bomb,bombPosition, Quaternion.identity);
+            
+            }
+        
+            if (_lookDirection.y > 0f)
+            {
+                bombPosition.Set(position.x,position.y+0.8f);
+                GameObject bombObject = Instantiate(bomb,bombPosition, Quaternion.identity);
+            
+            }
         }
         
-        if (_lookDirection.y > 0f)
-        {
-            bombPosition.Set(position.x,position.y+0.8f);
-            GameObject bombObject = Instantiate(bomb,bombPosition, Quaternion.identity);
-            
-        }
 
     }
 
