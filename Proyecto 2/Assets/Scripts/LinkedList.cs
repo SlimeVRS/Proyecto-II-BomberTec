@@ -7,14 +7,13 @@ public class LinkedList<T>
     public Node head;
 
     public void Add(Node node)    
-    {    
-        Node new_node = new Node(node);    
+    {       
         if (this.head == null) {    
-            this.head = new_node;    
+            this.head = node;    
             return;
         }    
-        Node lastNode = GetLastNode(list);    
-        lastNode.next = new_node;    
+        Node lastNode = GetLastNode();    
+        lastNode.next = node;    
     }  
 
     public Node GetLastNode() 
@@ -30,11 +29,11 @@ public class LinkedList<T>
     {  
         Node temp = this.head;  
         Node prev = null;  
-        if (temp != null && temp.x == xpos && temp.y == ypos) {  
+        if (temp != null && temp.gridX == xpos && temp.gridY == ypos) {  
             this.head = temp.next;  
             return;  
         }  
-        while (temp != null temp.x != xpos && temp.y != yposy) {  
+        while (temp != null && temp.gridX != xpos && temp.gridY != ypos) {  
             prev = temp;  
             temp = temp.next;  
         }  
@@ -42,5 +41,20 @@ public class LinkedList<T>
             return;  
         }  
         prev.next = temp.next;  
-    } 
+    }
+
+    public Node SearchNode(int xpos, int ypos)
+    {  
+        Node temp = this.head;  
+        while (temp != null) {  
+            if(temp.gridX == xpos && temp.gridY == ypos)
+            {
+                return temp;
+            } else {
+                temp = temp.next;
+            }
+        }
+        Debug.Log("No se encontro");
+        return temp = null;
+    }
 }
