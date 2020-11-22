@@ -80,31 +80,82 @@ public class GridCreator : MonoBehaviour {
 		Node nodo12 = new Node(true, new Vector3(14, -3, 0), 14, 6);
 		BlackList.Add(nodo12);
 
-		Node temp1 = BlackList.head;
-		Node temp2 = WalkableList.head;
-		while(temp1 != null)
-		{
-			while(temp2 != null)
-			{
-				if(temp1.gridX == temp2.gridX && temp1.gridY == temp2.gridY)
-				{
-					Node temp4;
-					temp4 = WalkableList.SearchNode(temp1.gridX, temp1.gridY);
-					temp4.walkable = false;
-					temp2 = temp2.next;
-					Debug.Log("Entre if");
-				}else {
-					Debug.Log("Entre else");
-					temp2 = temp2.next;
-				}		
-			}
-			temp1 = temp1.next;
-		}
-		/*
+		GenerateUnwalkables();
+	}
+
+	public void GenerateUnwalkables()
+	{
 		for(int x = 1; x < gridSizeX - 1; x++)
 		{
-			//var randY = Random.Range(1,9);
-		}*/
+			if(x!=5 && x!=6 && x!=13 && x!=14)
+			{
+				int i = 1;
+				while(i!=4)
+				{
+					var randY = Random.Range(1,9);
+					if(InBlackList(WalkableList.SearchNode(x,randY)) == true)
+					{
+						continue;
+					}
+					if(WalkableList.SearchNode(x,randY).walkable != false)
+					{
+						WalkableList.SearchNode(x,randY).walkable = false;
+						i++;
+					}
+				}
+			}
+			if(x==5 || x==14)
+			{
+				int j = 1;
+				while(j!=4)
+				{
+					var randY = Random.Range(1,9);
+					if(InBlackList(WalkableList.SearchNode(x,randY)) == true)
+					{
+						continue;
+					}
+					if(WalkableList.SearchNode(x,randY).walkable != false)
+					{
+						WalkableList.SearchNode(x,randY).walkable = false;
+						j++;
+					}
+				}
+			}
+			if(x==6 || x==13)
+			{
+				int h = 1;
+				while(h!=3)
+				{
+					var randY = Random.Range(1,9);
+					if(InBlackList(WalkableList.SearchNode(x,randY)) == true)
+					{
+						continue;
+					}
+					if(WalkableList.SearchNode(x,randY).walkable != false)
+					{
+						WalkableList.SearchNode(x,randY).walkable = false;
+						h++;
+					}
+				}
+			}
+		}
+	}
+
+
+
+	public bool InBlackList(Node node)
+	{
+		Node temp1 = BlackList.head;
+		
+		while(temp1 != null)
+		{
+			if(temp1.gridX == node.gridX && temp1.gridY == node.gridY)
+			{
+				return true;
+			}	
+			temp1 = temp1.next;
+		}
+		return false;
 	}
 
 	public List<Node> GetNeighbours(Node node) {
