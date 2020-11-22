@@ -4,37 +4,37 @@ using UnityEngine;
 
 public class LinkedList<T>
 {
-    internal Node<T> head;
+    public Node head;
 
-    internal void Add(SingleLinkedList list, int new_data)    
+    public void Add(Node node)    
     {    
-        Node<T> new_node = new Node<T>(new_data);    
-        if (list.head == null) {    
-            list.head = new_node;    
-            return;    
+        Node new_node = new Node(node);    
+        if (this.head == null) {    
+            this.head = new_node;    
+            return;
         }    
-        Node<T> lastNode = GetLastNode(list);    
+        Node lastNode = GetLastNode(list);    
         lastNode.next = new_node;    
     }  
 
-    internal Node<T> GetLastNode(SingleLinkedList list) 
+    public Node GetLastNode() 
     {  
-        Node<T> temp = list.head;  
+        Node temp = this.head;
         while (temp.next != null) {  
             temp = temp.next;  
         }  
         return temp;  
     }  
 
-    internal void DeleteNodebyKey(SingleLinkedList list, int key)  
+    public void DeleteNode(int xpos, int ypos)  
     {  
-        Node<T> temp = list.head;  
-        Node<T> prev = null;  
-        if (temp != null && temp.data == key) {  
-            list.head = temp.next;  
+        Node temp = this.head;  
+        Node prev = null;  
+        if (temp != null && temp.x == xpos && temp.y == ypos) {  
+            this.head = temp.next;  
             return;  
         }  
-        while (temp != null && temp.data != key) {  
+        while (temp != null temp.x != xpos && temp.y != yposy) {  
             prev = temp;  
             temp = temp.next;  
         }  
