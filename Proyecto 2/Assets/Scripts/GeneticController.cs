@@ -100,15 +100,15 @@ public class GeneticController : MonoBehaviour
     }
     private void cross(Enemy parent1,Enemy parent2,Enemy parent3)
     {
-    Enemy[] tempBotPool=new Enemy[8];
-    _pool[0].GetComponent<Enemy>().actionProbability=crossAux(parent1,parent2);
-    _pool[1].GetComponent<Enemy>().actionProbability=crossAux(parent2,parent1);
-    _pool[2].GetComponent<Enemy>().actionProbability=crossAux(parent1,parent3);
-    _pool[3].GetComponent<Enemy>().actionProbability=crossAux(parent3,parent1);
-    _pool[4].GetComponent<Enemy>().actionProbability=crossAux(parent2,parent3);
-    _pool[5].GetComponent<Enemy>().actionProbability=crossAux(parent3,parent2);
-    _pool[6].GetComponent<Enemy>().actionProbability=crossAux(parent1,parent2);
-    //nos falta el ultimo(6)  que podriamos meterle una mutacion...xD     
+        Enemy[] tempBotPool=new Enemy[8];
+        _pool[0].GetComponent<Enemy>().actionProbability=crossAux(parent1,parent2);
+        _pool[1].GetComponent<Enemy>().actionProbability=crossAux(parent2,parent1);
+        _pool[2].GetComponent<Enemy>().actionProbability=crossAux(parent1,parent3);
+        _pool[3].GetComponent<Enemy>().actionProbability=crossAux(parent3,parent1);
+        _pool[4].GetComponent<Enemy>().actionProbability=crossAux(parent2,parent3);
+        _pool[5].GetComponent<Enemy>().actionProbability=crossAux(parent3,parent2);
+        _pool[6].GetComponent<Enemy>().actionProbability=crossAux(parent1,parent2); //revisar el cruce     
+        mutation();
     }
     private int[] crossAux(Enemy parent1, Enemy parent2)
     {
