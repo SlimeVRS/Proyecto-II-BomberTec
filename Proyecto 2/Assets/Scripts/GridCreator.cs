@@ -40,46 +40,47 @@ public class GridCreator : MonoBehaviour {
 			for (int y = 0; y < gridSizeY; y ++) {
 				Vector3 worldPoint = worldBottomLeft + Vector3.right * (x * nodeDiameter + nodeRadius) + Vector3.up * (y * nodeDiameter + nodeRadius);
 				bool walkable = !(Physics.CheckSphere(worldPoint,nodeRadius,unwalkableMask));
-				grid[x,y] = new Node(walkable,worldPoint, x,y);
+				grid[x,y] = new Node(walkable,worldPoint, x,y, false);
 				WalkableList.Add(grid[x,y]);
 			}
 		}
-		Node nodo1 = new Node(true, new Vector3(5, -6, 0), 5, 3);
+		Node nodo1 = new Node(true, new Vector3(5, -6, 0), 5, 3, true);
 		BlackList.Add(nodo1);
 
-		Node nodo2 = new Node(true, new Vector3(5, -3, 0), 5, 6);
+		Node nodo2 = new Node(true, new Vector3(5, -3, 0), 5, 6, true);
 		BlackList.Add(nodo2);
 
-		Node nodo3 = new Node(true, new Vector3(6, -7, 0), 6, 2);
+		Node nodo3 = new Node(true, new Vector3(6, -7, 0), 6, 2, true);
 		BlackList.Add(nodo3);
 
-		Node nodo4 = new Node(true, new Vector3(6, -6, 0), 6, 3);
+		Node nodo4 = new Node(true, new Vector3(6, -6, 0), 6, 3, true);
 		BlackList.Add(nodo4);
 
-		Node nodo5 = new Node(true, new Vector3(6, -3, 0), 6, 6);
+		Node nodo5 = new Node(true, new Vector3(6, -3, 0), 6, 6, true);
 		BlackList.Add(nodo5);
 
-		Node nodo6 = new Node(true, new Vector3(6, -2, 0), 6, 7);
+		Node nodo6 = new Node(true, new Vector3(6, -2, 0), 6, 7, true);
 		BlackList.Add(nodo6);
 
-		Node nodo7 = new Node(true, new Vector3(13, -7, 0), 13, 2);
+		Node nodo7 = new Node(true, new Vector3(13, -7, 0), 13, 2, true);
 		BlackList.Add(nodo7);
 
-		Node nodo8 = new Node(true, new Vector3(13, -6, 0), 13, 3);
+		Node nodo8 = new Node(true, new Vector3(13, -6, 0), 13, 3, true);
 		BlackList.Add(nodo8);
 
-		Node nodo9 = new Node(true, new Vector3(13, -3, 0), 13, 6);
+		Node nodo9 = new Node(true, new Vector3(13, -3, 0), 13, 6, true);
 		BlackList.Add(nodo9);
 
-		Node nodo10 = new Node(true, new Vector3(13, -2, 0), 13, 7);
+		Node nodo10 = new Node(true, new Vector3(13, -2, 0), 13, 7, true);
 		BlackList.Add(nodo10);
 
-		Node nodo11 = new Node(true, new Vector3(14, -6, 0), 14, 3);
+		Node nodo11 = new Node(true, new Vector3(14, -6, 0), 14, 3, true);
 		BlackList.Add(nodo11);
 
-		Node nodo12 = new Node(true, new Vector3(14, -3, 0), 14, 6);
+		Node nodo12 = new Node(true, new Vector3(14, -3, 0), 14, 6, true);
 		BlackList.Add(nodo12);
-
+		
+		DefineSpawns();
 		GenerateUnwalkables();
 	}
 
@@ -141,7 +142,29 @@ public class GridCreator : MonoBehaviour {
 		}
 	}
 
-
+	public void DefineSpawns()
+	{
+		Node temp1 = BlackList.head;
+		Node temp2 = WalkableList.head;
+		
+		while(temp1 != null)
+		{
+			if(temp1.spawn == true)
+			{
+				while(temp2 != null)
+				{
+					if(temp1.gridX == temp2.gridX && temp1.gridY == temp2.gridY)
+					{
+						temp2.spawn = true;
+						break;
+					}	
+					temp2 = temp2.next;
+				}
+			}
+			temp1 = temp1.next;
+			temp2 = WalkableList.head;
+		}
+	}
 
 	public bool InBlackList(Node node)
 	{
@@ -194,8 +217,13 @@ public class GridCreator : MonoBehaviour {
 		Gizmos.DrawWireCube(transform.position,new Vector3(gridWorldSize.x,gridWorldSize.y,1));
 
 		if (grid != null && displayGridGizmos) {
-			foreach (Node n in grid) {
+			foreach (Node n in grid)
+			{
 				Gizmos.color = (n.walkable)?Color.white:Color.red;
+				if(n.spawn == true)
+				{
+					Gizmos.color = Color.green;
+				}
 				Gizmos.DrawCube(n.worldPosition, Vector3.one * (nodeDiameter-.1f));
 			}
 		}
