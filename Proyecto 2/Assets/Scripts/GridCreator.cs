@@ -142,6 +142,16 @@ public class GridCreator : MonoBehaviour {
 		}
 	}
 
+	public bool OnPathFound(Vector3[] newPath, bool pathSucceful)
+	{
+		if(pathSucceful){
+			return true;
+		} else
+		{
+			return false;
+		}
+	}
+
 	public void DefineSpawns()
 	{
 		Node temp1 = BlackList.head;
