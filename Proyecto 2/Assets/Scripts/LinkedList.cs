@@ -13,7 +13,7 @@ public class LinkedList<T>
             return;
         }    
         Node lastNode = GetLastNode();    
-        lastNode.next = node;    
+        lastNode.next = node;
     }  
 
     public Node GetLastNode() 
@@ -24,7 +24,7 @@ public class LinkedList<T>
         }  
         return temp;  
     }  
-
+    
     public void DeleteNode(int xpos, int ypos)  
     {  
         Node temp = this.head;  

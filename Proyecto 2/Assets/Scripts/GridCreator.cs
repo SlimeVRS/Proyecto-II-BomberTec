@@ -15,8 +15,8 @@ public class GridCreator : MonoBehaviour {
 	int gridSizeX, gridSizeY;
 
 	public LinkedList<Node> BlackList = new LinkedList<Node>();
-	public LinkedList<Node> WalkableList = new LinkedList<Node>();
-	public LinkedList<Node> IndestructibleList = new LinkedList<Node>();
+	public LinkedList<Node> GridList = new LinkedList<Node>();
+	public LinkedList<Node> UnwalkableList = new LinkedList<Node>();
 
 	void Start() {
 		nodeDiameter = nodeRadius*2;
@@ -41,7 +41,7 @@ public class GridCreator : MonoBehaviour {
 				Vector3 worldPoint = worldBottomLeft + Vector3.right * (x * nodeDiameter + nodeRadius) + Vector3.up * (y * nodeDiameter + nodeRadius);
 				bool walkable = !(Physics.CheckSphere(worldPoint,nodeRadius,unwalkableMask));
 				grid[x,y] = new Node(walkable,worldPoint, x,y, false);
-				WalkableList.Add(grid[x,y]);
+				GridList.Add(grid[x,y]);
 			}
 		}
 		Node nodo1 = new Node(true, new Vector3(5, -6, 0), 5, 3, true);
@@ -94,13 +94,13 @@ public class GridCreator : MonoBehaviour {
 				while(i!=4)
 				{
 					var randY = Random.Range(1,9);
-					if(InBlackList(WalkableList.SearchNode(x,randY)) == true)
+					if(InBlackList(GridList.SearchNode(x,randY)) == true)
 					{
 						continue;
 					}
-					if(WalkableList.SearchNode(x,randY).walkable != false)
+					if(GridList.SearchNode(x,randY).walkable != false)
 					{
-						WalkableList.SearchNode(x,randY).walkable = false;
+						GridList.SearchNode(x,randY).walkable = false;
 						i++;
 					}
 				}
@@ -111,13 +111,13 @@ public class GridCreator : MonoBehaviour {
 				while(j!=4)
 				{
 					var randY = Random.Range(1,9);
-					if(InBlackList(WalkableList.SearchNode(x,randY)) == true)
+					if(InBlackList(GridList.SearchNode(x,randY)) == true)
 					{
 						continue;
 					}
-					if(WalkableList.SearchNode(x,randY).walkable != false)
+					if(GridList.SearchNode(x,randY).walkable != false)
 					{
-						WalkableList.SearchNode(x,randY).walkable = false;
+						GridList.SearchNode(x,randY).walkable = false;
 						j++;
 					}
 				}
@@ -128,13 +128,13 @@ public class GridCreator : MonoBehaviour {
 				while(h!=3)
 				{
 					var randY = Random.Range(1,9);
-					if(InBlackList(WalkableList.SearchNode(x,randY)) == true)
+					if(InBlackList(GridList.SearchNode(x,randY)) == true)
 					{
 						continue;
 					}
-					if(WalkableList.SearchNode(x,randY).walkable != false)
+					if(GridList.SearchNode(x,randY).walkable != false)
 					{
-						WalkableList.SearchNode(x,randY).walkable = false;
+						GridList.SearchNode(x,randY).walkable = false;
 						h++;
 					}
 				}
@@ -155,7 +155,7 @@ public class GridCreator : MonoBehaviour {
 	public void DefineSpawns()
 	{
 		Node temp1 = BlackList.head;
-		Node temp2 = WalkableList.head;
+		Node temp2 = GridList.head;
 		
 		while(temp1 != null)
 		{
@@ -168,11 +168,30 @@ public class GridCreator : MonoBehaviour {
 						temp2.spawn = true;
 						break;
 					}	
-					temp2 = temp2.next;
+					temp2 = temp2.next;	
 				}
 			}
 			temp1 = temp1.next;
-			temp2 = WalkableList.head;
+			temp2 = GridList.head;
+		}
+
+		temp2 = GridList.head;
+
+		while(temp2 != null)
+		{
+			if((temp2.gridX == 0 && temp2.gridY == 0) || (temp2.gridX == 0 && temp2.gridY == 1) || (temp2.gridX == 0 && temp2.gridY == 2) || (temp2.gridX == 0 && temp2.gridY == 7) ||
+			(temp2.gridX == 0 && temp2.gridY == 8) || (temp2.gridX == 0 && temp2.gridY == 9) || (temp2.gridX == 1 && temp2.gridY == 0) || (temp2.gridX == 1 && temp2.gridY == 9) ||
+			(temp2.gridX == 2 && temp2.gridY == 0) || (temp2.gridX == 2 && temp2.gridY == 9))
+			{
+				temp2.spawn = true;
+			}
+			if((temp2.gridX == 17 && temp2.gridY == 0) || (temp2.gridX == 17 && temp2.gridY == 9) || (temp2.gridX == 18 && temp2.gridY == 0) || (temp2.gridX == 18 && temp2.gridY == 9) || 
+			(temp2.gridX == 19 && temp2.gridY == 0) || (temp2.gridX == 19 && temp2.gridY == 1) || (temp2.gridX == 19 && temp2.gridY == 2) || (temp2.gridX == 19 && temp2.gridY == 7) || 
+			(temp2.gridX == 19 && temp2.gridY == 8) || (temp2.gridX == 19 && temp2.gridY == 9))
+			{
+				temp2.spawn = true;
+			}
+			temp2 = temp2.next;
 		}
 	}
 
