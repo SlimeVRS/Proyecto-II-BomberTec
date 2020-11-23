@@ -101,6 +101,7 @@ public class GridCreator : MonoBehaviour {
 					if(GridList.SearchNode(x,randY).walkable != false)
 					{
 						GridList.SearchNode(x,randY).walkable = false;
+						UnwalkableList.Add(new Node(false, new Vector3(x, -9 + randY), x, randY, false, false));
 						i++;
 					}
 				}
@@ -118,6 +119,7 @@ public class GridCreator : MonoBehaviour {
 					if(GridList.SearchNode(x,randY).walkable != false)
 					{
 						GridList.SearchNode(x,randY).walkable = false;
+						UnwalkableList.Add(new Node(false, new Vector3(x, -9 + randY), x, randY, false, false));
 						j++;
 					}
 				}
@@ -135,10 +137,17 @@ public class GridCreator : MonoBehaviour {
 					if(GridList.SearchNode(x,randY).walkable != false)
 					{
 						GridList.SearchNode(x,randY).walkable = false;
+						UnwalkableList.Add(new Node(false, new Vector3(x, -9 + randY), x, randY, false, false));
 						h++;
 					}
 				}
 			}
+		}
+		Node temp = UnwalkableList.head;
+		while(temp != null)
+		{
+			Debug.Log("X = " + temp.gridX + " Y = " + temp.gridY);
+			temp = temp.next;
 		}
 	}
 
