@@ -22,7 +22,7 @@ public class GridCreator : MonoBehaviour {
 		nodeDiameter = nodeRadius*2;
 		gridSizeX = Mathf.RoundToInt(gridWorldSize.x/nodeDiameter);
 		gridSizeY = Mathf.RoundToInt(gridWorldSize.y/nodeDiameter);
-		reference.position = reference.position + new Vector3(-gridSizeX/2 + nodeRadius,gridSizeY/2 - nodeRadius,0);
+		reference.position = new Vector3(-gridSizeX/2 + nodeRadius,gridSizeY/2 - nodeRadius,0);
 		CreateGrid();
 	}
 
@@ -140,16 +140,6 @@ public class GridCreator : MonoBehaviour {
 		}
 	}
 
-	public bool OnPathFound(Vector3[] newPath, bool pathSucceful)
-	{
-		if(pathSucceful){
-			return true;
-		} else
-		{
-			return false;
-		}
-	}
-
 	public void DefineSpawns()
 	{
 		Node temp1 = BlackList.head;
@@ -211,6 +201,48 @@ public class GridCreator : MonoBehaviour {
 	public List<Node> GetNeighbours(Node node) {
 		List<Node> neighbours = new List<Node>();
 
+		int checkX;
+		int checkY;
+
+		checkX = node.gridX + 1;
+        checkY = node.gridY;
+        if (checkX >= 0 && checkX < gridSizeX)
+        {
+            if(checkY >= 0 && checkY < gridSizeY)
+            {
+                neighbours.Add(grid[checkX, checkY]);
+            }                
+        }
+
+        checkX = node.gridX - 1;
+        checkY = node.gridY;
+        if (checkX >= 0 && checkX < gridSizeX)
+        {
+            if (checkY >= 0 && checkY < gridSizeY)
+            {
+                neighbours.Add(grid[checkX, checkY]);
+            }
+        }
+
+        checkX = node.gridX;
+        checkX = node.gridY + 1;
+        if (checkX >= 0 && checkX < gridSizeX)
+        {
+            if (checkY >= 0 && checkY < gridSizeY)
+            {
+                neighbours.Add(grid[checkX, checkY]);
+            }
+        }
+        checkX = node.gridX;
+        checkX = node.gridY - 1;
+        if (checkX >= 0 && checkX < gridSizeX)
+        {
+            if (checkY >= 0 && checkY < gridSizeY)
+            {
+                neighbours.Add(grid[checkX, checkY]);
+            }
+        }
+		/*
 		for (int x = -1; x <= 1; x++) {
 			for (int y = -1; y <= 1; y++) {
 				if (x == 0 && y == 0)
@@ -223,7 +255,7 @@ public class GridCreator : MonoBehaviour {
 					neighbours.Add(grid[checkX,checkY]);
 				}
 			}
-		}
+		}*/
 
 		return neighbours;
 	}
