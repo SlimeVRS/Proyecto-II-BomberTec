@@ -67,34 +67,45 @@ public class CharacterManager : MonoBehaviour
 
             if (_lookDirection.x < 0f)
             {
-                bombPosition.Set(position.x-0.03f,position.y);
+                bombPosition.Set(position.x-5f,position.y);
                 GameObject bombObject = Instantiate(bomb,bombPosition, Quaternion.identity);
             
             }
 
             if (_lookDirection.x > 0f)
             {
-                bombPosition.Set(position.x+0.03f,position.y);
+                bombPosition.Set(position.x+5f,position.y);
                 GameObject bombObject = Instantiate(bomb,bombPosition, Quaternion.identity);
             
             }
 
             if (_lookDirection.y < 0f)
             {
-                bombPosition.Set(position.x,position.y-0.8f);
+                bombPosition.Set(position.x,position.y-5f);
                 GameObject bombObject = Instantiate(bomb,bombPosition, Quaternion.identity);
             
             }
         
             if (_lookDirection.y > 0f)
             {
-                bombPosition.Set(position.x,position.y+0.8f);
+                bombPosition.Set(position.x,position.y+5f);
                 GameObject bombObject = Instantiate(bomb,bombPosition, Quaternion.identity);
             
             }
+            GetBombPosition(_playerBody.position);
+            
+            
         }
         
 
+    }
+    
+    private void GetBombPosition(Vector2 worldPosition)
+    {
+        Vector2Int matrixPosition = new Vector2Int();
+        matrixPosition.x = Mathf.FloorToInt(worldPosition.x / 10f);
+        matrixPosition.y = Mathf.FloorToInt(worldPosition.y / 10f);
+        Debug.Log("BOMB PLACED ON: "+matrixPosition.x+", "+matrixPosition.y);
     }
 
     void OnCollisionEnter2D(Collision2D other){

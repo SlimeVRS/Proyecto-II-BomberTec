@@ -25,9 +25,6 @@ public class BombBehaviour : MonoBehaviour
         BoxCollider2D[] list = GetComponents<BoxCollider2D>();
         _vertical = list[0];
         _horizontal = list[1];
-        
-        _vertical.size = new Vector2(2.5f,14);
-        _horizontal.size = new Vector2(radius,2.5f);
     }
 
     public void ChangeExplosionRadius()

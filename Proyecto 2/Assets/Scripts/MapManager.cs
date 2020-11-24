@@ -49,7 +49,7 @@ public class MapManager
         {
             for (int y = 0; y < mapArray.GetLength(1); y++)
             {
-                UtilsClass.CreateWorldText("("+x+","+y+")", null, GetWorldPosition(x,y)+new Vector3(_cellSize,_cellSize) * 0.5f,30,Color.white,TextAnchor.MiddleCenter);
+                UtilsClass.CreateWorldText("("+x+","+y+")", null, GetWorldPosition(x,y)+new Vector2(_cellSize,_cellSize) * 0.5f,30,Color.white,TextAnchor.MiddleCenter);
                 Debug.DrawLine(GetWorldPosition(x,y),GetWorldPosition(x,y+1),Color.white, 100f);
                 Debug.DrawLine(GetWorldPosition(x,y),GetWorldPosition(x+1,y),Color.white,100f);
             }
@@ -61,9 +61,9 @@ public class MapManager
         
     }
 
-    private Vector3 GetWorldPosition(int x, int y)
+    public Vector2 GetWorldPosition(int x, int y)
     {
-        return new Vector3(x,y)*_cellSize;
+        return new Vector2(x,y)*_cellSize;
     }
 
     private Vector2Int GetMatrixPosition(Vector3 worldPosition)
@@ -76,7 +76,7 @@ public class MapManager
 
     private void _placeBlock(int x, int y, GameObject block)
     {
-        Object.Instantiate(block, GetWorldPosition(x, y)+new Vector3(_cellSize,_cellSize) * 0.5f, Quaternion.identity);
+        Object.Instantiate(block, GetWorldPosition(x, y)+new Vector2(_cellSize,_cellSize) * 0.5f, Quaternion.identity);
     }
 
     private void _GenerateStaticMap()
