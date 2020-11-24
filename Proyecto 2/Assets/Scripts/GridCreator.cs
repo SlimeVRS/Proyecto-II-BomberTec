@@ -125,10 +125,17 @@ public class GridCreator : MonoBehaviour {
 				}
 			}
 		}
-		Node temp = UnwalkableList.head;
+		Node temp = GridList.head;
 		while(temp != null)
 		{
-			Debug.Log("X = " + temp.gridX + " Y = " + temp.gridY);
+			if(temp.walkable == true && temp.spawn == false)
+			{
+				var randNum = Random.Range(0,10);
+				if(randNum != 1 && randNum != 2)
+				{
+					temp.destroyable = true;
+				}
+			}
 			temp = temp.next;
 		}
 	}
@@ -243,6 +250,10 @@ public class GridCreator : MonoBehaviour {
 				if(n.spawn == true)
 				{
 					Gizmos.color = Color.green;
+				}
+				if(n.destroyable == true)
+				{
+					Gizmos.color = Color.yellow;
 				}
 				Gizmos.DrawCube(n.worldPosition, Vector3.one * (nodeDiameter-.1f));
 			}
