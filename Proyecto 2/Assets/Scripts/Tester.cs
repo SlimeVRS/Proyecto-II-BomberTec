@@ -2,16 +2,15 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class MapGenerator : MonoBehaviour
+public class Tester : MonoBehaviour
 {
-    
-    private int[,] _map = new int[10,10];
+    [SerializeField] private GameObject destructible;
+
+    [SerializeField] private GameObject indestructible;
     // Start is called before the first frame update
     void Start()
     {
-        _map[0,0] = 1;
-        Debug.Log(_map[0,0]);
-        Debug.Log(_map[0,1]);
+        MapManager map = new MapManager(10,10, 10f, destructible,indestructible);
         
         
     }
