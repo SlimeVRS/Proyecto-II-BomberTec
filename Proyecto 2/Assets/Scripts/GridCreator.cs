@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
+using System.Diagnostics;
 
 public class GridCreator : MonoBehaviour {
 
@@ -19,11 +20,15 @@ public class GridCreator : MonoBehaviour {
 	public LinkedList<Node> UnwalkableList = new LinkedList<Node>();
 
 	void Start() {
+		Stopwatch sw = new Stopwatch();
+		sw.Start();
 		nodeDiameter = nodeRadius*2;
 		gridSizeX = Mathf.RoundToInt(gridWorldSize.x/nodeDiameter);
 		gridSizeY = Mathf.RoundToInt(gridWorldSize.y/nodeDiameter);
 		reference.position = new Vector3(-gridSizeX/2 + nodeRadius,gridSizeY/2 - nodeRadius,0);
 		CreateGrid();
+		sw.Stop();
+		print("Grid took: " + sw.ElapsedMilliseconds + " ms to be created");
 	}
 
 	public int MaxSize {
