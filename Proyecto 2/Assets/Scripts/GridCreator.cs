@@ -88,7 +88,7 @@ public class GridCreator : MonoBehaviour {
 	{
 		for(int x = 1; x < gridSizeX - 1; x++)
 		{
-			if(x!=5 && x!=6 && x!=13 && x!=14)
+			if(x!=6 && x!=13)
 			{
 				int i = 1;
 				while(i!=4)
@@ -103,24 +103,6 @@ public class GridCreator : MonoBehaviour {
 						GridList.SearchNode(x,randY).walkable = false;
 						UnwalkableList.Add(new Node(false, new Vector3(x, -9 + randY), x, randY, false, false));
 						i++;
-					}
-				}
-			}
-			if(x==5 || x==14)
-			{
-				int j = 1;
-				while(j!=4)
-				{
-					var randY = Random.Range(1,9);
-					if(InBlackList(GridList.SearchNode(x,randY)) == true)
-					{
-						continue;
-					}
-					if(GridList.SearchNode(x,randY).walkable != false)
-					{
-						GridList.SearchNode(x,randY).walkable = false;
-						UnwalkableList.Add(new Node(false, new Vector3(x, -9 + randY), x, randY, false, false));
-						j++;
 					}
 				}
 			}
