@@ -87,6 +87,9 @@ public class GridCreator : MonoBehaviour {
 		
 		DefineSpawns();
 		GenerateUnwalkables();
+
+		int vecinos = SearchReachableNodes(nodo1);
+		print("La cantidad de vecinos del nodo 1 es:" + vecinos);
 	}
 
 	public void GenerateUnwalkables()
@@ -211,7 +214,41 @@ public class GridCreator : MonoBehaviour {
 		return false;
 	}
 
+	private int SearchReachableNodes(Node node)
+	{
+		var rng = new System.Random();
+		List<Node> VistedNodes = new List<Node>();
+		Stack<Node> positionStack = new Stack<Node>();
 
+		VistedNodes.Add(node);
+		positionStack.Push(node);
+		
+		while(positionStack.Count > 0)
+		{
+			Node current = positionStack.Pop();
+			List<Node> neighbours = GetUnvisitedNeighbours(current);
+			foreach(Node n in neighbours)
+			{
+				if(VistedNodes.Contains(n))
+				{
+					neighbours.Remove(n);
+				}
+			}
+			if(neighbours.Count > 0)
+			{
+				positionStack.Push(current);
+				int randIndex = rng.Next(0, neighbours.Count);
+				Node randomNeighbour = neighbours[randIndex];
+				neighbours.Clear();
+				current = randomNeighbour;
+				VistedNodes.Add(current);
+
+				positionStack.Push(current);
+
+			}
+		}
+		return VistedNodes.Count;
+	}
 
 	private List<Node> GetUnvisitedNeighbours(Node node)
 	{
