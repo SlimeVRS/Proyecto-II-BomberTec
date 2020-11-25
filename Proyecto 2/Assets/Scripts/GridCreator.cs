@@ -87,9 +87,6 @@ public class GridCreator : MonoBehaviour {
 		
 		DefineSpawns();
 		GenerateUnwalkables();
-
-		int vecinos = SearchReachableNodes(nodo1);
-		print("La cantidad de vecinos del nodo 1 es:" + vecinos);
 	}
 
 	public void GenerateUnwalkables()
@@ -111,7 +108,11 @@ public class GridCreator : MonoBehaviour {
 						GridList.SearchNode(x,randY).walkable = false;
 						if(GridList.SearchNode(x - 1,randY).walkable)
 						{
-							print("Quizas tapé algo en X: " + x + " Y: " + randY);
+							bool blocking = NodeReachable(GridList.SearchNode(x,randY));
+							if(blocking)
+							{
+								print("El nodo X: " + x + " Y: " + randY + " esta tapando el camino");
+							}
 						}
 						UnwalkableList.Add(new Node(false, new Vector3(x, -9 + randY), x, randY, false, false));
 						i++;
@@ -133,7 +134,11 @@ public class GridCreator : MonoBehaviour {
 						GridList.SearchNode(x,randY).walkable = false;
 						if(GridList.SearchNode(x - 1,randY).walkable)
 						{
-							print("Quizas tapé algo en X: " + x + " Y: " + randY);
+							bool blocking = NodeReachable(GridList.SearchNode(x,randY));
+							if(blocking)
+							{
+								print("El nodo X: " + x + " Y: " + randY + " esta tapando el camino");
+							}
 						}
 						UnwalkableList.Add(new Node(false, new Vector3(x, -9 + randY), x, randY, false, false));
 						h++;
@@ -214,40 +219,16 @@ public class GridCreator : MonoBehaviour {
 		return false;
 	}
 
-	private int SearchReachableNodes(Node node)
+	public bool NodeReachable(Node node)
 	{
-		var rng = new System.Random();
-		List<Node> VistedNodes = new List<Node>();
-		Stack<Node> positionStack = new Stack<Node>();
-
-		VistedNodes.Add(node);
-		positionStack.Push(node);
-		
-		while(positionStack.Count > 0)
+		Node upperDiagonal = GridList.SearchNode(node.gridX - 1,node.gridY + 1);
+		Node bottomDiagonal = GridList.SearchNode(node.gridX - 1, node.gridY - 1);
+		if(!upperDiagonal.walkable && !bottomDiagonal.walkable)
 		{
-			Node current = positionStack.Pop();
-			List<Node> neighbours = GetUnvisitedNeighbours(current);
-			foreach(Node n in neighbours)
-			{
-				if(VistedNodes.Contains(n))
-				{
-					neighbours.Remove(n);
-				}
-			}
-			if(neighbours.Count > 0)
-			{
-				positionStack.Push(current);
-				int randIndex = rng.Next(0, neighbours.Count);
-				Node randomNeighbour = neighbours[randIndex];
-				neighbours.Clear();
-				current = randomNeighbour;
-				VistedNodes.Add(current);
-
-				positionStack.Push(current);
-
-			}
+			return true;
+		} else {
+			return false;
 		}
-		return VistedNodes.Count;
 	}
 
 	private List<Node> GetUnvisitedNeighbours(Node node)

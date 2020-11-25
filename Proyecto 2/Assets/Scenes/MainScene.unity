@@ -315,7 +315,7 @@ MonoBehaviour:
   displayGridGizmos: 1
   unwalkableMask:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 256
   gridWorldSize: {x: 20, y: 10}
   nodeRadius: 0.5
   reference: {fileID: 1894736143}
