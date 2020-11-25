@@ -19,7 +19,7 @@ public class GridCreator : MonoBehaviour {
 	public LinkedList<Node> GridList = new LinkedList<Node>();
 	public LinkedList<Node> UnwalkableList = new LinkedList<Node>();
 
-	void Start() {
+	void Awake() {
 		Stopwatch sw = new Stopwatch();
 		sw.Start();
 		nodeDiameter = nodeRadius*2;
@@ -106,6 +106,10 @@ public class GridCreator : MonoBehaviour {
 					if(GridList.SearchNode(x,randY).walkable != false)
 					{
 						GridList.SearchNode(x,randY).walkable = false;
+						if(GridList.SearchNode(x - 1,randY).walkable)
+						{
+							print("Quizas tapé algo en X: " + x + " Y: " + randY);
+						}
 						UnwalkableList.Add(new Node(false, new Vector3(x, -9 + randY), x, randY, false, false));
 						i++;
 					}
@@ -124,6 +128,10 @@ public class GridCreator : MonoBehaviour {
 					if(GridList.SearchNode(x,randY).walkable != false)
 					{
 						GridList.SearchNode(x,randY).walkable = false;
+						if(GridList.SearchNode(x - 1,randY).walkable)
+						{
+							print("Quizas tapé algo en X: " + x + " Y: " + randY);
+						}
 						UnwalkableList.Add(new Node(false, new Vector3(x, -9 + randY), x, randY, false, false));
 						h++;
 					}
@@ -203,6 +211,68 @@ public class GridCreator : MonoBehaviour {
 		return false;
 	}
 
+
+
+	private List<Node> GetUnvisitedNeighbours(Node node)
+	{
+		List<Node> neighbours = new List<Node>();
+
+		int checkX;
+		int checkY;
+
+		checkX = node.gridX + 1;
+        checkY = node.gridY;
+        if (checkX >= 0 && checkX < gridSizeX && node.walkable)
+        {
+            if(checkY >= 0 && checkY < gridSizeY && node.walkable)
+            {
+				if(GridList.SearchNode(checkX,checkY).walkable)
+				{
+					neighbours.Add(grid[checkX, checkY]);
+				}
+            }                
+        }
+
+        checkX = node.gridX - 1;
+        checkY = node.gridY;
+        if (checkX >= 0 && checkX < gridSizeX && node.walkable)
+        {
+            if (checkY >= 0 && checkY < gridSizeY && node.walkable)
+            {
+				if(GridList.SearchNode(checkX,checkY).walkable)
+				{
+					neighbours.Add(grid[checkX, checkY]);
+				}
+            }
+        }
+
+        checkX = node.gridX;
+        checkY = node.gridY + 1;
+        if (checkX >= 0 && checkX < gridSizeX)
+        {
+            if (checkY >= 0 && checkY < gridSizeY && node.walkable)
+            {
+				if(GridList.SearchNode(checkX,checkY).walkable)
+				{
+					neighbours.Add(grid[checkX, checkY]);
+				}
+            }
+        }
+        checkX = node.gridX;
+        checkY = node.gridY - 1;
+        if (checkX >= 0 && checkX < gridSizeX && node.walkable)
+        {
+            if (checkY >= 0 && checkY < gridSizeY && node.walkable)
+            {
+				if(GridList.SearchNode(checkX,checkY).walkable)
+				{
+					neighbours.Add(grid[checkX, checkY]);
+				}
+            }
+        }
+		return neighbours;
+	}
+
 	public List<Node> GetNeighbours(Node node) {
 		List<Node> neighbours = new List<Node>();
 
@@ -230,7 +300,7 @@ public class GridCreator : MonoBehaviour {
         }
 
         checkX = node.gridX;
-        checkX = node.gridY + 1;
+        checkY = node.gridY + 1;
         if (checkX >= 0 && checkX < gridSizeX)
         {
             if (checkY >= 0 && checkY < gridSizeY)
@@ -239,7 +309,7 @@ public class GridCreator : MonoBehaviour {
             }
         }
         checkX = node.gridX;
-        checkX = node.gridY - 1;
+        checkY = node.gridY - 1;
         if (checkX >= 0 && checkX < gridSizeX)
         {
             if (checkY >= 0 && checkY < gridSizeY)
@@ -286,7 +356,7 @@ public class GridCreator : MonoBehaviour {
 				Gizmos.color = (n.walkable)?Color.white:Color.red;
 				if(n.spawn == true)
 				{
-					Gizmos.color = Color.green;
+					Gizmos.color = Color.black;
 				}
 				if(n.destroyable == true)
 				{
