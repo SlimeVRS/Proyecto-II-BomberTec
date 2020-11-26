@@ -40,6 +40,7 @@
           <e p="CharacterManager.cs" t="Include" />
           <e p="Enemy.cs" t="Include" />
           <e p="GeneticController.cs" t="Include" />
+          <e p="LinkedList.cs" t="Include" />
           <e p="MapManager.cs" t="Include" />
           <e p="Node.cs" t="Include" />
           <e p="PathFinding.cs" t="Include" />

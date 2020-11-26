@@ -5,27 +5,39 @@ using Random = System.Random;
 
 public class GeneticController : MonoBehaviour
 {
-    private GameObject[] _pool;
+    public GameObject[] _pool;
+    public MapManager map;
     private int _skillPoints = 10;
     [SerializeField] private GameObject bot;
+    
     
     // Start is called before the first frame update
     void Start()
     {
 
         _pool = new GameObject[8];
-        float xPosition = 0;
         for (int botCount = 0; botCount < 8; botCount++)
         {
             _pool[botCount] = Instantiate(bot);
-            _pool[botCount].GetComponent<Enemy>().Spawn(xPosition);
-            xPosition += 1;
         }
         
         RandomizeStarters();
+        PositionBots();
         
+    }
+
+    public void SetMap(MapManager gameMap)
+    {
+        this.map = gameMap;
+    }
+
+    public void PositionBots()
+    {
+        Vector2 botPosition = map.GetWorldPosition(9, 0)+new Vector2(10f,10f) * 0.5f;
+        _pool[0].GetComponent<Enemy>()._enemyBody.position = botPosition;
 
     }
+    
 
     private void RandomizeStarters()
     {

@@ -19,6 +19,7 @@ public class CharacterManager : MonoBehaviour
     private bool _isInvincible = false;
     private float _invincibleTime = 2f;
     private float _invincibleTimer;
+    public Vector2Int playerMatrixPos;
 
     private void Awake()
     {
@@ -30,6 +31,7 @@ public class CharacterManager : MonoBehaviour
         playerInput.Player_1.Enable();
         playerInput.Player_1.Move.performed += MoveOnPerformed;
         playerInput.Player_1.PlaceBomb.performed += PlaceBombOnPerformed;
+        
     }
 
     
@@ -38,7 +40,6 @@ public class CharacterManager : MonoBehaviour
     void Start()
     {
         _playerBody = GetComponent<Rigidbody2D>();
-        
     }
     
     private void MoveOnPerformed(InputAction.CallbackContext context)
@@ -69,6 +70,7 @@ public class CharacterManager : MonoBehaviour
             {
                 bombPosition.Set(position.x-5f,position.y);
                 GameObject bombObject = Instantiate(bomb,bombPosition, Quaternion.identity);
+                GetBombPosition(_playerBody.position);
             
             }
 
@@ -76,6 +78,7 @@ public class CharacterManager : MonoBehaviour
             {
                 bombPosition.Set(position.x+5f,position.y);
                 GameObject bombObject = Instantiate(bomb,bombPosition, Quaternion.identity);
+                GetBombPosition(_playerBody.position);
             
             }
 
@@ -83,6 +86,7 @@ public class CharacterManager : MonoBehaviour
             {
                 bombPosition.Set(position.x,position.y-5f);
                 GameObject bombObject = Instantiate(bomb,bombPosition, Quaternion.identity);
+                GetBombPosition(_playerBody.position);
             
             }
         
@@ -90,9 +94,10 @@ public class CharacterManager : MonoBehaviour
             {
                 bombPosition.Set(position.x,position.y+5f);
                 GameObject bombObject = Instantiate(bomb,bombPosition, Quaternion.identity);
+                GetBombPosition(_playerBody.position);
             
             }
-            GetBombPosition(_playerBody.position);
+            
             
             
         }
@@ -106,6 +111,15 @@ public class CharacterManager : MonoBehaviour
         matrixPosition.x = Mathf.FloorToInt(worldPosition.x / 10f);
         matrixPosition.y = Mathf.FloorToInt(worldPosition.y / 10f);
         Debug.Log("BOMB PLACED ON: "+matrixPosition.x+", "+matrixPosition.y);
+    }
+
+    public void GetPlayerPosition()
+    {
+        Vector2Int matrixPosition = new Vector2Int();
+        matrixPosition.x = Mathf.FloorToInt(_playerBody.position.x / 10f);
+        matrixPosition.y = Mathf.FloorToInt(_playerBody.position.y / 10f);
+        playerMatrixPos = matrixPosition;
+
     }
 
     void OnCollisionEnter2D(Collision2D other){
@@ -158,6 +172,7 @@ public class CharacterManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        GetPlayerPosition();
         InvincibleTimeManager();
         CheckDeath();
     }

@@ -11,7 +11,7 @@ public class MapManager
     private float _cellSize;
     private int[,] mapArray;
     private int[,] _staticMap;
-    private Node[,] pathFinding;
+    private Node[,] _pathFinding;
     private GameObject destructible;
     private GameObject indestructible;
 
@@ -33,6 +33,17 @@ public class MapManager
             {0, 0, 1, 1, 1, 2, 0, 1, 0, 0}
             
         };
+    }
+
+    private void SetPathFindingMap()
+    {
+        for (int x = 0; x < 10; x++)
+        {
+            for (int y = 0; y < 10; y++)
+            {
+                _pathFinding[x,y] = new Node(x, y);
+            }
+        }
     }
     public MapManager(int width, int height, float cellSize,GameObject destructible, GameObject indestructible)
     {
@@ -66,7 +77,7 @@ public class MapManager
         return new Vector2(x,y)*_cellSize;
     }
 
-    private Vector2Int GetMatrixPosition(Vector3 worldPosition)
+    public Vector2Int GetMatrixPosition(Vector2 worldPosition)
     {
         Vector2Int matrixPosition = new Vector2Int();
         matrixPosition.x = Mathf.FloorToInt(worldPosition.x / _cellSize);
