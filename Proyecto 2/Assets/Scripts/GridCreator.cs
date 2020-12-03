@@ -108,10 +108,12 @@ public class GridCreator : MonoBehaviour {
 						GridList.SearchNode(x,randY).walkable = false;
 						if(GridList.SearchNode(x - 1,randY).walkable)
 						{
-							bool blocking = NodeReachable(GridList.SearchNode(x,randY));
-							if(blocking)
+							if(NodeReachable(GridList.SearchNode(x - 1,randY)))
 							{
-								print("El nodo X: " + x + " Y: " + randY + " esta tapando el camino");
+								GridList.SearchNode(x,randY).walkable = true;
+								BlackList.Add(new Node(true, new Vector3(x, -9 + randY), x, randY, false, false));
+								print("X: " + x + " Y: " + randY + " bloqueado");
+								continue;
 							}
 						}
 						UnwalkableList.Add(new Node(false, new Vector3(x, -9 + randY), x, randY, false, false));
@@ -134,10 +136,12 @@ public class GridCreator : MonoBehaviour {
 						GridList.SearchNode(x,randY).walkable = false;
 						if(GridList.SearchNode(x - 1,randY).walkable)
 						{
-							bool blocking = NodeReachable(GridList.SearchNode(x,randY));
-							if(blocking)
+							if(NodeReachable(GridList.SearchNode(x - 1,randY)))
 							{
-								print("El nodo X: " + x + " Y: " + randY + " esta tapando el camino");
+								GridList.SearchNode(x,randY).walkable = true;
+								BlackList.Add(new Node(true, new Vector3(x, -9 + randY), x, randY, false, false));
+								print("X: " + x + " Y: " + randY + " sbloqueado");
+								continue;
 							}
 						}
 						UnwalkableList.Add(new Node(false, new Vector3(x, -9 + randY), x, randY, false, false));
@@ -221,74 +225,50 @@ public class GridCreator : MonoBehaviour {
 
 	public bool NodeReachable(Node node)
 	{
-		Node upperDiagonal = GridList.SearchNode(node.gridX - 1,node.gridY + 1);
-		Node bottomDiagonal = GridList.SearchNode(node.gridX - 1, node.gridY - 1);
-		if(!upperDiagonal.walkable && !bottomDiagonal.walkable)
+		bool pathSucces = true;
+		Node startNode = NodeFromWorldPoint(node.worldPosition);
+		Node targetNode = NodeFromWorldPoint(reference.position);
+		if(startNode.walkable && targetNode.walkable)
 		{
-			return true;
-		} else {
-			return false;
+			Heap<Node> openSet = new Heap<Node>(MaxSize);
+			HashSet<Node> closedSet = new HashSet<Node>();
+			openSet.Add(startNode);
+
+			while(openSet.Count > 0)
+			{
+				Node currentNode = openSet.RemoveFirst();
+				closedSet.Add(currentNode);
+
+				if(currentNode == targetNode)
+				{
+					pathSucces = false;
+					return pathSucces;
+				}
+
+				foreach(Node neighbour in GetNeighbours(currentNode))
+				{
+					if(!neighbour.walkable || closedSet.Contains(neighbour))
+					{
+						continue;
+					}
+
+					int newMovementCostToNeighbour = currentNode.gCost + GetDistance(currentNode, neighbour);
+					if(newMovementCostToNeighbour < neighbour.gCost || !openSet.Contains(neighbour))
+					{
+						neighbour.gCost = newMovementCostToNeighbour;
+						neighbour.hCost = GetDistance(neighbour, targetNode);
+						neighbour.parent = currentNode;
+
+						if(!openSet.Contains(neighbour))
+							openSet.Add(neighbour);
+						else{
+							openSet.UpdateItem(neighbour);
+						}
+					}
+				}
+			}
 		}
-	}
-
-	private List<Node> GetUnvisitedNeighbours(Node node)
-	{
-		List<Node> neighbours = new List<Node>();
-
-		int checkX;
-		int checkY;
-
-		checkX = node.gridX + 1;
-        checkY = node.gridY;
-        if (checkX >= 0 && checkX < gridSizeX && node.walkable)
-        {
-            if(checkY >= 0 && checkY < gridSizeY && node.walkable)
-            {
-				if(GridList.SearchNode(checkX,checkY).walkable)
-				{
-					neighbours.Add(grid[checkX, checkY]);
-				}
-            }                
-        }
-
-        checkX = node.gridX - 1;
-        checkY = node.gridY;
-        if (checkX >= 0 && checkX < gridSizeX && node.walkable)
-        {
-            if (checkY >= 0 && checkY < gridSizeY && node.walkable)
-            {
-				if(GridList.SearchNode(checkX,checkY).walkable)
-				{
-					neighbours.Add(grid[checkX, checkY]);
-				}
-            }
-        }
-
-        checkX = node.gridX;
-        checkY = node.gridY + 1;
-        if (checkX >= 0 && checkX < gridSizeX)
-        {
-            if (checkY >= 0 && checkY < gridSizeY && node.walkable)
-            {
-				if(GridList.SearchNode(checkX,checkY).walkable)
-				{
-					neighbours.Add(grid[checkX, checkY]);
-				}
-            }
-        }
-        checkX = node.gridX;
-        checkY = node.gridY - 1;
-        if (checkX >= 0 && checkX < gridSizeX && node.walkable)
-        {
-            if (checkY >= 0 && checkY < gridSizeY && node.walkable)
-            {
-				if(GridList.SearchNode(checkX,checkY).walkable)
-				{
-					neighbours.Add(grid[checkX, checkY]);
-				}
-            }
-        }
-		return neighbours;
+		return pathSucces;
 	}
 
 	public List<Node> GetNeighbours(Node node) {
@@ -363,6 +343,15 @@ public class GridCreator : MonoBehaviour {
 		int x = Mathf.RoundToInt((gridSizeX-1) * percentX);
 		int y = Mathf.RoundToInt((gridSizeY-1) * percentY);
 		return grid[x,y];
+	}
+
+	int GetDistance(Node nodeA, Node nodeB) {
+		int dstX = Mathf.Abs(nodeA.gridX - nodeB.gridX);
+		int dstY = Mathf.Abs(nodeA.gridY - nodeB.gridY);
+
+		if (dstX > dstY)
+			return 14*dstY + 10* (dstX-dstY);
+		return 14*dstX + 10 * (dstY-dstX);
 	}
 
 	void OnDrawGizmos() {
