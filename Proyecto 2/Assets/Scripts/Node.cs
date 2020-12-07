@@ -12,12 +12,25 @@ public class Node
     private int _fCost;
     private Node _previousNode;
     private Node _nextNode;
+    public bool isObstacle = false;
+    public Node cameFrom = null;
 
     public Node(int x, int y)
     {
         this._x = x;
         this._y = y;
     }
+
+    public int GetX()
+    {
+        return this._x;
+    }
+
+    public int GetY()
+    {
+        return this._y;
+    }
+    
 
     public int GetGCost()
     {
@@ -37,6 +50,11 @@ public class Node
     public void SetHCost(int hCost)
     {
         this._hCost = hCost;
+    }
+
+    public int GetFCost()
+    {
+        return this._fCost;
     }
 
     public Node GetPreviousNode()
@@ -62,5 +80,10 @@ public class Node
     public override string ToString()
     {
         return _x + ", " + _y;
+    }
+
+    public void CalculateFCost()
+    {
+        this._fCost = _gCost + _hCost;
     }
 }

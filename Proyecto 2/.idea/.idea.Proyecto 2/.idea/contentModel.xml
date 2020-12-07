@@ -36,14 +36,17 @@
           <e p="PlayerActions.cs" t="Include" />
         </e>
         <e p="Scripts" t="Include">
+          <e p="BackTrackingNode.cs" t="Include" />
           <e p="BombBehaviour.cs" t="Include" />
           <e p="CharacterManager.cs" t="Include" />
           <e p="Enemy.cs" t="Include" />
           <e p="GeneticController.cs" t="Include" />
           <e p="LinkedList.cs" t="Include" />
           <e p="MapManager.cs" t="Include" />
+          <e p="MapTile.cs" t="Include" />
           <e p="Node.cs" t="Include" />
           <e p="PathFinding.cs" t="Include" />
+          <e p="Stack.cs" t="Include" />
           <e p="Starter.cs" t="Include" />
         </e>
       </e>

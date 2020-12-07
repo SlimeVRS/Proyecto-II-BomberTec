@@ -9,7 +9,7 @@ using Vector2 = UnityEngine.Vector2;
 public class Starter : MonoBehaviour
 {
     private MapManager _map;
-        
+
     [SerializeField] private GameObject destructible;
 
     [SerializeField] private GameObject indestructible;
@@ -23,12 +23,14 @@ public class Starter : MonoBehaviour
     private CharacterManager _player1;
     
     private float _cellSize;
+
+    private PathFinding _pathFinder;
     
     // Start is called before the first frame update
     void Start()
     {
         _cellSize = 10f;
-        _map = new MapManager(10,10, _cellSize, destructible,indestructible);
+        _map = new MapManager( _cellSize, destructible,indestructible);
         _geneticController = GameObject.Instantiate(botController).GetComponent<GeneticController>();
         _geneticController.SetMap(_map);
         _SpawnPlayer();
@@ -37,7 +39,7 @@ public class Starter : MonoBehaviour
 
     private void _SpawnPlayer()
     {
-        Vector2 playerSpawn = _map.GetWorldPosition(0, 9)+new Vector2(_cellSize,_cellSize) * 0.5f;
+        Vector2 playerSpawn = _map.GetWorldPosition(0, 10)+new Vector2(_cellSize,_cellSize) * 0.5f;
         GameObject player = GameObject.Instantiate(playerPrefab, playerSpawn, Quaternion.identity);
         _player1 = player.GetComponent<CharacterManager>();
 
