@@ -15,17 +15,11 @@ public class Starter : MonoBehaviour
     [SerializeField] private GameObject indestructible;
 
     [SerializeField] private GameObject botController;
-    
-    [SerializeField] private GameObject playerPrefab;
 
     private GeneticController _geneticController;
 
-    private CharacterManager _player1;
-    
     private float _cellSize;
 
-    private PathFinding _pathFinder;
-    
     // Start is called before the first frame update
     void Start()
     {
@@ -33,17 +27,9 @@ public class Starter : MonoBehaviour
         _map = new MapManager( _cellSize, destructible,indestructible);
         _geneticController = GameObject.Instantiate(botController).GetComponent<GeneticController>();
         _geneticController.SetMap(_map);
-        _SpawnPlayer();
 
     }
 
-    private void _SpawnPlayer()
-    {
-        Vector2 playerSpawn = _map.GetWorldPosition(0, 10)+new Vector2(_cellSize,_cellSize) * 0.5f;
-        GameObject player = GameObject.Instantiate(playerPrefab, playerSpawn, Quaternion.identity);
-        _player1 = player.GetComponent<CharacterManager>();
-
-    }
     
 
     // Update is called once per frame

@@ -13,47 +13,28 @@ public class MapManager
     private int _width;
     private float _cellSize;
     private int[,] mapArray;
-    private int[,] _staticMap;
     private readonly MapTile[,] _backtrackingMap;
-    private readonly int _mapSize;
+    public readonly int _mapSize;
     private Node[,] _pathFinding;
     private GameObject destructible;
     private GameObject indestructible;
 
-
-
-    /*private void SetStaticMap()
-    {
-        _staticMap = new int[10, 10]
-        {
-            {0, 0, 1, 0, 1, 1, 1, 1, 0, 0},
-            {0, 2, 0, 1, 2, 1, 0, 1, 1, 0},
-            {1, 1, 1, 0, 0, 0, 0, 2, 0, 1},
-            {0, 1, 0, 1, 1, 0, 1, 0, 0, 0},
-            {1, 0, 2, 2, 0, 1, 2, 1, 0, 1},
-            {0, 1, 0, 2, 1, 0, 0, 0, 2, 1},
-            {1, 0, 1, 0, 0, 0, 1, 0, 0, 1},
-            {2, 0, 1, 0, 1, 1, 0, 1, 1, 1},
-            {0, 1, 1, 2, 0, 1, 1, 2, 1, 0},
-            {0, 0, 1, 1, 1, 2, 0, 1, 0, 0}
-            
-        };
-    }*/
+    
 
     public Node[,] GetPathfindingMap()
     {
         return _pathFinding;
     }
 
-    /*private void SetPathFindingMap()
+    private void SetPathFindingMap()
     {
-        _pathFinding = new Node[10, 10];
-        for (int x = 0; x < 10; x++)
+        _pathFinding = new Node[_height, _width];
+        for (int x = 0; x < _mapSize; x++)
         {
-            for (int y = 0; y < 10; y++)
+            for (int y = 0; y < _mapSize; y++)
             {
                 Node node = new Node(x, y);
-                if (_staticMap[x, y] == 2)
+                if (_backtrackingMap[x, y].TileType == 2)
                 {
                     node.isObstacle = true;
                 }
@@ -61,7 +42,7 @@ public class MapManager
                 _pathFinding[x, y] = node;
             }
         }
-    }*/
+    }
 
     public Node GetPathNode(int x, int y)
     {
@@ -82,7 +63,9 @@ public class MapManager
         CreateDefaultMap();
         RandomizeMap();
         SetSpawners();
-        Debug.Log(ToString());
+        SetPathFindingMap();
+        _GenerateStaticMap();
+        /*Debug.Log(ToString());*/
 
 
         for (int x = 0; x < mapArray.GetLength(0); x++)
@@ -99,8 +82,7 @@ public class MapManager
 
         Debug.DrawLine(GetWorldPosition(0, _height), GetWorldPosition(_width, _height), Color.white, 100f);
         Debug.DrawLine(GetWorldPosition(_width, 0), GetWorldPosition(_width, _height), Color.white, 100f);
-        _GenerateStaticMap();
-       
+        
 
     }
 

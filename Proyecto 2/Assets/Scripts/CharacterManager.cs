@@ -40,6 +40,7 @@ public class CharacterManager : MonoBehaviour
     void Start()
     {
         _playerBody = GetComponent<Rigidbody2D>();
+        
     }
     
     private void MoveOnPerformed(InputAction.CallbackContext context)

@@ -10,8 +10,6 @@ public class Node
     private int _gCost;
     private int _hCost;
     private int _fCost;
-    private Node _previousNode;
-    private Node _nextNode;
     public bool isObstacle = false;
     public Node cameFrom = null;
 
@@ -30,7 +28,7 @@ public class Node
     {
         return this._y;
     }
-    
+
 
     public int GetGCost()
     {
@@ -55,26 +53,6 @@ public class Node
     public int GetFCost()
     {
         return this._fCost;
-    }
-
-    public Node GetPreviousNode()
-    {
-        return _previousNode;
-    }
-
-    public Node GetNextNode()
-    {
-        return _nextNode;
-    }
-
-    public void SetPreviousNode(Node previous)
-    {
-        this._previousNode = previous;
-    }
-
-    public void SetNextNode(Node next)
-    {
-        this._nextNode = next;
     }
 
     public override string ToString()
