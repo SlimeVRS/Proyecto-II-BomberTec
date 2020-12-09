@@ -251,12 +251,9 @@ public class GeneticController : MonoBehaviour
             }
             if(stat<fitnesAux(bot3)){
                 bot3=bot;
-            }
-
-
-            
+            }    
         }
-
+        cross(bot1,bot2,bot3);
     }
 
     private void moveBot(int botId)
