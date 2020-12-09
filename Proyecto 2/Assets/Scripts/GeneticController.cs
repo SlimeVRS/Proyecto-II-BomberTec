@@ -197,8 +197,26 @@ public class GeneticController : MonoBehaviour
         {
             _pool[botId].GetComponent<Enemy>().proximity = pathCount;
         }
+        if (true){//cambiar true por funcion que detecte el hit
+           _pool[botId].GetComponent<Enemy>().hitScore++; 
+        }
         
+    }
+
+    private int fitnesAux(Enemy bot){
+        int fit=bot.proximity-bot.hitScore;
+        return fit;
+    }
+    
+    private void fitnes(){
+        Enemy bot1=null;
+        Enemy bot2=null;
+        Enemy bot3=null;
+        for (int botCount = 0; botCount < _pool.Length; botCount++){
+            Enemy bot=_pool[botCount].GetComponent<Enemy>();
+            int stat=fitnesAux(bot);
         
+
     }
 
     private void moveBot(int botId)
