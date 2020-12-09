@@ -11,8 +11,11 @@ public class Enemy : MonoBehaviour
     public int health;
     public int speed;
     public int radius;
+    public int proximity;
+    public int hitScore;
     public int[] actionProbability;
     private bool _isActive = false;
+    public Vector2Int _botMatrixPos;
     
     
     // Start is called before the first frame update
@@ -28,12 +31,20 @@ public class Enemy : MonoBehaviour
         actionProbability = new int[10];
     }
     
+    public void GetBotPosition()
+    {
+        Vector2Int matrixPosition = new Vector2Int();
+        matrixPosition.x = Mathf.FloorToInt(_enemyBody.position.x / 10f);
+        matrixPosition.y = Mathf.FloorToInt(_enemyBody.position.y / 10f);
+        _botMatrixPos = matrixPosition;
 
+    }
+    
     
 
     // Update is called once per frame
     void Update()
     {
-        
+        GetBotPosition();
     }
 }

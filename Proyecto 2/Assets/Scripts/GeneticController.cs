@@ -185,16 +185,39 @@ public class GeneticController : MonoBehaviour
         }
     }
 
+    private void PlaceBomb(int botId)
+    {
+        Vector2Int playerPos = playerOne.playerMatrixPos;
+        Vector2Int botPos = _pool[botId].GetComponent<Enemy>()._botMatrixPos;
+        List<Node> path = _pathFinding.FindPath(botPos.x, botPos.y, playerPos.x, playerPos.y);
+        //Tomamos bot y modificamos los atributos hitScore y proximity.
+        int pathCount = path.Count;
+        
+        if (pathCount < _pool[botId].GetComponent<Enemy>().proximity)
+        {
+            _pool[botId].GetComponent<Enemy>().proximity = pathCount;
+        }
+        
+        
+    }
+
+    private void moveBot(int botId)
+    {
+        
+    }
+
     private void ChasePlayer(int botId)
     {
         Vector2Int playerPos = playerOne.playerMatrixPos;
-        Vector2 botPos = _pool[botId].GetComponent<Rigidbody2D>().position;
-        _pathFinding.FindPath(10, 10, playerPos.x, playerPos.y);
+        Vector2Int botPos = _pool[botId].GetComponent<Enemy>()._botMatrixPos;
+        List<Node> path = _pathFinding.FindPath(botPos.x, botPos.y, playerPos.x, playerPos.y);//FUNCION DE PATHFINDING
+        
+        
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        ChasePlayer(0);
     }
 }
