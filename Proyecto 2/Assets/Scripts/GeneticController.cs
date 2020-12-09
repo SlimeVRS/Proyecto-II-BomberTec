@@ -215,7 +215,47 @@ public class GeneticController : MonoBehaviour
         for (int botCount = 0; botCount < _pool.Length; botCount++){
             Enemy bot=_pool[botCount].GetComponent<Enemy>();
             int stat=fitnesAux(bot);
-        
+            if(bot1==null){
+                bot1=bot;
+                continue;
+            }
+            if(stat<fitnesAux(bot1)){
+                if(bot2==null){
+                    bot2=bot1;
+                    bot1=bot;
+                }
+                if(bot2!=null){
+                    bot3=bot2;
+                    bot2=bot1;
+                    bot1=bot;
+                }
+            }
+            if(bot2==null){
+                bot2=bot;
+                continue;
+            }
+            if(stat<fitnesAux(bot2)){
+               if(bot2==null){
+                   bot2=bot;
+                   continue;
+               }            
+               if(bot2!=null){
+                   bot3=bot2;
+                   bot2=bot;
+                   continue;
+               }
+           }
+            if (bot3=null){
+                bot3=bot;
+                continue;
+            }
+            if(stat<fitnesAux(bot3)){
+                bot3=bot;
+            }
+
+
+            
+        }
 
     }
 
