@@ -145,5 +145,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 5
+  currentHealth: 0
   speed: 15
   bomb: {fileID: 9000233421073405017, guid: f869cd3ecbd540b499d1963c4637847b, type: 3}
+  playerMatrixPos: {x: 0, y: 0}
+  healthBar: {fileID: 8835324701694398271, guid: 84a80329c80481846b42913410774efe, type: 3}

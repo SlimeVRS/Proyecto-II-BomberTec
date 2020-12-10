@@ -11,6 +11,7 @@ using Vector2 = UnityEngine.Vector2;
 public class CharacterManager : MonoBehaviour
 {
     public int health = 5;
+    public int currentHealth;
     public float speed = 3f;
     private Rigidbody2D _playerBody;
     public PlayerActions playerInput;
@@ -21,9 +22,11 @@ public class CharacterManager : MonoBehaviour
     private float _invincibleTimer;
     public Vector2Int playerMatrixPos;
 
+    public HealthBar healthBar;
+
     private void Awake()
     {
-        playerInput = new PlayerActions();
+        playerInput = new PlayerActions();     
     }
 
     private void OnEnable()
@@ -40,7 +43,8 @@ public class CharacterManager : MonoBehaviour
     void Start()
     {
         _playerBody = GetComponent<Rigidbody2D>();
-        
+        currentHealth = health;
+        healthBar.SetMaxHealth(health, speed);
     }
     
     private void MoveOnPerformed(InputAction.CallbackContext context)
@@ -54,6 +58,7 @@ public class CharacterManager : MonoBehaviour
         if (_playerBody != null)
         {
             _playerBody.velocity = new Vector2(horizontal*speed*Time.fixedDeltaTime*100f,vertical*speed*Time.fixedDeltaTime*100f);
+            currentHealth -=1;
         }
         
         
@@ -133,8 +138,7 @@ public class CharacterManager : MonoBehaviour
 
         if(other.gameObject.CompareTag("Indestructible")){
 
-            Debug.Log("COLLISION WITH INDESTRUCTIBLE BLOCK");
-            
+            Debug.Log("COLLISION WITH INDESTRUCTIBLE BLOCK");        
         }
 
 
@@ -148,6 +152,8 @@ public class CharacterManager : MonoBehaviour
         }
         
         health -= 1;
+        currentHealth -= 1;
+        healthBar.SetMaxHealth(currentHealth, speed);
         _isInvincible = true;
         _invincibleTimer = _invincibleTime;
         Debug.Log(health);
