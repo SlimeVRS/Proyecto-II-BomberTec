@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using System.Numerics;
+using UnityEditor.XR;
 using UnityEngine;
 using Quaternion = UnityEngine.Quaternion;
 using Random = System.Random;
@@ -15,24 +16,30 @@ public class GeneticController : MonoBehaviour
     private CharacterManager playerOne;
     [SerializeField] private GameObject playerPrefab;
     [SerializeField] private GameObject bot;
+    private bool chase = true;
+    
     
     
     // Start is called before the first frame update
-    void Start()
-    {
 
+    void Awake()
+    {
         _pool = new GameObject[7];
         for (int botCount = 0; botCount < _pool.Length; botCount++)
         {
             _pool[botCount] = Instantiate(bot);
         }
+    }
+    void Start()
+    {
+        
         
         _SpawnPlayer();
         RandomizeStarters();
         PositionBots();
         _pathFinding = new PathFinding();
         _pathFinding.SetMap(map);
-        /*List<Node> path = _pathFinding.FindPath(0, 10, 10, 10);*/
+       
 
     }
     
@@ -41,6 +48,8 @@ public class GeneticController : MonoBehaviour
         Vector2 playerSpawn = map.GetWorldPosition(0, 10)+new Vector2(10f,10f) * 0.5f;
         GameObject player = GameObject.Instantiate(playerPrefab, playerSpawn, Quaternion.identity);
         playerOne = player.GetComponent<CharacterManager>();
+        playerOne.playerMatrixPos.x = 0;
+        playerOne.playerMatrixPos.y = 10;
 
     }
 
@@ -53,24 +62,38 @@ public class GeneticController : MonoBehaviour
     {
         Vector2 botPosition = map.GetWorldPosition(10, 0)+new Vector2(10f,10f) * 0.5f;
         _pool[0].GetComponent<Enemy>()._enemyBody.position = botPosition;
+        _pool[0].GetComponent<Enemy>()._botMatrixPos.x = 10;
+        _pool[0].GetComponent<Enemy>()._botMatrixPos.y = 0;
         
         botPosition = map.GetWorldPosition(0, 0)+new Vector2(10f,10f) * 0.5f;
         _pool[1].GetComponent<Enemy>()._enemyBody.position = botPosition;
+        _pool[1].GetComponent<Enemy>()._botMatrixPos.x = 0;
+        _pool[1].GetComponent<Enemy>()._botMatrixPos.y = 0;
         
         botPosition = map.GetWorldPosition(10, 10)+new Vector2(10f,10f) * 0.5f;
         _pool[2].GetComponent<Enemy>()._enemyBody.position = botPosition;
+        _pool[2].GetComponent<Enemy>()._botMatrixPos.x = 10;
+        _pool[2].GetComponent<Enemy>()._botMatrixPos.y = 10;
         
         botPosition = map.GetWorldPosition(8, 5)+new Vector2(10f,10f) * 0.5f;
         _pool[3].GetComponent<Enemy>()._enemyBody.position = botPosition;
+        _pool[3].GetComponent<Enemy>()._botMatrixPos.x = 8;
+        _pool[3].GetComponent<Enemy>()._botMatrixPos.y = 5;
         
         botPosition = map.GetWorldPosition(2, 5)+new Vector2(10f,10f) * 0.5f;
         _pool[4].GetComponent<Enemy>()._enemyBody.position = botPosition;
+        _pool[4].GetComponent<Enemy>()._botMatrixPos.x = 2;
+        _pool[4].GetComponent<Enemy>()._botMatrixPos.y = 5;
         
         botPosition = map.GetWorldPosition(5, 7)+new Vector2(10f,10f) * 0.5f;
         _pool[5].GetComponent<Enemy>()._enemyBody.position = botPosition;
+        _pool[5].GetComponent<Enemy>()._botMatrixPos.x = 5;
+        _pool[5].GetComponent<Enemy>()._botMatrixPos.y = 7;
         
         botPosition = map.GetWorldPosition(5, 3)+new Vector2(10f,10f) * 0.5f;
         _pool[6].GetComponent<Enemy>()._enemyBody.position = botPosition;
+        _pool[6].GetComponent<Enemy>()._botMatrixPos.x = 5;
+        _pool[6].GetComponent<Enemy>()._botMatrixPos.y = 3;
         
 
     }
@@ -255,24 +278,26 @@ public class GeneticController : MonoBehaviour
         }
         cross(bot1,bot2,bot3);
     }
-
-    private void moveBot(int botId)
-    {
-        
-    }
+    
 
     private void ChasePlayer(int botId)
     {
         Vector2Int playerPos = playerOne.playerMatrixPos;
-        Vector2Int botPos = _pool[botId].GetComponent<Enemy>()._botMatrixPos;
-        List<Node> path = _pathFinding.FindPath(botPos.x, botPos.y, playerPos.x, playerPos.y);//FUNCION DE PATHFINDING
-        
-        
+        Enemy bot = _pool[botId].GetComponent<Enemy>();
+        Vector2Int botPos = bot._botMatrixPos;
+        List<Node> path = _pathFinding.FindPath(botPos.x, botPos.y, playerPos.x, playerPos.y);//FUNCION DE PATHFINDING 
+        bot.MoveBot(path);
+    }
+
+    private void ActionPerformer()
+    {
+        ChasePlayer(0);
     }
 
     // Update is called once per frame
     void Update()
     {
-        ChasePlayer(0);
+       
+        ActionPerformer();
     }
 }

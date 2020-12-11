@@ -6,6 +6,10 @@ using UnityEngine;
 using Quaternion = UnityEngine.Quaternion;
 using Vector2 = UnityEngine.Vector2;
 
+/// <summary>
+/// This Class starts the main game loop, contains information about GameObjects relevant to the current
+/// unity scene, as well as the initial map and botcontroller objects.
+/// </summary>
 public class Starter : MonoBehaviour
 {
     private MapManager _map;

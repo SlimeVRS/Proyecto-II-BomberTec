@@ -271,7 +271,7 @@ public class MapManager
             {
                 if (_backtrackingMap[x, y].TileType == 1)
                 {
-                    _placeBlock(x, y, destructible);
+                    /*_placeBlock(x, y, destructible);*/
                 }
 
                 if (_backtrackingMap[x, y].TileType == 2)
