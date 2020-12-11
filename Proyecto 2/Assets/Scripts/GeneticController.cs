@@ -21,7 +21,10 @@ public class GeneticController : MonoBehaviour
     
     
     // Start is called before the first frame update
-
+    
+    /// <summary>
+    /// Instantiate every bot in the pool 
+    /// </summary>
     void Awake()
     {
         _pool = new GameObject[7];
@@ -30,6 +33,10 @@ public class GeneticController : MonoBehaviour
             _pool[botCount] = Instantiate(bot);
         }
     }
+
+    /// <summary>
+    /// Start the game 
+    /// </summary>
     void Start()
     {
         
@@ -42,7 +49,9 @@ public class GeneticController : MonoBehaviour
        
 
     }
-    
+    /// <summary>
+    /// Set the player 
+    /// </summary>
     private void _SpawnPlayer()
     {
         Vector2 playerSpawn = map.GetWorldPosition(0, 10)+new Vector2(10f,10f) * 0.5f;
@@ -53,11 +62,18 @@ public class GeneticController : MonoBehaviour
 
     }
 
+    /// <summary>
+    /// Set the game map
+    /// </summary>
+    /// <param name="gameMap">MapManager</param>
     public void SetMap(MapManager gameMap)
     {
         this.map = gameMap;
     }
 
+    /// <summary>
+    /// Set the position of each botg
+    /// </summary>
     public void PositionBots()
     {
         Vector2 botPosition = map.GetWorldPosition(10, 0)+new Vector2(10f,10f) * 0.5f;
@@ -98,7 +114,9 @@ public class GeneticController : MonoBehaviour
 
     }
     
-
+    /// <summary>
+    /// Set the stats of each bot 
+    /// </summary>
     private void RandomizeStarters()
     {
         var upperLimit = 4;
@@ -137,6 +155,9 @@ public class GeneticController : MonoBehaviour
         
     }
 
+    /// <summary>
+    /// Generate a list of posibilities for each bot
+    /// </summary>
     private void RandomProbabilities()
     {
         Random randRange = new Random();
@@ -150,6 +171,7 @@ public class GeneticController : MonoBehaviour
         }
     }
 
+    
     private void CheckEmptyValues(Enemy currentBot)
     {
         if (currentBot.health == 0)
