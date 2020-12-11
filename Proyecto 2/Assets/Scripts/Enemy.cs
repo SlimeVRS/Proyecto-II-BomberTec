@@ -7,17 +7,46 @@ using System.Security.Cryptography;
 using UnityEngine;
 using Vector3 = UnityEngine.Vector3;
 
-
+/// <summary>
+/// The controller class for the enemy AI, manages the different actions, data and components 
+/// </summary>
 public class Enemy : MonoBehaviour
 {
+    /// <summary>
+    /// The unity component that manages physics on the 2D plane scene.
+    /// </summary>
     public Rigidbody2D _enemyBody;
+    /// <summary>
+    /// An integer that represents the health of the bot
+    /// </summary>
     public int health;
+    /// <summary>
+    /// An integer that represents the speed of the bot
+    /// </summary>
     public int speed;
+    /// <summary>
+    /// An integer that represents the radius of the explosion
+    /// </summary>
     public int radius;
+    /// <summary>
+    /// An integer that stores the value of the bomb placed closer to the player
+    /// </summary>
     public int proximity;
+    /// <summary>
+    /// An integer that stores the amount of times a bomb has hit the player
+    /// </summary>
     public int hitScore;
+    /// <summary>
+    /// An array of ten that stores integers that range from zero to the amount of actions the bot can take, to be used as a probability array
+    /// </summary>
     public int[] actionProbability;
+    /// <summary>
+    /// A flag that indicates if the bot is performing an action
+    /// </summary>
     private bool _isActive = false;
+    /// <summary>
+    /// A vector that holds integers that represent the logical position of the bot in the map matrix
+    /// </summary>
     public Vector2Int _botMatrixPos;
     private List<Vector3> pathVectorList = new List<Vector3>();
     private int currentNode;
@@ -36,6 +65,9 @@ public class Enemy : MonoBehaviour
         actionProbability = new int[10];
     }
     
+    /// <summary>
+    /// A function that returns the matrix position of the bomb placed on the screen
+    /// </summary>
     public void GetBotPosition()
     {
         Vector2Int matrixPosition = new Vector2Int();
@@ -45,6 +77,10 @@ public class Enemy : MonoBehaviour
 
     }
 
+    /// <summary>
+    /// Moves the bot on the screen given a path of logical map nodes
+    /// </summary>
+    /// <param name="path">A list of nodes to take as a path</param>
     public void MoveBot(List<Node> path)
     {
         

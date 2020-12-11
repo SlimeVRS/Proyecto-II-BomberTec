@@ -70,28 +70,144 @@ $(function() {
 <div class="title">MapTile Class Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
+
+<p>An object that contains information of an specific tile in a map, used in the backtracking map  
+ <a href="class_map_tile.html#details">More...</a></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a9076ceb42b188ebe17559443084b5838"><td class="memItemLeft" align="right" valign="top"><a id="a9076ceb42b188ebe17559443084b5838"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>MapTile</b> (int id, int i, int j)</td></tr>
+<tr class="memitem:a9076ceb42b188ebe17559443084b5838"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_map_tile.html#a9076ceb42b188ebe17559443084b5838">MapTile</a> (int id, int i, int j)</td></tr>
+<tr class="memdesc:a9076ceb42b188ebe17559443084b5838"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor for the class  <a href="class_map_tile.html#a9076ceb42b188ebe17559443084b5838">More...</a><br /></td></tr>
 <tr class="separator:a9076ceb42b188ebe17559443084b5838"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
 Public Attributes</h2></td></tr>
-<tr class="memitem:a80daaebbdd146b584bc05a20b3670143"><td class="memItemLeft" align="right" valign="top"><a id="a80daaebbdd146b584bc05a20b3670143"></a>
-int[]&#160;</td><td class="memItemRight" valign="bottom"><b>Position</b> =&gt; position</td></tr>
+<tr class="memitem:a80daaebbdd146b584bc05a20b3670143"><td class="memItemLeft" align="right" valign="top">int[]&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_map_tile.html#a80daaebbdd146b584bc05a20b3670143">Position</a> =&gt; position</td></tr>
+<tr class="memdesc:a80daaebbdd146b584bc05a20b3670143"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the position of the tile.  <a href="class_map_tile.html#a80daaebbdd146b584bc05a20b3670143">More...</a><br /></td></tr>
 <tr class="separator:a80daaebbdd146b584bc05a20b3670143"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="properties"></a>
 Properties</h2></td></tr>
-<tr class="memitem:a1b67c294bc5934e4350873bf93611a15"><td class="memItemLeft" align="right" valign="top"><a id="a1b67c294bc5934e4350873bf93611a15"></a>
-int&#160;</td><td class="memItemRight" valign="bottom"><b>TileType</b><code> [get, set]</code></td></tr>
+<tr class="memitem:a1b67c294bc5934e4350873bf93611a15"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_map_tile.html#a1b67c294bc5934e4350873bf93611a15">TileType</a><code> [get, set]</code></td></tr>
+<tr class="memdesc:a1b67c294bc5934e4350873bf93611a15"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets and get the type of tile that will be represented by the object. Entries can be 0 for free tile, 1 for destructible tile, 2 for indestructible tile  <a href="class_map_tile.html#a1b67c294bc5934e4350873bf93611a15">More...</a><br /></td></tr>
 <tr class="separator:a1b67c294bc5934e4350873bf93611a15"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae5f4d0d5a44c25215c062c0fde7b6c5b"><td class="memItemLeft" align="right" valign="top"><a id="ae5f4d0d5a44c25215c062c0fde7b6c5b"></a>
-bool&#160;</td><td class="memItemRight" valign="bottom"><b>IsVisited</b><code> [get, set]</code></td></tr>
+<tr class="memitem:ae5f4d0d5a44c25215c062c0fde7b6c5b"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_map_tile.html#ae5f4d0d5a44c25215c062c0fde7b6c5b">IsVisited</a><code> [get, set]</code></td></tr>
+<tr class="memdesc:ae5f4d0d5a44c25215c062c0fde7b6c5b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets if the tile is visited or not  <a href="class_map_tile.html#ae5f4d0d5a44c25215c062c0fde7b6c5b">More...</a><br /></td></tr>
 <tr class="separator:ae5f4d0d5a44c25215c062c0fde7b6c5b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>An object that contains information of an specific tile in a map, used in the backtracking map </p>
+</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a id="a9076ceb42b188ebe17559443084b5838"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9076ceb42b188ebe17559443084b5838">&#9670;&nbsp;</a></span>MapTile()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">MapTile.MapTile </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>id</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>i</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>j</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Constructor for the class </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">id</td><td>A numeric identificator for the <a class="el" href="class_map_tile.html" title="An object that contains information of an specific tile in a map, used in the backtracking map">MapTile</a> object</td></tr>
+    <tr><td class="paramname">i</td><td>An integer that represents the x coordinate of the tile in the map</td></tr>
+    <tr><td class="paramname">j</td><td>An integer that represents the y coordinate of the tile in the map</td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<h2 class="groupheader">Member Data Documentation</h2>
+<a id="a80daaebbdd146b584bc05a20b3670143"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a80daaebbdd146b584bc05a20b3670143">&#9670;&nbsp;</a></span>Position</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int [] MapTile.Position =&gt; position</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Sets the position of the tile. </p>
+
+</div>
+</div>
+<h2 class="groupheader">Property Documentation</h2>
+<a id="ae5f4d0d5a44c25215c062c0fde7b6c5b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae5f4d0d5a44c25215c062c0fde7b6c5b">&#9670;&nbsp;</a></span>IsVisited</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool MapTile.IsVisited</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">get</span><span class="mlabel">set</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Sets if the tile is visited or not </p>
+
+</div>
+</div>
+<a id="a1b67c294bc5934e4350873bf93611a15"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1b67c294bc5934e4350873bf93611a15">&#9670;&nbsp;</a></span>TileType</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">int MapTile.TileType</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">get</span><span class="mlabel">set</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Sets and get the type of tile that will be represented by the object. Entries can be 0 for free tile, 1 for destructible tile, 2 for indestructible tile </p>
+
+</div>
+</div>
 <hr/>The documentation for this class was generated from the following file:<ul>
 <li>Assets/Scripts/MapTile.cs</li>
 </ul>

@@ -1,5 +1,10 @@
 \hypertarget{class_character_manager}{}\doxysection{Character\+Manager Class Reference}
 \label{class_character_manager}\index{CharacterManager@{CharacterManager}}
+
+
+Controller class for the player one. Manages Input system, attributes and mechanics proper to the player.  
+
+
 Inheritance diagram for Character\+Manager\+:\begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -9,27 +14,92 @@ Inheritance diagram for Character\+Manager\+:\begin{figure}[H]
 \doxysubsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\Hypertarget{class_character_manager_a039abe1bc8a651fbdcc707e7aea06d62}\label{class_character_manager_a039abe1bc8a651fbdcc707e7aea06d62}} 
-void {\bfseries Get\+Player\+Position} ()
-\item 
-\mbox{\Hypertarget{class_character_manager_abe959e26102a312d6281d7366d3c7e12}\label{class_character_manager_abe959e26102a312d6281d7366d3c7e12}} 
-void {\bfseries Reduce\+Health} ()
-\end{DoxyCompactItemize}
+void \mbox{\hyperlink{class_character_manager_a039abe1bc8a651fbdcc707e7aea06d62}{Get\+Player\+Position}} ()
+\begin{DoxyCompactList}\small\item\em Gets the position of the player on the logical map matrix \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_character_manager_abe959e26102a312d6281d7366d3c7e12}{Reduce\+Health}} ()
+\begin{DoxyCompactList}\small\item\em Function that reduces the health of the player each time a bomb hits him \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsection*{Public Attributes}
 \begin{DoxyCompactItemize}
 \item 
+int \mbox{\hyperlink{class_character_manager_ac88332ebc48e69b09fa7a6710ce8319c}{health}} = 5
+\begin{DoxyCompactList}\small\item\em An integer that represents the life points of the player \end{DoxyCompactList}\item 
+float \mbox{\hyperlink{class_character_manager_aca2068bf9131d6bf0d6323ae6b878238}{speed}} = 3f
+\begin{DoxyCompactList}\small\item\em a float that represents the movement speed of the player. \end{DoxyCompactList}\item 
+Player\+Actions \mbox{\hyperlink{class_character_manager_a74a8e3f4128585bb575dc9f8bfc4f5b2}{player\+Input}}
+\begin{DoxyCompactList}\small\item\em The input system used to execute actions on key presses. \end{DoxyCompactList}\item 
+Vector2\+Int \mbox{\hyperlink{class_character_manager_a74f5495ac93e3a99ee451d4050d853f9}{player\+Matrix\+Pos}}
+\begin{DoxyCompactList}\small\item\em An integer 2D vector that stores the x,y position of the player on the logical map \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Controller class for the player one. Manages Input system, attributes and mechanics proper to the player. 
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_character_manager_a039abe1bc8a651fbdcc707e7aea06d62}\label{class_character_manager_a039abe1bc8a651fbdcc707e7aea06d62}} 
+\index{CharacterManager@{CharacterManager}!GetPlayerPosition@{GetPlayerPosition}}
+\index{GetPlayerPosition@{GetPlayerPosition}!CharacterManager@{CharacterManager}}
+\doxysubsubsection{\texorpdfstring{GetPlayerPosition()}{GetPlayerPosition()}}
+{\footnotesize\ttfamily void Character\+Manager.\+Get\+Player\+Position (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Gets the position of the player on the logical map matrix 
+
+\mbox{\Hypertarget{class_character_manager_abe959e26102a312d6281d7366d3c7e12}\label{class_character_manager_abe959e26102a312d6281d7366d3c7e12}} 
+\index{CharacterManager@{CharacterManager}!ReduceHealth@{ReduceHealth}}
+\index{ReduceHealth@{ReduceHealth}!CharacterManager@{CharacterManager}}
+\doxysubsubsection{\texorpdfstring{ReduceHealth()}{ReduceHealth()}}
+{\footnotesize\ttfamily void Character\+Manager.\+Reduce\+Health (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Function that reduces the health of the player each time a bomb hits him 
+
+
+
+\doxysubsection{Member Data Documentation}
 \mbox{\Hypertarget{class_character_manager_ac88332ebc48e69b09fa7a6710ce8319c}\label{class_character_manager_ac88332ebc48e69b09fa7a6710ce8319c}} 
-int {\bfseries health} = 5
-\item 
-\mbox{\Hypertarget{class_character_manager_aca2068bf9131d6bf0d6323ae6b878238}\label{class_character_manager_aca2068bf9131d6bf0d6323ae6b878238}} 
-float {\bfseries speed} = 3f
-\item 
+\index{CharacterManager@{CharacterManager}!health@{health}}
+\index{health@{health}!CharacterManager@{CharacterManager}}
+\doxysubsubsection{\texorpdfstring{health}{health}}
+{\footnotesize\ttfamily int Character\+Manager.\+health = 5}
+
+
+
+An integer that represents the life points of the player 
+
 \mbox{\Hypertarget{class_character_manager_a74a8e3f4128585bb575dc9f8bfc4f5b2}\label{class_character_manager_a74a8e3f4128585bb575dc9f8bfc4f5b2}} 
-Player\+Actions {\bfseries player\+Input}
-\item 
+\index{CharacterManager@{CharacterManager}!playerInput@{playerInput}}
+\index{playerInput@{playerInput}!CharacterManager@{CharacterManager}}
+\doxysubsubsection{\texorpdfstring{playerInput}{playerInput}}
+{\footnotesize\ttfamily Player\+Actions Character\+Manager.\+player\+Input}
+
+
+
+The input system used to execute actions on key presses. 
+
 \mbox{\Hypertarget{class_character_manager_a74f5495ac93e3a99ee451d4050d853f9}\label{class_character_manager_a74f5495ac93e3a99ee451d4050d853f9}} 
-Vector2\+Int {\bfseries player\+Matrix\+Pos}
-\end{DoxyCompactItemize}
+\index{CharacterManager@{CharacterManager}!playerMatrixPos@{playerMatrixPos}}
+\index{playerMatrixPos@{playerMatrixPos}!CharacterManager@{CharacterManager}}
+\doxysubsubsection{\texorpdfstring{playerMatrixPos}{playerMatrixPos}}
+{\footnotesize\ttfamily Vector2\+Int Character\+Manager.\+player\+Matrix\+Pos}
+
+
+
+An integer 2D vector that stores the x,y position of the player on the logical map 
+
+\mbox{\Hypertarget{class_character_manager_aca2068bf9131d6bf0d6323ae6b878238}\label{class_character_manager_aca2068bf9131d6bf0d6323ae6b878238}} 
+\index{CharacterManager@{CharacterManager}!speed@{speed}}
+\index{speed@{speed}!CharacterManager@{CharacterManager}}
+\doxysubsubsection{\texorpdfstring{speed}{speed}}
+{\footnotesize\ttfamily float Character\+Manager.\+speed = 3f}
+
+
+
+a float that represents the movement speed of the player. 
+
 
 
 The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}

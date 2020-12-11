@@ -69,6 +69,9 @@ $(function() {
 <div class="title">GeneticController Class Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
+
+<p>This class manages the genetic algorithm and main loop of the game.  
+ <a href="class_genetic_controller.html#details">More...</a></p>
 <div class="dynheader">
 Inheritance diagram for GeneticController:</div>
 <div class="dyncontent">
@@ -78,22 +81,103 @@ Inheritance diagram for GeneticController:</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:addfc6c313806936d922d2c89cb9afea3"><td class="memItemLeft" align="right" valign="top"><a id="addfc6c313806936d922d2c89cb9afea3"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>SetMap</b> (<a class="el" href="class_map_manager.html">MapManager</a> gameMap)</td></tr>
+<tr class="memitem:addfc6c313806936d922d2c89cb9afea3"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_genetic_controller.html#addfc6c313806936d922d2c89cb9afea3">SetMap</a> (<a class="el" href="class_map_manager.html">MapManager</a> gameMap)</td></tr>
+<tr class="memdesc:addfc6c313806936d922d2c89cb9afea3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the game map in which the bots will be positioned  <a href="class_genetic_controller.html#addfc6c313806936d922d2c89cb9afea3">More...</a><br /></td></tr>
 <tr class="separator:addfc6c313806936d922d2c89cb9afea3"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa3856c95eb233f7827d6bd203cab9bb4"><td class="memItemLeft" align="right" valign="top"><a id="aa3856c95eb233f7827d6bd203cab9bb4"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>PositionBots</b> ()</td></tr>
+<tr class="memitem:aa3856c95eb233f7827d6bd203cab9bb4"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_genetic_controller.html#aa3856c95eb233f7827d6bd203cab9bb4">PositionBots</a> ()</td></tr>
+<tr class="memdesc:aa3856c95eb233f7827d6bd203cab9bb4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set the positions of each bot  <a href="class_genetic_controller.html#aa3856c95eb233f7827d6bd203cab9bb4">More...</a><br /></td></tr>
 <tr class="separator:aa3856c95eb233f7827d6bd203cab9bb4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
 Public Attributes</h2></td></tr>
-<tr class="memitem:a02efc1f26b542f5bc1da2c9c87457f87"><td class="memItemLeft" align="right" valign="top"><a id="a02efc1f26b542f5bc1da2c9c87457f87"></a>
-GameObject[]&#160;</td><td class="memItemRight" valign="bottom"><b>_pool</b></td></tr>
+<tr class="memitem:a02efc1f26b542f5bc1da2c9c87457f87"><td class="memItemLeft" align="right" valign="top">GameObject[]&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_genetic_controller.html#a02efc1f26b542f5bc1da2c9c87457f87">_pool</a></td></tr>
+<tr class="memdesc:a02efc1f26b542f5bc1da2c9c87457f87"><td class="mdescLeft">&#160;</td><td class="mdescRight">An Unity GameObject array that contains the instances of the AI bots that will be spawned in game.  <a href="class_genetic_controller.html#a02efc1f26b542f5bc1da2c9c87457f87">More...</a><br /></td></tr>
 <tr class="separator:a02efc1f26b542f5bc1da2c9c87457f87"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1ca44b5e06f59b15e92ea4061674cfee"><td class="memItemLeft" align="right" valign="top"><a id="a1ca44b5e06f59b15e92ea4061674cfee"></a>
-<a class="el" href="class_map_manager.html">MapManager</a>&#160;</td><td class="memItemRight" valign="bottom"><b>map</b></td></tr>
+<tr class="memitem:a1ca44b5e06f59b15e92ea4061674cfee"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_map_manager.html">MapManager</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_genetic_controller.html#a1ca44b5e06f59b15e92ea4061674cfee">map</a></td></tr>
+<tr class="memdesc:a1ca44b5e06f59b15e92ea4061674cfee"><td class="mdescLeft">&#160;</td><td class="mdescRight">A reference to the map in which the pathfinding will be made.  <a href="class_genetic_controller.html#a1ca44b5e06f59b15e92ea4061674cfee">More...</a><br /></td></tr>
 <tr class="separator:a1ca44b5e06f59b15e92ea4061674cfee"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>This class manages the genetic algorithm and main loop of the game. </p>
+</div><h2 class="groupheader">Member Function Documentation</h2>
+<a id="aa3856c95eb233f7827d6bd203cab9bb4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa3856c95eb233f7827d6bd203cab9bb4">&#9670;&nbsp;</a></span>PositionBots()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void GeneticController.PositionBots </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Set the positions of each bot </p>
+
+</div>
+</div>
+<a id="addfc6c313806936d922d2c89cb9afea3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#addfc6c313806936d922d2c89cb9afea3">&#9670;&nbsp;</a></span>SetMap()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void GeneticController.SetMap </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="class_map_manager.html">MapManager</a>&#160;</td>
+          <td class="paramname"><em>gameMap</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Sets the game map in which the bots will be positioned </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">gameMap</td><td><a class="el" href="class_map_manager.html" title="The MapManager class handles all map related functions, from map generation to renderization on scree...">MapManager</a></td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<h2 class="groupheader">Member Data Documentation</h2>
+<a id="a02efc1f26b542f5bc1da2c9c87457f87"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a02efc1f26b542f5bc1da2c9c87457f87">&#9670;&nbsp;</a></span>_pool</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">GameObject [] GeneticController._pool</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>An Unity GameObject array that contains the instances of the AI bots that will be spawned in game. </p>
+
+</div>
+</div>
+<a id="a1ca44b5e06f59b15e92ea4061674cfee"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1ca44b5e06f59b15e92ea4061674cfee">&#9670;&nbsp;</a></span>map</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_map_manager.html">MapManager</a> GeneticController.map</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>A reference to the map in which the pathfinding will be made. </p>
+
+</div>
+</div>
 <hr/>The documentation for this class was generated from the following file:<ul>
 <li>Assets/Scripts/GeneticController.cs</li>
 </ul>

@@ -1,20 +1,68 @@
 \hypertarget{class_back_tracking_node}{}\doxysection{Back\+Tracking\+Node Class Reference}
 \label{class_back_tracking_node}\index{BackTrackingNode@{BackTrackingNode}}
+
+
+\mbox{\hyperlink{class_node}{Node}} class used for the logic map construction and backtracking algorithm, it contains a reference to another node and a reference to a \mbox{\hyperlink{class_map_tile}{Map\+Tile}} object, which holds information about a specific map position.  
+
+
 \doxysubsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\Hypertarget{class_back_tracking_node_a95c4761f64deab0af927022c815b4c58}\label{class_back_tracking_node_a95c4761f64deab0af927022c815b4c58}} 
-{\bfseries Back\+Tracking\+Node} (\mbox{\hyperlink{class_map_tile}{Map\+Tile}} tile)
-\end{DoxyCompactItemize}
+\mbox{\hyperlink{class_back_tracking_node_a95c4761f64deab0af927022c815b4c58}{Back\+Tracking\+Node}} (\mbox{\hyperlink{class_map_tile}{Map\+Tile}} tile)
+\begin{DoxyCompactList}\small\item\em Constructor for the class, takes a \mbox{\hyperlink{class_map_tile}{Map\+Tile}} as an argument and sets it to a private atribute. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsection*{Properties}
 \begin{DoxyCompactItemize}
 \item 
+\mbox{\hyperlink{class_back_tracking_node}{Back\+Tracking\+Node}} \mbox{\hyperlink{class_back_tracking_node_a21bdd399f609a9034f3a6f8347803b6a}{Next\+Node}}\hspace{0.3cm}{\ttfamily  \mbox{[}get, set\mbox{]}}
+\begin{DoxyCompactList}\small\item\em A public propierty that sets the reference to the next node if given a Back\+Tracking node object as an argument, alternatively, if called with no argument, returns the reference to the next node if no argument is given. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_map_tile}{Map\+Tile}} \mbox{\hyperlink{class_back_tracking_node_a226e9b36ef0dee8d3ad7fa3fc162f43f}{Tile}}\hspace{0.3cm}{\ttfamily  \mbox{[}get, set\mbox{]}}
+\begin{DoxyCompactList}\small\item\em A public propierty that sets the reference to the to the \mbox{\hyperlink{class_map_tile}{Map\+Tile}} if given a \mbox{\hyperlink{class_map_tile}{Map\+Tile}} object as an argument, alternatively, if called with no argument, returns the reference to the contained \mbox{\hyperlink{class_map_tile}{Map\+Tile}} if no argument is given. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\mbox{\hyperlink{class_node}{Node}} class used for the logic map construction and backtracking algorithm, it contains a reference to another node and a reference to a \mbox{\hyperlink{class_map_tile}{Map\+Tile}} object, which holds information about a specific map position. 
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_back_tracking_node_a95c4761f64deab0af927022c815b4c58}\label{class_back_tracking_node_a95c4761f64deab0af927022c815b4c58}} 
+\index{BackTrackingNode@{BackTrackingNode}!BackTrackingNode@{BackTrackingNode}}
+\index{BackTrackingNode@{BackTrackingNode}!BackTrackingNode@{BackTrackingNode}}
+\doxysubsubsection{\texorpdfstring{BackTrackingNode()}{BackTrackingNode()}}
+{\footnotesize\ttfamily Back\+Tracking\+Node.\+Back\+Tracking\+Node (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_map_tile}{Map\+Tile}}}]{tile }\end{DoxyParamCaption})}
+
+
+
+Constructor for the class, takes a \mbox{\hyperlink{class_map_tile}{Map\+Tile}} as an argument and sets it to a private atribute. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em tile} & \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Property Documentation}
 \mbox{\Hypertarget{class_back_tracking_node_a21bdd399f609a9034f3a6f8347803b6a}\label{class_back_tracking_node_a21bdd399f609a9034f3a6f8347803b6a}} 
-\mbox{\hyperlink{class_back_tracking_node}{Back\+Tracking\+Node}} {\bfseries Next\+Node}\hspace{0.3cm}{\ttfamily  \mbox{[}get, set\mbox{]}}
-\item 
+\index{BackTrackingNode@{BackTrackingNode}!NextNode@{NextNode}}
+\index{NextNode@{NextNode}!BackTrackingNode@{BackTrackingNode}}
+\doxysubsubsection{\texorpdfstring{NextNode}{NextNode}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_back_tracking_node}{Back\+Tracking\+Node}} Back\+Tracking\+Node.\+Next\+Node\hspace{0.3cm}{\ttfamily [get]}, {\ttfamily [set]}}
+
+
+
+A public propierty that sets the reference to the next node if given a Back\+Tracking node object as an argument, alternatively, if called with no argument, returns the reference to the next node if no argument is given. 
+
 \mbox{\Hypertarget{class_back_tracking_node_a226e9b36ef0dee8d3ad7fa3fc162f43f}\label{class_back_tracking_node_a226e9b36ef0dee8d3ad7fa3fc162f43f}} 
-\mbox{\hyperlink{class_map_tile}{Map\+Tile}} {\bfseries Tile}\hspace{0.3cm}{\ttfamily  \mbox{[}get, set\mbox{]}}
-\end{DoxyCompactItemize}
+\index{BackTrackingNode@{BackTrackingNode}!Tile@{Tile}}
+\index{Tile@{Tile}!BackTrackingNode@{BackTrackingNode}}
+\doxysubsubsection{\texorpdfstring{Tile}{Tile}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_map_tile}{Map\+Tile}} Back\+Tracking\+Node.\+Tile\hspace{0.3cm}{\ttfamily [get]}, {\ttfamily [set]}}
+
+
+
+A public propierty that sets the reference to the to the \mbox{\hyperlink{class_map_tile}{Map\+Tile}} if given a \mbox{\hyperlink{class_map_tile}{Map\+Tile}} object as an argument, alternatively, if called with no argument, returns the reference to the contained \mbox{\hyperlink{class_map_tile}{Map\+Tile}} if no argument is given. 
+
 
 
 The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}

@@ -1,26 +1,90 @@
 \hypertarget{class_map_tile}{}\doxysection{Map\+Tile Class Reference}
 \label{class_map_tile}\index{MapTile@{MapTile}}
+
+
+An object that contains information of an specific tile in a map, used in the backtracking map  
+
+
 \doxysubsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\Hypertarget{class_map_tile_a9076ceb42b188ebe17559443084b5838}\label{class_map_tile_a9076ceb42b188ebe17559443084b5838}} 
-{\bfseries Map\+Tile} (int id, int i, int j)
-\end{DoxyCompactItemize}
+\mbox{\hyperlink{class_map_tile_a9076ceb42b188ebe17559443084b5838}{Map\+Tile}} (int id, int i, int j)
+\begin{DoxyCompactList}\small\item\em Constructor for the class \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsection*{Public Attributes}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\Hypertarget{class_map_tile_a80daaebbdd146b584bc05a20b3670143}\label{class_map_tile_a80daaebbdd146b584bc05a20b3670143}} 
-int\mbox{[}$\,$\mbox{]} {\bfseries Position} =$>$ position
-\end{DoxyCompactItemize}
+int\mbox{[}$\,$\mbox{]} \mbox{\hyperlink{class_map_tile_a80daaebbdd146b584bc05a20b3670143}{Position}} =$>$ position
+\begin{DoxyCompactList}\small\item\em Sets the position of the tile. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsection*{Properties}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\Hypertarget{class_map_tile_a1b67c294bc5934e4350873bf93611a15}\label{class_map_tile_a1b67c294bc5934e4350873bf93611a15}} 
-int {\bfseries Tile\+Type}\hspace{0.3cm}{\ttfamily  \mbox{[}get, set\mbox{]}}
-\item 
+int \mbox{\hyperlink{class_map_tile_a1b67c294bc5934e4350873bf93611a15}{Tile\+Type}}\hspace{0.3cm}{\ttfamily  \mbox{[}get, set\mbox{]}}
+\begin{DoxyCompactList}\small\item\em Sets and get the type of tile that will be represented by the object. Entries can be 0 for free tile, 1 for destructible tile, 2 for indestructible tile \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_map_tile_ae5f4d0d5a44c25215c062c0fde7b6c5b}{Is\+Visited}}\hspace{0.3cm}{\ttfamily  \mbox{[}get, set\mbox{]}}
+\begin{DoxyCompactList}\small\item\em Sets if the tile is visited or not \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+An object that contains information of an specific tile in a map, used in the backtracking map 
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_map_tile_a9076ceb42b188ebe17559443084b5838}\label{class_map_tile_a9076ceb42b188ebe17559443084b5838}} 
+\index{MapTile@{MapTile}!MapTile@{MapTile}}
+\index{MapTile@{MapTile}!MapTile@{MapTile}}
+\doxysubsubsection{\texorpdfstring{MapTile()}{MapTile()}}
+{\footnotesize\ttfamily Map\+Tile.\+Map\+Tile (\begin{DoxyParamCaption}\item[{int}]{id,  }\item[{int}]{i,  }\item[{int}]{j }\end{DoxyParamCaption})}
+
+
+
+Constructor for the class 
+
+
+\begin{DoxyParams}{Parameters}
+{\em id} & A numeric identificator for the \mbox{\hyperlink{class_map_tile}{Map\+Tile}} object\\
+\hline
+{\em i} & An integer that represents the x coordinate of the tile in the map\\
+\hline
+{\em j} & An integer that represents the y coordinate of the tile in the map\\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{class_map_tile_a80daaebbdd146b584bc05a20b3670143}\label{class_map_tile_a80daaebbdd146b584bc05a20b3670143}} 
+\index{MapTile@{MapTile}!Position@{Position}}
+\index{Position@{Position}!MapTile@{MapTile}}
+\doxysubsubsection{\texorpdfstring{Position}{Position}}
+{\footnotesize\ttfamily int \mbox{[}$\,$\mbox{]} Map\+Tile.\+Position =$>$ position}
+
+
+
+Sets the position of the tile. 
+
+
+
+\doxysubsection{Property Documentation}
 \mbox{\Hypertarget{class_map_tile_ae5f4d0d5a44c25215c062c0fde7b6c5b}\label{class_map_tile_ae5f4d0d5a44c25215c062c0fde7b6c5b}} 
-bool {\bfseries Is\+Visited}\hspace{0.3cm}{\ttfamily  \mbox{[}get, set\mbox{]}}
-\end{DoxyCompactItemize}
+\index{MapTile@{MapTile}!IsVisited@{IsVisited}}
+\index{IsVisited@{IsVisited}!MapTile@{MapTile}}
+\doxysubsubsection{\texorpdfstring{IsVisited}{IsVisited}}
+{\footnotesize\ttfamily bool Map\+Tile.\+Is\+Visited\hspace{0.3cm}{\ttfamily [get]}, {\ttfamily [set]}}
+
+
+
+Sets if the tile is visited or not 
+
+\mbox{\Hypertarget{class_map_tile_a1b67c294bc5934e4350873bf93611a15}\label{class_map_tile_a1b67c294bc5934e4350873bf93611a15}} 
+\index{MapTile@{MapTile}!TileType@{TileType}}
+\index{TileType@{TileType}!MapTile@{MapTile}}
+\doxysubsubsection{\texorpdfstring{TileType}{TileType}}
+{\footnotesize\ttfamily int Map\+Tile.\+Tile\+Type\hspace{0.3cm}{\ttfamily [get]}, {\ttfamily [set]}}
+
+
+
+Sets and get the type of tile that will be represented by the object. Entries can be 0 for free tile, 1 for destructible tile, 2 for indestructible tile 
+
 
 
 The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}

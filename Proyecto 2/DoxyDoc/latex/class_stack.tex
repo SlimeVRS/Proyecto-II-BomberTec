@@ -1,17 +1,83 @@
 \hypertarget{class_stack}{}\doxysection{Stack Class Reference}
 \label{class_stack}\index{Stack@{Stack}}
+
+
+A basic \mbox{\hyperlink{class_stack}{Stack}} data structure, a standard, very basic implementation created to use on a backtracking algorithm  
+
+
 \doxysubsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\Hypertarget{class_stack_aecc9fd4ebed78e42d86884738b6e1557}\label{class_stack_aecc9fd4ebed78e42d86884738b6e1557}} 
-void {\bfseries push} (\mbox{\hyperlink{class_back_tracking_node}{Back\+Tracking\+Node}} new\+Node)
-\item 
+\mbox{\hyperlink{class_stack_aad2dba93f4d8907a5a7729ee840f444b}{Stack}} ()
+\begin{DoxyCompactList}\small\item\em A standard constructor for the class, sets the first element of the stack to null. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_stack_aecc9fd4ebed78e42d86884738b6e1557}{push}} (\mbox{\hyperlink{class_back_tracking_node}{Back\+Tracking\+Node}} new\+Node)
+\begin{DoxyCompactList}\small\item\em Pushes the given node to the \mbox{\hyperlink{class_stack}{Stack}}. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_back_tracking_node}{Back\+Tracking\+Node}} \mbox{\hyperlink{class_stack_ac01c36b8558b728c135b6455c37e8edf}{peek}} ()
+\begin{DoxyCompactList}\small\item\em A function that returns the first element on the \mbox{\hyperlink{class_stack}{Stack}}. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_back_tracking_node}{Back\+Tracking\+Node}} \mbox{\hyperlink{class_stack_af5c184e78006d8b4cfced111a2615c13}{pop}} ()
+\begin{DoxyCompactList}\small\item\em Pops the first element of the \mbox{\hyperlink{class_stack}{Stack}} out of it and returns it. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+A basic \mbox{\hyperlink{class_stack}{Stack}} data structure, a standard, very basic implementation created to use on a backtracking algorithm 
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_stack_aad2dba93f4d8907a5a7729ee840f444b}\label{class_stack_aad2dba93f4d8907a5a7729ee840f444b}} 
+\index{Stack@{Stack}!Stack@{Stack}}
+\index{Stack@{Stack}!Stack@{Stack}}
+\doxysubsubsection{\texorpdfstring{Stack()}{Stack()}}
+{\footnotesize\ttfamily Stack.\+Stack (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+A standard constructor for the class, sets the first element of the stack to null. 
+
+
+
+\doxysubsection{Member Function Documentation}
 \mbox{\Hypertarget{class_stack_ac01c36b8558b728c135b6455c37e8edf}\label{class_stack_ac01c36b8558b728c135b6455c37e8edf}} 
-\mbox{\hyperlink{class_back_tracking_node}{Back\+Tracking\+Node}} {\bfseries peek} ()
-\item 
+\index{Stack@{Stack}!peek@{peek}}
+\index{peek@{peek}!Stack@{Stack}}
+\doxysubsubsection{\texorpdfstring{peek()}{peek()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_back_tracking_node}{Back\+Tracking\+Node}} Stack.\+peek (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+A function that returns the first element on the \mbox{\hyperlink{class_stack}{Stack}}. 
+
+\begin{DoxyReturn}{Returns}
+A \mbox{\hyperlink{class_back_tracking_node}{Back\+Tracking\+Node}} object that sits on top of the \mbox{\hyperlink{class_stack}{Stack}}
+\end{DoxyReturn}
 \mbox{\Hypertarget{class_stack_af5c184e78006d8b4cfced111a2615c13}\label{class_stack_af5c184e78006d8b4cfced111a2615c13}} 
-\mbox{\hyperlink{class_back_tracking_node}{Back\+Tracking\+Node}} {\bfseries pop} ()
-\end{DoxyCompactItemize}
+\index{Stack@{Stack}!pop@{pop}}
+\index{pop@{pop}!Stack@{Stack}}
+\doxysubsubsection{\texorpdfstring{pop()}{pop()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_back_tracking_node}{Back\+Tracking\+Node}} Stack.\+pop (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Pops the first element of the \mbox{\hyperlink{class_stack}{Stack}} out of it and returns it. 
+
+\begin{DoxyReturn}{Returns}
+A \mbox{\hyperlink{class_back_tracking_node}{Back\+Tracking\+Node}} object that used to sit on top of the \mbox{\hyperlink{class_stack}{Stack}}
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_stack_aecc9fd4ebed78e42d86884738b6e1557}\label{class_stack_aecc9fd4ebed78e42d86884738b6e1557}} 
+\index{Stack@{Stack}!push@{push}}
+\index{push@{push}!Stack@{Stack}}
+\doxysubsubsection{\texorpdfstring{push()}{push()}}
+{\footnotesize\ttfamily void Stack.\+push (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_back_tracking_node}{Back\+Tracking\+Node}}}]{new\+Node }\end{DoxyParamCaption})}
+
+
+
+Pushes the given node to the \mbox{\hyperlink{class_stack}{Stack}}. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em new\+Node} & A \mbox{\hyperlink{class_back_tracking_node}{Back\+Tracking\+Node}} object to be pushed onto the \mbox{\hyperlink{class_stack}{Stack}}\\
+\hline
+\end{DoxyParams}
 
 
 The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}

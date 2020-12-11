@@ -7,9 +7,18 @@ using Quaternion = UnityEngine.Quaternion;
 using Random = System.Random;
 using Vector2 = UnityEngine.Vector2;
 
+/// <summary>
+/// This class manages the genetic algorithm and main loop of the game.
+/// </summary>
 public class GeneticController : MonoBehaviour
 {
+    /// <summary>
+    /// An Unity GameObject array that contains the instances of the AI bots that will be spawned in game.
+    /// </summary>
     public GameObject[] _pool;
+    /// <summary>
+    /// A reference to the map in which the pathfinding will be made.
+    /// </summary>
     public MapManager map;
     private PathFinding _pathFinding;
     private int _skillPoints = 10;
@@ -23,7 +32,7 @@ public class GeneticController : MonoBehaviour
     // Start is called before the first frame update
     
     /// <summary>
-    /// Instantiate every bot in the pool 
+    /// Instantiates every bot in the pool 
     /// </summary>
     void Awake()
     {
@@ -63,7 +72,7 @@ public class GeneticController : MonoBehaviour
     }
 
     /// <summary>
-    /// Set the game map
+    /// Sets the game map in which the bots will be positioned
     /// </summary>
     /// <param name="gameMap">MapManager</param>
     public void SetMap(MapManager gameMap)
@@ -72,7 +81,7 @@ public class GeneticController : MonoBehaviour
     }
 
     /// <summary>
-    /// Set the position of each botg
+    /// Set the positions of each bot
     /// </summary>
     public void PositionBots()
     {

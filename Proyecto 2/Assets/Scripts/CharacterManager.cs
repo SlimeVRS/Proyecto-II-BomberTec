@@ -8,17 +8,35 @@ using UnityEngine.InputSystem;
 using Quaternion = UnityEngine.Quaternion;
 using Vector2 = UnityEngine.Vector2;
 
+/// <summary>
+/// Controller class for the player one. Manages Input system, attributes and mechanics proper to the player.
+/// </summary>
 public class CharacterManager : MonoBehaviour
 {
+    /// <summary>
+    /// An integer that represents the life points of the player
+    /// </summary>
     public int health = 5;
+    /// <summary>
+    /// a float that represents the movement speed of the player.
+    /// </summary>
     public float speed = 3f;
+    /// <summary>
+    /// The unity component that manages the physics on the 2D unity plane
+    /// </summary>
     private Rigidbody2D _playerBody;
+    /// <summary>
+    /// The input system used to execute actions on key presses.
+    /// </summary>
     public PlayerActions playerInput;
     [SerializeField] private GameObject bomb;
     private Vector2 _lookDirection = new Vector2(1,0);
     private bool _isInvincible = false;
     private float _invincibleTime = 2f;
     private float _invincibleTimer;
+    /// <summary>
+    /// An integer 2D vector that stores the x,y position of the player on the logical map
+    /// </summary>
     public Vector2Int playerMatrixPos;
 
     private void Awake()
@@ -114,6 +132,9 @@ public class CharacterManager : MonoBehaviour
         Debug.Log("BOMB PLACED ON: "+matrixPosition.x+", "+matrixPosition.y);
     }
 
+    /// <summary>
+    /// Gets the position of the player on the logical map matrix
+    /// </summary>
     public void GetPlayerPosition()
     {
         Vector2Int matrixPosition = new Vector2Int();
@@ -140,6 +161,9 @@ public class CharacterManager : MonoBehaviour
 
     }
 
+    /// <summary>
+    /// Function that reduces the health of the player each time a bomb hits him
+    /// </summary>
     public void ReduceHealth()
     {
         if (_isInvincible)
@@ -153,6 +177,7 @@ public class CharacterManager : MonoBehaviour
         Debug.Log(health);
     }
 
+ 
     private void InvincibleTimeManager()
     {
         if (_isInvincible)

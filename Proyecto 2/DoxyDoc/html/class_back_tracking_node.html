@@ -69,22 +69,103 @@ $(function() {
 <div class="title">BackTrackingNode Class Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
+
+<p><a class="el" href="class_node.html" title="A Node class used for pathfinding purposes, stores the relevant information for the A* algorithm exec...">Node</a> class used for the logic map construction and backtracking algorithm, it contains a reference to another node and a reference to a <a class="el" href="class_map_tile.html" title="An object that contains information of an specific tile in a map, used in the backtracking map">MapTile</a> object, which holds information about a specific map position.  
+ <a href="class_back_tracking_node.html#details">More...</a></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a95c4761f64deab0af927022c815b4c58"><td class="memItemLeft" align="right" valign="top"><a id="a95c4761f64deab0af927022c815b4c58"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>BackTrackingNode</b> (<a class="el" href="class_map_tile.html">MapTile</a> tile)</td></tr>
+<tr class="memitem:a95c4761f64deab0af927022c815b4c58"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_back_tracking_node.html#a95c4761f64deab0af927022c815b4c58">BackTrackingNode</a> (<a class="el" href="class_map_tile.html">MapTile</a> tile)</td></tr>
+<tr class="memdesc:a95c4761f64deab0af927022c815b4c58"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor for the class, takes a <a class="el" href="class_map_tile.html" title="An object that contains information of an specific tile in a map, used in the backtracking map">MapTile</a> as an argument and sets it to a private atribute.  <a href="class_back_tracking_node.html#a95c4761f64deab0af927022c815b4c58">More...</a><br /></td></tr>
 <tr class="separator:a95c4761f64deab0af927022c815b4c58"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="properties"></a>
 Properties</h2></td></tr>
-<tr class="memitem:a21bdd399f609a9034f3a6f8347803b6a"><td class="memItemLeft" align="right" valign="top"><a id="a21bdd399f609a9034f3a6f8347803b6a"></a>
-<a class="el" href="class_back_tracking_node.html">BackTrackingNode</a>&#160;</td><td class="memItemRight" valign="bottom"><b>NextNode</b><code> [get, set]</code></td></tr>
+<tr class="memitem:a21bdd399f609a9034f3a6f8347803b6a"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_back_tracking_node.html">BackTrackingNode</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_back_tracking_node.html#a21bdd399f609a9034f3a6f8347803b6a">NextNode</a><code> [get, set]</code></td></tr>
+<tr class="memdesc:a21bdd399f609a9034f3a6f8347803b6a"><td class="mdescLeft">&#160;</td><td class="mdescRight">A public propierty that sets the reference to the next node if given a BackTracking node object as an argument, alternatively, if called with no argument, returns the reference to the next node if no argument is given.  <a href="class_back_tracking_node.html#a21bdd399f609a9034f3a6f8347803b6a">More...</a><br /></td></tr>
 <tr class="separator:a21bdd399f609a9034f3a6f8347803b6a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a226e9b36ef0dee8d3ad7fa3fc162f43f"><td class="memItemLeft" align="right" valign="top"><a id="a226e9b36ef0dee8d3ad7fa3fc162f43f"></a>
-<a class="el" href="class_map_tile.html">MapTile</a>&#160;</td><td class="memItemRight" valign="bottom"><b>Tile</b><code> [get, set]</code></td></tr>
+<tr class="memitem:a226e9b36ef0dee8d3ad7fa3fc162f43f"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_map_tile.html">MapTile</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_back_tracking_node.html#a226e9b36ef0dee8d3ad7fa3fc162f43f">Tile</a><code> [get, set]</code></td></tr>
+<tr class="memdesc:a226e9b36ef0dee8d3ad7fa3fc162f43f"><td class="mdescLeft">&#160;</td><td class="mdescRight">A public propierty that sets the reference to the to the <a class="el" href="class_map_tile.html" title="An object that contains information of an specific tile in a map, used in the backtracking map">MapTile</a> if given a <a class="el" href="class_map_tile.html" title="An object that contains information of an specific tile in a map, used in the backtracking map">MapTile</a> object as an argument, alternatively, if called with no argument, returns the reference to the contained <a class="el" href="class_map_tile.html" title="An object that contains information of an specific tile in a map, used in the backtracking map">MapTile</a> if no argument is given.  <a href="class_back_tracking_node.html#a226e9b36ef0dee8d3ad7fa3fc162f43f">More...</a><br /></td></tr>
 <tr class="separator:a226e9b36ef0dee8d3ad7fa3fc162f43f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p><a class="el" href="class_node.html" title="A Node class used for pathfinding purposes, stores the relevant information for the A* algorithm exec...">Node</a> class used for the logic map construction and backtracking algorithm, it contains a reference to another node and a reference to a <a class="el" href="class_map_tile.html" title="An object that contains information of an specific tile in a map, used in the backtracking map">MapTile</a> object, which holds information about a specific map position. </p>
+</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a id="a95c4761f64deab0af927022c815b4c58"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a95c4761f64deab0af927022c815b4c58">&#9670;&nbsp;</a></span>BackTrackingNode()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">BackTrackingNode.BackTrackingNode </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="class_map_tile.html">MapTile</a>&#160;</td>
+          <td class="paramname"><em>tile</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Constructor for the class, takes a <a class="el" href="class_map_tile.html" title="An object that contains information of an specific tile in a map, used in the backtracking map">MapTile</a> as an argument and sets it to a private atribute. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">tile</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<h2 class="groupheader">Property Documentation</h2>
+<a id="a21bdd399f609a9034f3a6f8347803b6a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a21bdd399f609a9034f3a6f8347803b6a">&#9670;&nbsp;</a></span>NextNode</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_back_tracking_node.html">BackTrackingNode</a> BackTrackingNode.NextNode</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">get</span><span class="mlabel">set</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>A public propierty that sets the reference to the next node if given a BackTracking node object as an argument, alternatively, if called with no argument, returns the reference to the next node if no argument is given. </p>
+
+</div>
+</div>
+<a id="a226e9b36ef0dee8d3ad7fa3fc162f43f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a226e9b36ef0dee8d3ad7fa3fc162f43f">&#9670;&nbsp;</a></span>Tile</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_map_tile.html">MapTile</a> BackTrackingNode.Tile</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">get</span><span class="mlabel">set</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>A public propierty that sets the reference to the to the <a class="el" href="class_map_tile.html" title="An object that contains information of an specific tile in a map, used in the backtracking map">MapTile</a> if given a <a class="el" href="class_map_tile.html" title="An object that contains information of an specific tile in a map, used in the backtracking map">MapTile</a> object as an argument, alternatively, if called with no argument, returns the reference to the contained <a class="el" href="class_map_tile.html" title="An object that contains information of an specific tile in a map, used in the backtracking map">MapTile</a> if no argument is given. </p>
+
+</div>
+</div>
 <hr/>The documentation for this class was generated from the following file:<ul>
 <li>Assets/Scripts/BackTrackingNode.cs</li>
 </ul>

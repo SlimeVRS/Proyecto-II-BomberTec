@@ -1,5 +1,10 @@
 \hypertarget{class_genetic_controller}{}\doxysection{Genetic\+Controller Class Reference}
 \label{class_genetic_controller}\index{GeneticController@{GeneticController}}
+
+
+This class manages the genetic algorithm and main loop of the game.  
+
+
 Inheritance diagram for Genetic\+Controller\+:\begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -9,21 +14,73 @@ Inheritance diagram for Genetic\+Controller\+:\begin{figure}[H]
 \doxysubsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\Hypertarget{class_genetic_controller_addfc6c313806936d922d2c89cb9afea3}\label{class_genetic_controller_addfc6c313806936d922d2c89cb9afea3}} 
-void {\bfseries Set\+Map} (\mbox{\hyperlink{class_map_manager}{Map\+Manager}} game\+Map)
-\item 
-\mbox{\Hypertarget{class_genetic_controller_aa3856c95eb233f7827d6bd203cab9bb4}\label{class_genetic_controller_aa3856c95eb233f7827d6bd203cab9bb4}} 
-void {\bfseries Position\+Bots} ()
-\end{DoxyCompactItemize}
+void \mbox{\hyperlink{class_genetic_controller_addfc6c313806936d922d2c89cb9afea3}{Set\+Map}} (\mbox{\hyperlink{class_map_manager}{Map\+Manager}} game\+Map)
+\begin{DoxyCompactList}\small\item\em Sets the game map in which the bots will be positioned \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_genetic_controller_aa3856c95eb233f7827d6bd203cab9bb4}{Position\+Bots}} ()
+\begin{DoxyCompactList}\small\item\em Set the positions of each bot \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsection*{Public Attributes}
 \begin{DoxyCompactItemize}
 \item 
+Game\+Object\mbox{[}$\,$\mbox{]} \mbox{\hyperlink{class_genetic_controller_a02efc1f26b542f5bc1da2c9c87457f87}{\+\_\+pool}}
+\begin{DoxyCompactList}\small\item\em An Unity Game\+Object array that contains the instances of the AI bots that will be spawned in game. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_map_manager}{Map\+Manager}} \mbox{\hyperlink{class_genetic_controller_a1ca44b5e06f59b15e92ea4061674cfee}{map}}
+\begin{DoxyCompactList}\small\item\em A reference to the map in which the pathfinding will be made. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+This class manages the genetic algorithm and main loop of the game. 
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_genetic_controller_aa3856c95eb233f7827d6bd203cab9bb4}\label{class_genetic_controller_aa3856c95eb233f7827d6bd203cab9bb4}} 
+\index{GeneticController@{GeneticController}!PositionBots@{PositionBots}}
+\index{PositionBots@{PositionBots}!GeneticController@{GeneticController}}
+\doxysubsubsection{\texorpdfstring{PositionBots()}{PositionBots()}}
+{\footnotesize\ttfamily void Genetic\+Controller.\+Position\+Bots (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Set the positions of each bot 
+
+\mbox{\Hypertarget{class_genetic_controller_addfc6c313806936d922d2c89cb9afea3}\label{class_genetic_controller_addfc6c313806936d922d2c89cb9afea3}} 
+\index{GeneticController@{GeneticController}!SetMap@{SetMap}}
+\index{SetMap@{SetMap}!GeneticController@{GeneticController}}
+\doxysubsubsection{\texorpdfstring{SetMap()}{SetMap()}}
+{\footnotesize\ttfamily void Genetic\+Controller.\+Set\+Map (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_map_manager}{Map\+Manager}}}]{game\+Map }\end{DoxyParamCaption})}
+
+
+
+Sets the game map in which the bots will be positioned 
+
+
+\begin{DoxyParams}{Parameters}
+{\em game\+Map} & \mbox{\hyperlink{class_map_manager}{Map\+Manager}}\\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Data Documentation}
 \mbox{\Hypertarget{class_genetic_controller_a02efc1f26b542f5bc1da2c9c87457f87}\label{class_genetic_controller_a02efc1f26b542f5bc1da2c9c87457f87}} 
-Game\+Object\mbox{[}$\,$\mbox{]} {\bfseries \+\_\+pool}
-\item 
+\index{GeneticController@{GeneticController}!\_pool@{\_pool}}
+\index{\_pool@{\_pool}!GeneticController@{GeneticController}}
+\doxysubsubsection{\texorpdfstring{\_pool}{\_pool}}
+{\footnotesize\ttfamily Game\+Object \mbox{[}$\,$\mbox{]} Genetic\+Controller.\+\_\+pool}
+
+
+
+An Unity Game\+Object array that contains the instances of the AI bots that will be spawned in game. 
+
 \mbox{\Hypertarget{class_genetic_controller_a1ca44b5e06f59b15e92ea4061674cfee}\label{class_genetic_controller_a1ca44b5e06f59b15e92ea4061674cfee}} 
-\mbox{\hyperlink{class_map_manager}{Map\+Manager}} {\bfseries map}
-\end{DoxyCompactItemize}
+\index{GeneticController@{GeneticController}!map@{map}}
+\index{map@{map}!GeneticController@{GeneticController}}
+\doxysubsubsection{\texorpdfstring{map}{map}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_map_manager}{Map\+Manager}} Genetic\+Controller.\+map}
+
+
+
+A reference to the map in which the pathfinding will be made. 
+
 
 
 The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}

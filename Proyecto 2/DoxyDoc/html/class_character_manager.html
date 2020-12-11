@@ -69,6 +69,9 @@ $(function() {
 <div class="title">CharacterManager Class Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
+
+<p>Controller class for the player one. Manages Input system, attributes and mechanics proper to the player.  
+ <a href="class_character_manager.html#details">More...</a></p>
 <div class="dynheader">
 Inheritance diagram for CharacterManager:</div>
 <div class="dyncontent">
@@ -78,28 +81,134 @@ Inheritance diagram for CharacterManager:</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a039abe1bc8a651fbdcc707e7aea06d62"><td class="memItemLeft" align="right" valign="top"><a id="a039abe1bc8a651fbdcc707e7aea06d62"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>GetPlayerPosition</b> ()</td></tr>
+<tr class="memitem:a039abe1bc8a651fbdcc707e7aea06d62"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_character_manager.html#a039abe1bc8a651fbdcc707e7aea06d62">GetPlayerPosition</a> ()</td></tr>
+<tr class="memdesc:a039abe1bc8a651fbdcc707e7aea06d62"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the position of the player on the logical map matrix  <a href="class_character_manager.html#a039abe1bc8a651fbdcc707e7aea06d62">More...</a><br /></td></tr>
 <tr class="separator:a039abe1bc8a651fbdcc707e7aea06d62"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:abe959e26102a312d6281d7366d3c7e12"><td class="memItemLeft" align="right" valign="top"><a id="abe959e26102a312d6281d7366d3c7e12"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>ReduceHealth</b> ()</td></tr>
+<tr class="memitem:abe959e26102a312d6281d7366d3c7e12"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_character_manager.html#abe959e26102a312d6281d7366d3c7e12">ReduceHealth</a> ()</td></tr>
+<tr class="memdesc:abe959e26102a312d6281d7366d3c7e12"><td class="mdescLeft">&#160;</td><td class="mdescRight">Function that reduces the health of the player each time a bomb hits him  <a href="class_character_manager.html#abe959e26102a312d6281d7366d3c7e12">More...</a><br /></td></tr>
 <tr class="separator:abe959e26102a312d6281d7366d3c7e12"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
 Public Attributes</h2></td></tr>
-<tr class="memitem:ac88332ebc48e69b09fa7a6710ce8319c"><td class="memItemLeft" align="right" valign="top"><a id="ac88332ebc48e69b09fa7a6710ce8319c"></a>
-int&#160;</td><td class="memItemRight" valign="bottom"><b>health</b> = 5</td></tr>
+<tr class="memitem:ac88332ebc48e69b09fa7a6710ce8319c"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_character_manager.html#ac88332ebc48e69b09fa7a6710ce8319c">health</a> = 5</td></tr>
+<tr class="memdesc:ac88332ebc48e69b09fa7a6710ce8319c"><td class="mdescLeft">&#160;</td><td class="mdescRight">An integer that represents the life points of the player  <a href="class_character_manager.html#ac88332ebc48e69b09fa7a6710ce8319c">More...</a><br /></td></tr>
 <tr class="separator:ac88332ebc48e69b09fa7a6710ce8319c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aca2068bf9131d6bf0d6323ae6b878238"><td class="memItemLeft" align="right" valign="top"><a id="aca2068bf9131d6bf0d6323ae6b878238"></a>
-float&#160;</td><td class="memItemRight" valign="bottom"><b>speed</b> = 3f</td></tr>
+<tr class="memitem:aca2068bf9131d6bf0d6323ae6b878238"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_character_manager.html#aca2068bf9131d6bf0d6323ae6b878238">speed</a> = 3f</td></tr>
+<tr class="memdesc:aca2068bf9131d6bf0d6323ae6b878238"><td class="mdescLeft">&#160;</td><td class="mdescRight">a float that represents the movement speed of the player.  <a href="class_character_manager.html#aca2068bf9131d6bf0d6323ae6b878238">More...</a><br /></td></tr>
 <tr class="separator:aca2068bf9131d6bf0d6323ae6b878238"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a74a8e3f4128585bb575dc9f8bfc4f5b2"><td class="memItemLeft" align="right" valign="top"><a id="a74a8e3f4128585bb575dc9f8bfc4f5b2"></a>
-PlayerActions&#160;</td><td class="memItemRight" valign="bottom"><b>playerInput</b></td></tr>
+<tr class="memitem:a74a8e3f4128585bb575dc9f8bfc4f5b2"><td class="memItemLeft" align="right" valign="top">PlayerActions&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_character_manager.html#a74a8e3f4128585bb575dc9f8bfc4f5b2">playerInput</a></td></tr>
+<tr class="memdesc:a74a8e3f4128585bb575dc9f8bfc4f5b2"><td class="mdescLeft">&#160;</td><td class="mdescRight">The input system used to execute actions on key presses.  <a href="class_character_manager.html#a74a8e3f4128585bb575dc9f8bfc4f5b2">More...</a><br /></td></tr>
 <tr class="separator:a74a8e3f4128585bb575dc9f8bfc4f5b2"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a74f5495ac93e3a99ee451d4050d853f9"><td class="memItemLeft" align="right" valign="top"><a id="a74f5495ac93e3a99ee451d4050d853f9"></a>
-Vector2Int&#160;</td><td class="memItemRight" valign="bottom"><b>playerMatrixPos</b></td></tr>
+<tr class="memitem:a74f5495ac93e3a99ee451d4050d853f9"><td class="memItemLeft" align="right" valign="top">Vector2Int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_character_manager.html#a74f5495ac93e3a99ee451d4050d853f9">playerMatrixPos</a></td></tr>
+<tr class="memdesc:a74f5495ac93e3a99ee451d4050d853f9"><td class="mdescLeft">&#160;</td><td class="mdescRight">An integer 2D vector that stores the x,y position of the player on the logical map  <a href="class_character_manager.html#a74f5495ac93e3a99ee451d4050d853f9">More...</a><br /></td></tr>
 <tr class="separator:a74f5495ac93e3a99ee451d4050d853f9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>Controller class for the player one. Manages Input system, attributes and mechanics proper to the player. </p>
+</div><h2 class="groupheader">Member Function Documentation</h2>
+<a id="a039abe1bc8a651fbdcc707e7aea06d62"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a039abe1bc8a651fbdcc707e7aea06d62">&#9670;&nbsp;</a></span>GetPlayerPosition()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void CharacterManager.GetPlayerPosition </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Gets the position of the player on the logical map matrix </p>
+
+</div>
+</div>
+<a id="abe959e26102a312d6281d7366d3c7e12"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abe959e26102a312d6281d7366d3c7e12">&#9670;&nbsp;</a></span>ReduceHealth()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void CharacterManager.ReduceHealth </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Function that reduces the health of the player each time a bomb hits him </p>
+
+</div>
+</div>
+<h2 class="groupheader">Member Data Documentation</h2>
+<a id="ac88332ebc48e69b09fa7a6710ce8319c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac88332ebc48e69b09fa7a6710ce8319c">&#9670;&nbsp;</a></span>health</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int CharacterManager.health = 5</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>An integer that represents the life points of the player </p>
+
+</div>
+</div>
+<a id="a74a8e3f4128585bb575dc9f8bfc4f5b2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a74a8e3f4128585bb575dc9f8bfc4f5b2">&#9670;&nbsp;</a></span>playerInput</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">PlayerActions CharacterManager.playerInput</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>The input system used to execute actions on key presses. </p>
+
+</div>
+</div>
+<a id="a74f5495ac93e3a99ee451d4050d853f9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a74f5495ac93e3a99ee451d4050d853f9">&#9670;&nbsp;</a></span>playerMatrixPos</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">Vector2Int CharacterManager.playerMatrixPos</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>An integer 2D vector that stores the x,y position of the player on the logical map </p>
+
+</div>
+</div>
+<a id="aca2068bf9131d6bf0d6323ae6b878238"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aca2068bf9131d6bf0d6323ae6b878238">&#9670;&nbsp;</a></span>speed</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">float CharacterManager.speed = 3f</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>a float that represents the movement speed of the player. </p>
+
+</div>
+</div>
 <hr/>The documentation for this class was generated from the following file:<ul>
 <li>Assets/Scripts/CharacterManager.cs</li>
 </ul>

@@ -1,35 +1,169 @@
 \hypertarget{class_map_manager}{}\doxysection{Map\+Manager Class Reference}
 \label{class_map_manager}\index{MapManager@{MapManager}}
+
+
+The \mbox{\hyperlink{class_map_manager}{Map\+Manager}} class handles all map related functions, from map generation to renderization on screen. It creates logical maps that handle pathfinding and backtracking algorithms that were requested for the project.  
+
+
 \doxysubsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\Hypertarget{class_map_manager_aa86483ba12fb1c092455e970abe561ce}\label{class_map_manager_aa86483ba12fb1c092455e970abe561ce}} 
-\mbox{\hyperlink{class_node}{Node}}\mbox{[},\mbox{]} {\bfseries Get\+Pathfinding\+Map} ()
-\item 
-\mbox{\Hypertarget{class_map_manager_aecef04ee90c304d5e4a5216ae54bcb30}\label{class_map_manager_aecef04ee90c304d5e4a5216ae54bcb30}} 
-\mbox{\hyperlink{class_node}{Node}} {\bfseries Get\+Path\+Node} (int x, int y)
-\item 
-\mbox{\Hypertarget{class_map_manager_a14801969fa732b5dd5eb44d7c252bd0e}\label{class_map_manager_a14801969fa732b5dd5eb44d7c252bd0e}} 
-{\bfseries Map\+Manager} (float cell\+Size, Game\+Object destructible, Game\+Object indestructible)
-\item 
-\mbox{\Hypertarget{class_map_manager_a8859736acdea6a3e00300168b0b8a8c0}\label{class_map_manager_a8859736acdea6a3e00300168b0b8a8c0}} 
-void {\bfseries Randomize\+Map} ()
-\item 
-\mbox{\Hypertarget{class_map_manager_a90c6541906920baf3ea244edd93f5ce4}\label{class_map_manager_a90c6541906920baf3ea244edd93f5ce4}} 
-Vector2 {\bfseries Get\+World\+Position} (int x, int y)
-\item 
-\mbox{\Hypertarget{class_map_manager_adf8d16449457e99e4c2ad8d45d03aee9}\label{class_map_manager_adf8d16449457e99e4c2ad8d45d03aee9}} 
-Vector2\+Int {\bfseries Get\+Matrix\+Position} (Vector2 world\+Position)
-\item 
-\mbox{\Hypertarget{class_map_manager_a5963a12e9a435ce3f6f78f95e78f4c28}\label{class_map_manager_a5963a12e9a435ce3f6f78f95e78f4c28}} 
-override string {\bfseries To\+String} ()
-\end{DoxyCompactItemize}
+\mbox{\hyperlink{class_node}{Node}}\mbox{[},\mbox{]} \mbox{\hyperlink{class_map_manager_aa86483ba12fb1c092455e970abe561ce}{Get\+Pathfinding\+Map}} ()
+\begin{DoxyCompactList}\small\item\em A getter for the logical map used to perform the pathfinding algorithm used in the game. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_node}{Node}} \mbox{\hyperlink{class_map_manager_aecef04ee90c304d5e4a5216ae54bcb30}{Get\+Path\+Node}} (int x, int y)
+\begin{DoxyCompactList}\small\item\em Given a specific x y coordinate, returns a \mbox{\hyperlink{class_node}{Node}} with information related to pathfinding data. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_map_manager_a14801969fa732b5dd5eb44d7c252bd0e}{Map\+Manager}} (float cell\+Size, Game\+Object destructible, Game\+Object indestructible)
+\begin{DoxyCompactList}\small\item\em A constructor and initializer for the \mbox{\hyperlink{class_map_manager}{Map\+Manager}} class, creates the instance of an \mbox{\hyperlink{class_map_manager}{Map\+Manager}} object and initializes the basic attributes it needs to proceed with logical processes related to map management, both visual and logical. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_map_manager_a8859736acdea6a3e00300168b0b8a8c0}{Randomize\+Map}} ()
+\begin{DoxyCompactList}\small\item\em The backtracking algorthim used to create a random map each time the game is executed. The never has closed rooms. It\textquotesingle{}s a modification of the depth first backtracker algorithm which essentially creates a random maze making use of a \mbox{\hyperlink{class_stack}{Stack}} data structure to backtrack whenever a condition set by the programmer is not met. \end{DoxyCompactList}\item 
+Vector2 \mbox{\hyperlink{class_map_manager_a90c6541906920baf3ea244edd93f5ce4}{Get\+World\+Position}} (int x, int y)
+\begin{DoxyCompactList}\small\item\em Converts an x,y position of the logical map into a screen position in the unity scene. \end{DoxyCompactList}\item 
+Vector2\+Int \mbox{\hyperlink{class_map_manager_adf8d16449457e99e4c2ad8d45d03aee9}{Get\+Matrix\+Position}} (Vector2 world\+Position)
+\begin{DoxyCompactList}\small\item\em Converts an Vector2 screen position of unity scene into a logical x,y position in the logical map matrix. \end{DoxyCompactList}\item 
+override string \mbox{\hyperlink{class_map_manager_a5963a12e9a435ce3f6f78f95e78f4c28}{To\+String}} ()
+\begin{DoxyCompactList}\small\item\em A debugging function that prints in console data of the generated random map \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsection*{Public Attributes}
 \begin{DoxyCompactItemize}
 \item 
+readonly int \mbox{\hyperlink{class_map_manager_a11fafbb90bb1e392cc5ef77fa2b262d5}{\+\_\+map\+Size}}
+\begin{DoxyCompactList}\small\item\em The size of the matrix that represents the logical map. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+The \mbox{\hyperlink{class_map_manager}{Map\+Manager}} class handles all map related functions, from map generation to renderization on screen. It creates logical maps that handle pathfinding and backtracking algorithms that were requested for the project. 
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_map_manager_a14801969fa732b5dd5eb44d7c252bd0e}\label{class_map_manager_a14801969fa732b5dd5eb44d7c252bd0e}} 
+\index{MapManager@{MapManager}!MapManager@{MapManager}}
+\index{MapManager@{MapManager}!MapManager@{MapManager}}
+\doxysubsubsection{\texorpdfstring{MapManager()}{MapManager()}}
+{\footnotesize\ttfamily Map\+Manager.\+Map\+Manager (\begin{DoxyParamCaption}\item[{float}]{cell\+Size,  }\item[{Game\+Object}]{destructible,  }\item[{Game\+Object}]{indestructible }\end{DoxyParamCaption})}
+
+
+
+A constructor and initializer for the \mbox{\hyperlink{class_map_manager}{Map\+Manager}} class, creates the instance of an \mbox{\hyperlink{class_map_manager}{Map\+Manager}} object and initializes the basic attributes it needs to proceed with logical processes related to map management, both visual and logical. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em cell\+Size} & The float size of the cells that will be drawn on screen as map tiles\\
+\hline
+{\em destructible} & A reference to the unity prefab that represents the destructible blocks in screen\\
+\hline
+{\em indestructible} & A reference to the unity prefab that represents the destructible blocks in screen\\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_map_manager_adf8d16449457e99e4c2ad8d45d03aee9}\label{class_map_manager_adf8d16449457e99e4c2ad8d45d03aee9}} 
+\index{MapManager@{MapManager}!GetMatrixPosition@{GetMatrixPosition}}
+\index{GetMatrixPosition@{GetMatrixPosition}!MapManager@{MapManager}}
+\doxysubsubsection{\texorpdfstring{GetMatrixPosition()}{GetMatrixPosition()}}
+{\footnotesize\ttfamily Vector2\+Int Map\+Manager.\+Get\+Matrix\+Position (\begin{DoxyParamCaption}\item[{Vector2}]{world\+Position }\end{DoxyParamCaption})}
+
+
+
+Converts an Vector2 screen position of unity scene into a logical x,y position in the logical map matrix. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em world\+Position} & A vector2 object, a two dimensional vector that holds the coordinates of a screen position in the unity scene \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The logical x,y position in the map matrix equivalent to the Vector2 coordinate on the unity scene
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_map_manager_aa86483ba12fb1c092455e970abe561ce}\label{class_map_manager_aa86483ba12fb1c092455e970abe561ce}} 
+\index{MapManager@{MapManager}!GetPathfindingMap@{GetPathfindingMap}}
+\index{GetPathfindingMap@{GetPathfindingMap}!MapManager@{MapManager}}
+\doxysubsubsection{\texorpdfstring{GetPathfindingMap()}{GetPathfindingMap()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_node}{Node}} \mbox{[},\mbox{]} Map\+Manager.\+Get\+Pathfinding\+Map (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+A getter for the logical map used to perform the pathfinding algorithm used in the game. 
+
+\begin{DoxyReturn}{Returns}
+A reference to a 11x11 matrix filled with \mbox{\hyperlink{class_node}{Node}} objects
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_map_manager_aecef04ee90c304d5e4a5216ae54bcb30}\label{class_map_manager_aecef04ee90c304d5e4a5216ae54bcb30}} 
+\index{MapManager@{MapManager}!GetPathNode@{GetPathNode}}
+\index{GetPathNode@{GetPathNode}!MapManager@{MapManager}}
+\doxysubsubsection{\texorpdfstring{GetPathNode()}{GetPathNode()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_node}{Node}} Map\+Manager.\+Get\+Path\+Node (\begin{DoxyParamCaption}\item[{int}]{x,  }\item[{int}]{y }\end{DoxyParamCaption})}
+
+
+
+Given a specific x y coordinate, returns a \mbox{\hyperlink{class_node}{Node}} with information related to pathfinding data. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em x} & The x coordinate of the desired pathfinding map \mbox{\hyperlink{class_node}{Node}}\\
+\hline
+{\em y} & The y coordinate of the desired pathfinding map \mbox{\hyperlink{class_node}{Node}}\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The pathfinding \mbox{\hyperlink{class_node}{Node}} on the specified x y position of the pathfinding map matrix
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_map_manager_a90c6541906920baf3ea244edd93f5ce4}\label{class_map_manager_a90c6541906920baf3ea244edd93f5ce4}} 
+\index{MapManager@{MapManager}!GetWorldPosition@{GetWorldPosition}}
+\index{GetWorldPosition@{GetWorldPosition}!MapManager@{MapManager}}
+\doxysubsubsection{\texorpdfstring{GetWorldPosition()}{GetWorldPosition()}}
+{\footnotesize\ttfamily Vector2 Map\+Manager.\+Get\+World\+Position (\begin{DoxyParamCaption}\item[{int}]{x,  }\item[{int}]{y }\end{DoxyParamCaption})}
+
+
+
+Converts an x,y position of the logical map into a screen position in the unity scene. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em x} & Integer that represents the x coordinate of the logical map\\
+\hline
+{\em y} & Integer that represents the y coordinate of the logical map\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A Vector2 object, a two dimensional vector that contains the screen coordinates equivalent to the logical x,y position in the map matrix
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_map_manager_a8859736acdea6a3e00300168b0b8a8c0}\label{class_map_manager_a8859736acdea6a3e00300168b0b8a8c0}} 
+\index{MapManager@{MapManager}!RandomizeMap@{RandomizeMap}}
+\index{RandomizeMap@{RandomizeMap}!MapManager@{MapManager}}
+\doxysubsubsection{\texorpdfstring{RandomizeMap()}{RandomizeMap()}}
+{\footnotesize\ttfamily void Map\+Manager.\+Randomize\+Map (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+The backtracking algorthim used to create a random map each time the game is executed. The never has closed rooms. It\textquotesingle{}s a modification of the depth first backtracker algorithm which essentially creates a random maze making use of a \mbox{\hyperlink{class_stack}{Stack}} data structure to backtrack whenever a condition set by the programmer is not met. 
+
+\mbox{\Hypertarget{class_map_manager_a5963a12e9a435ce3f6f78f95e78f4c28}\label{class_map_manager_a5963a12e9a435ce3f6f78f95e78f4c28}} 
+\index{MapManager@{MapManager}!ToString@{ToString}}
+\index{ToString@{ToString}!MapManager@{MapManager}}
+\doxysubsubsection{\texorpdfstring{ToString()}{ToString()}}
+{\footnotesize\ttfamily override string Map\+Manager.\+To\+String (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+A debugging function that prints in console data of the generated random map 
+
+\begin{DoxyReturn}{Returns}
+A String containing information about the backtracking generated random map
+\end{DoxyReturn}
+
+
+\doxysubsection{Member Data Documentation}
 \mbox{\Hypertarget{class_map_manager_a11fafbb90bb1e392cc5ef77fa2b262d5}\label{class_map_manager_a11fafbb90bb1e392cc5ef77fa2b262d5}} 
-readonly int {\bfseries \+\_\+map\+Size}
-\end{DoxyCompactItemize}
+\index{MapManager@{MapManager}!\_mapSize@{\_mapSize}}
+\index{\_mapSize@{\_mapSize}!MapManager@{MapManager}}
+\doxysubsubsection{\texorpdfstring{\_mapSize}{\_mapSize}}
+{\footnotesize\ttfamily readonly int Map\+Manager.\+\_\+map\+Size}
+
+
+
+The size of the matrix that represents the logical map. 
+
 
 
 The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}

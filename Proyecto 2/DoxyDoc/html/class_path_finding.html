@@ -68,19 +68,146 @@ $(function() {
 <div class="title">PathFinding Class Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
+
+<p>A pathfinding class that implements the A* algorithm.  
+ <a href="class_path_finding.html#details">More...</a></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a84ef34f2d14a1004489cd53fb429aedc"><td class="memItemLeft" align="right" valign="top"><a id="a84ef34f2d14a1004489cd53fb429aedc"></a>
-override string&#160;</td><td class="memItemRight" valign="bottom"><b>ToString</b> ()</td></tr>
+<tr class="memitem:a0ed53683ca4d06016fd9cf0d6bef845f"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_path_finding.html#a0ed53683ca4d06016fd9cf0d6bef845f">PathFinding</a> ()</td></tr>
+<tr class="memdesc:a0ed53683ca4d06016fd9cf0d6bef845f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Default constructor  <a href="class_path_finding.html#a0ed53683ca4d06016fd9cf0d6bef845f">More...</a><br /></td></tr>
+<tr class="separator:a0ed53683ca4d06016fd9cf0d6bef845f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a84ef34f2d14a1004489cd53fb429aedc"><td class="memItemLeft" align="right" valign="top">override string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_path_finding.html#a84ef34f2d14a1004489cd53fb429aedc">ToString</a> ()</td></tr>
+<tr class="memdesc:a84ef34f2d14a1004489cd53fb429aedc"><td class="mdescLeft">&#160;</td><td class="mdescRight">A debugging function that prints a path of nodes.  <a href="class_path_finding.html#a84ef34f2d14a1004489cd53fb429aedc">More...</a><br /></td></tr>
 <tr class="separator:a84ef34f2d14a1004489cd53fb429aedc"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a26f577127b746f98d2145fee94940539"><td class="memItemLeft" align="right" valign="top"><a id="a26f577127b746f98d2145fee94940539"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>SetMap</b> (<a class="el" href="class_map_manager.html">MapManager</a> gridMap)</td></tr>
+<tr class="memitem:a26f577127b746f98d2145fee94940539"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_path_finding.html#a26f577127b746f98d2145fee94940539">SetMap</a> (<a class="el" href="class_map_manager.html">MapManager</a> gridMap)</td></tr>
+<tr class="memdesc:a26f577127b746f98d2145fee94940539"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the <a class="el" href="class_map_manager.html" title="The MapManager class handles all map related functions, from map generation to renderization on scree...">MapManager</a> object to be used in order to create a path.  <a href="class_path_finding.html#a26f577127b746f98d2145fee94940539">More...</a><br /></td></tr>
 <tr class="separator:a26f577127b746f98d2145fee94940539"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af53e628feb7234284ff0385d01015ac2"><td class="memItemLeft" align="right" valign="top"><a id="af53e628feb7234284ff0385d01015ac2"></a>
-List&lt; <a class="el" href="class_node.html">Node</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>FindPath</b> (int startX, int startY, int endX, int endY)</td></tr>
+<tr class="memitem:af53e628feb7234284ff0385d01015ac2"><td class="memItemLeft" align="right" valign="top">List&lt; <a class="el" href="class_node.html">Node</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_path_finding.html#af53e628feb7234284ff0385d01015ac2">FindPath</a> (int startX, int startY, int endX, int endY)</td></tr>
+<tr class="memdesc:af53e628feb7234284ff0385d01015ac2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Finds the path between two given sets of coordinates using A* algorithm  <a href="class_path_finding.html#af53e628feb7234284ff0385d01015ac2">More...</a><br /></td></tr>
 <tr class="separator:af53e628feb7234284ff0385d01015ac2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>A pathfinding class that implements the A* algorithm. </p>
+</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a id="a0ed53683ca4d06016fd9cf0d6bef845f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0ed53683ca4d06016fd9cf0d6bef845f">&#9670;&nbsp;</a></span>PathFinding()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">PathFinding.PathFinding </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Default constructor </p>
+
+</div>
+</div>
+<h2 class="groupheader">Member Function Documentation</h2>
+<a id="af53e628feb7234284ff0385d01015ac2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af53e628feb7234284ff0385d01015ac2">&#9670;&nbsp;</a></span>FindPath()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">List&lt;<a class="el" href="class_node.html">Node</a>&gt; PathFinding.FindPath </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>startX</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>startY</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>endX</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>endY</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Finds the path between two given sets of coordinates using A* algorithm </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">startX</td><td>An integer that represents the x position of the starting node</td></tr>
+    <tr><td class="paramname">startY</td><td>An integer that represents the y position of the starting node</td></tr>
+    <tr><td class="paramname">endX</td><td>An integer that represents the x position of the end node</td></tr>
+    <tr><td class="paramname">endY</td><td>An integer that represents the y position of the end node</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>A list of nodes that represent the path to take</dd></dl>
+
+</div>
+</div>
+<a id="a26f577127b746f98d2145fee94940539"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a26f577127b746f98d2145fee94940539">&#9670;&nbsp;</a></span>SetMap()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void PathFinding.SetMap </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="class_map_manager.html">MapManager</a>&#160;</td>
+          <td class="paramname"><em>gridMap</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Sets the <a class="el" href="class_map_manager.html" title="The MapManager class handles all map related functions, from map generation to renderization on scree...">MapManager</a> object to be used in order to create a path. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">gridMap</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a84ef34f2d14a1004489cd53fb429aedc"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a84ef34f2d14a1004489cd53fb429aedc">&#9670;&nbsp;</a></span>ToString()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">override string PathFinding.ToString </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>A debugging function that prints a path of nodes. </p>
+<dl class="section return"><dt>Returns</dt><dd></dd></dl>
+
+</div>
+</div>
 <hr/>The documentation for this class was generated from the following file:<ul>
 <li>Assets/Scripts/PathFinding.cs</li>
 </ul>

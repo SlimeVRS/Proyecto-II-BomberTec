@@ -1,47 +1,199 @@
 \hypertarget{class_node}{}\doxysection{Node Class Reference}
 \label{class_node}\index{Node@{Node}}
+
+
+A \mbox{\hyperlink{class_node}{Node}} class used for pathfinding purposes, stores the relevant information for the A$\ast$ algorithm execution.  
+
+
 \doxysubsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\Hypertarget{class_node_a91af064e488c3720f05db83dcc2b6feb}\label{class_node_a91af064e488c3720f05db83dcc2b6feb}} 
-{\bfseries Node} (int x, int y)
-\item 
-\mbox{\Hypertarget{class_node_a6c3254ccb5e6a8f19ed8ba663d439fee}\label{class_node_a6c3254ccb5e6a8f19ed8ba663d439fee}} 
-int {\bfseries GetX} ()
-\item 
-\mbox{\Hypertarget{class_node_a4276b4487ac0e74b179960c09385a57d}\label{class_node_a4276b4487ac0e74b179960c09385a57d}} 
-int {\bfseries GetY} ()
-\item 
-\mbox{\Hypertarget{class_node_a9792e711d426d53b7db2e7e8f5b9bb55}\label{class_node_a9792e711d426d53b7db2e7e8f5b9bb55}} 
-int {\bfseries Get\+G\+Cost} ()
-\item 
-\mbox{\Hypertarget{class_node_a27a1824dbf19aaa90c75c0644023f4f3}\label{class_node_a27a1824dbf19aaa90c75c0644023f4f3}} 
-void {\bfseries Set\+G\+Cost} (int g\+Cost)
-\item 
-\mbox{\Hypertarget{class_node_a735a9b0b8c2efde8ccb97d90bff50f48}\label{class_node_a735a9b0b8c2efde8ccb97d90bff50f48}} 
-int {\bfseries Get\+H\+Cost} ()
-\item 
-\mbox{\Hypertarget{class_node_a1e45c7a641855987cb06ac7ea93e03a4}\label{class_node_a1e45c7a641855987cb06ac7ea93e03a4}} 
-void {\bfseries Set\+H\+Cost} (int h\+Cost)
-\item 
-\mbox{\Hypertarget{class_node_ad5bb1554a2d1ad53c0d7fb400e45855e}\label{class_node_ad5bb1554a2d1ad53c0d7fb400e45855e}} 
-int {\bfseries Get\+F\+Cost} ()
-\item 
-\mbox{\Hypertarget{class_node_a7a057373f7c226db56718fd0abb9aa4e}\label{class_node_a7a057373f7c226db56718fd0abb9aa4e}} 
-override string {\bfseries To\+String} ()
-\item 
-\mbox{\Hypertarget{class_node_a0bbea176a735f4da17c141d6c761694e}\label{class_node_a0bbea176a735f4da17c141d6c761694e}} 
-void {\bfseries Calculate\+F\+Cost} ()
-\end{DoxyCompactItemize}
+\mbox{\hyperlink{class_node_a91af064e488c3720f05db83dcc2b6feb}{Node}} (int x, int y)
+\begin{DoxyCompactList}\small\item\em Public constructor of the class \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{class_node_a6c3254ccb5e6a8f19ed8ba663d439fee}{GetX}} ()
+\begin{DoxyCompactList}\small\item\em Gets the X coordinate of the pathfinding map in which the node resides \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{class_node_a4276b4487ac0e74b179960c09385a57d}{GetY}} ()
+\begin{DoxyCompactList}\small\item\em Gets the Y coordinate of the pathfinding map in which the node resides \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{class_node_a9792e711d426d53b7db2e7e8f5b9bb55}{Get\+G\+Cost}} ()
+\begin{DoxyCompactList}\small\item\em Gets the set G cost of the \mbox{\hyperlink{class_node}{Node}} \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_node_a27a1824dbf19aaa90c75c0644023f4f3}{Set\+G\+Cost}} (int g\+Cost)
+\begin{DoxyCompactList}\small\item\em Sets the set G cost of the \mbox{\hyperlink{class_node}{Node}} \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{class_node_a735a9b0b8c2efde8ccb97d90bff50f48}{Get\+H\+Cost}} ()
+\begin{DoxyCompactList}\small\item\em Gets the set H cost of the \mbox{\hyperlink{class_node}{Node}} \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_node_a1e45c7a641855987cb06ac7ea93e03a4}{Set\+H\+Cost}} (int h\+Cost)
+\begin{DoxyCompactList}\small\item\em Sets the set H cost of the \mbox{\hyperlink{class_node}{Node}} \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{class_node_ad5bb1554a2d1ad53c0d7fb400e45855e}{Get\+F\+Cost}} ()
+\begin{DoxyCompactList}\small\item\em Gets the set F cost of the \mbox{\hyperlink{class_node}{Node}} \end{DoxyCompactList}\item 
+override string \mbox{\hyperlink{class_node_a7a057373f7c226db56718fd0abb9aa4e}{To\+String}} ()
+\begin{DoxyCompactList}\small\item\em A debugging function that prints the x and y coordinates of a given \mbox{\hyperlink{class_node}{Node}} \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_node_a0bbea176a735f4da17c141d6c761694e}{Calculate\+F\+Cost}} ()
+\begin{DoxyCompactList}\small\item\em Calculates the F cost using the sum of the g and h values \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsection*{Public Attributes}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\Hypertarget{class_node_a5f91eb56ff5c31c51cc9f30ff8a88ad4}\label{class_node_a5f91eb56ff5c31c51cc9f30ff8a88ad4}} 
-bool {\bfseries is\+Obstacle} = false
-\item 
+bool \mbox{\hyperlink{class_node_a5f91eb56ff5c31c51cc9f30ff8a88ad4}{is\+Obstacle}} = false
+\begin{DoxyCompactList}\small\item\em A flag that determines if the cell corresponds to an obstacle in the map \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_node}{Node}} \mbox{\hyperlink{class_node_a999a7e2af6fdf1b8740f6f582a1c38f3}{came\+From}} = null
+\begin{DoxyCompactList}\small\item\em A reference to the next \mbox{\hyperlink{class_node}{Node}} object. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+A \mbox{\hyperlink{class_node}{Node}} class used for pathfinding purposes, stores the relevant information for the A$\ast$ algorithm execution. 
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_node_a91af064e488c3720f05db83dcc2b6feb}\label{class_node_a91af064e488c3720f05db83dcc2b6feb}} 
+\index{Node@{Node}!Node@{Node}}
+\index{Node@{Node}!Node@{Node}}
+\doxysubsubsection{\texorpdfstring{Node()}{Node()}}
+{\footnotesize\ttfamily Node.\+Node (\begin{DoxyParamCaption}\item[{int}]{x,  }\item[{int}]{y }\end{DoxyParamCaption})}
+
+
+
+Public constructor of the class 
+
+
+\begin{DoxyParams}{Parameters}
+{\em x} & The x coordinate of the pathfinding map matrix in which the node is to be set\\
+\hline
+{\em y} & The y coordinate of the pathfinding map matrix in which the node is to be set\\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_node_a0bbea176a735f4da17c141d6c761694e}\label{class_node_a0bbea176a735f4da17c141d6c761694e}} 
+\index{Node@{Node}!CalculateFCost@{CalculateFCost}}
+\index{CalculateFCost@{CalculateFCost}!Node@{Node}}
+\doxysubsubsection{\texorpdfstring{CalculateFCost()}{CalculateFCost()}}
+{\footnotesize\ttfamily void Node.\+Calculate\+F\+Cost (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Calculates the F cost using the sum of the g and h values 
+
+\mbox{\Hypertarget{class_node_ad5bb1554a2d1ad53c0d7fb400e45855e}\label{class_node_ad5bb1554a2d1ad53c0d7fb400e45855e}} 
+\index{Node@{Node}!GetFCost@{GetFCost}}
+\index{GetFCost@{GetFCost}!Node@{Node}}
+\doxysubsubsection{\texorpdfstring{GetFCost()}{GetFCost()}}
+{\footnotesize\ttfamily int Node.\+Get\+F\+Cost (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Gets the set F cost of the \mbox{\hyperlink{class_node}{Node}} 
+
+\begin{DoxyReturn}{Returns}
+An integer that represent the F cost
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_node_a9792e711d426d53b7db2e7e8f5b9bb55}\label{class_node_a9792e711d426d53b7db2e7e8f5b9bb55}} 
+\index{Node@{Node}!GetGCost@{GetGCost}}
+\index{GetGCost@{GetGCost}!Node@{Node}}
+\doxysubsubsection{\texorpdfstring{GetGCost()}{GetGCost()}}
+{\footnotesize\ttfamily int Node.\+Get\+G\+Cost (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Gets the set G cost of the \mbox{\hyperlink{class_node}{Node}} 
+
+\begin{DoxyReturn}{Returns}
+An integer that represent the G cost
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_node_a735a9b0b8c2efde8ccb97d90bff50f48}\label{class_node_a735a9b0b8c2efde8ccb97d90bff50f48}} 
+\index{Node@{Node}!GetHCost@{GetHCost}}
+\index{GetHCost@{GetHCost}!Node@{Node}}
+\doxysubsubsection{\texorpdfstring{GetHCost()}{GetHCost()}}
+{\footnotesize\ttfamily int Node.\+Get\+H\+Cost (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Gets the set H cost of the \mbox{\hyperlink{class_node}{Node}} 
+
+\begin{DoxyReturn}{Returns}
+An integer that represent the H cost
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_node_a6c3254ccb5e6a8f19ed8ba663d439fee}\label{class_node_a6c3254ccb5e6a8f19ed8ba663d439fee}} 
+\index{Node@{Node}!GetX@{GetX}}
+\index{GetX@{GetX}!Node@{Node}}
+\doxysubsubsection{\texorpdfstring{GetX()}{GetX()}}
+{\footnotesize\ttfamily int Node.\+GetX (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Gets the X coordinate of the pathfinding map in which the node resides 
+
+\begin{DoxyReturn}{Returns}
+An integer that represents a row index on the pathfinding map
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_node_a4276b4487ac0e74b179960c09385a57d}\label{class_node_a4276b4487ac0e74b179960c09385a57d}} 
+\index{Node@{Node}!GetY@{GetY}}
+\index{GetY@{GetY}!Node@{Node}}
+\doxysubsubsection{\texorpdfstring{GetY()}{GetY()}}
+{\footnotesize\ttfamily int Node.\+GetY (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Gets the Y coordinate of the pathfinding map in which the node resides 
+
+\begin{DoxyReturn}{Returns}
+An integer that represents a column index on the pathfinding map
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_node_a27a1824dbf19aaa90c75c0644023f4f3}\label{class_node_a27a1824dbf19aaa90c75c0644023f4f3}} 
+\index{Node@{Node}!SetGCost@{SetGCost}}
+\index{SetGCost@{SetGCost}!Node@{Node}}
+\doxysubsubsection{\texorpdfstring{SetGCost()}{SetGCost()}}
+{\footnotesize\ttfamily void Node.\+Set\+G\+Cost (\begin{DoxyParamCaption}\item[{int}]{g\+Cost }\end{DoxyParamCaption})}
+
+
+
+Sets the set G cost of the \mbox{\hyperlink{class_node}{Node}} 
+
+\mbox{\Hypertarget{class_node_a1e45c7a641855987cb06ac7ea93e03a4}\label{class_node_a1e45c7a641855987cb06ac7ea93e03a4}} 
+\index{Node@{Node}!SetHCost@{SetHCost}}
+\index{SetHCost@{SetHCost}!Node@{Node}}
+\doxysubsubsection{\texorpdfstring{SetHCost()}{SetHCost()}}
+{\footnotesize\ttfamily void Node.\+Set\+H\+Cost (\begin{DoxyParamCaption}\item[{int}]{h\+Cost }\end{DoxyParamCaption})}
+
+
+
+Sets the set H cost of the \mbox{\hyperlink{class_node}{Node}} 
+
+\mbox{\Hypertarget{class_node_a7a057373f7c226db56718fd0abb9aa4e}\label{class_node_a7a057373f7c226db56718fd0abb9aa4e}} 
+\index{Node@{Node}!ToString@{ToString}}
+\index{ToString@{ToString}!Node@{Node}}
+\doxysubsubsection{\texorpdfstring{ToString()}{ToString()}}
+{\footnotesize\ttfamily override string Node.\+To\+String (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+A debugging function that prints the x and y coordinates of a given \mbox{\hyperlink{class_node}{Node}} 
+
+\begin{DoxyReturn}{Returns}
+A string xy coordinate
+\end{DoxyReturn}
+
+
+\doxysubsection{Member Data Documentation}
 \mbox{\Hypertarget{class_node_a999a7e2af6fdf1b8740f6f582a1c38f3}\label{class_node_a999a7e2af6fdf1b8740f6f582a1c38f3}} 
-\mbox{\hyperlink{class_node}{Node}} {\bfseries came\+From} = null
-\end{DoxyCompactItemize}
+\index{Node@{Node}!cameFrom@{cameFrom}}
+\index{cameFrom@{cameFrom}!Node@{Node}}
+\doxysubsubsection{\texorpdfstring{cameFrom}{cameFrom}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_node}{Node}} Node.\+came\+From = null}
+
+
+
+A reference to the next \mbox{\hyperlink{class_node}{Node}} object. 
+
+\mbox{\Hypertarget{class_node_a5f91eb56ff5c31c51cc9f30ff8a88ad4}\label{class_node_a5f91eb56ff5c31c51cc9f30ff8a88ad4}} 
+\index{Node@{Node}!isObstacle@{isObstacle}}
+\index{isObstacle@{isObstacle}!Node@{Node}}
+\doxysubsubsection{\texorpdfstring{isObstacle}{isObstacle}}
+{\footnotesize\ttfamily bool Node.\+is\+Obstacle = false}
+
+
+
+A flag that determines if the cell corresponds to an obstacle in the map 
+
 
 
 The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}

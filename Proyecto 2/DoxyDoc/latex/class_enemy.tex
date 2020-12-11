@@ -1,5 +1,10 @@
 \hypertarget{class_enemy}{}\doxysection{Enemy Class Reference}
 \label{class_enemy}\index{Enemy@{Enemy}}
+
+
+The controller class for the enemy AI, manages the different actions, data and components  
+
+
 Inheritance diagram for Enemy\+:\begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -9,39 +14,145 @@ Inheritance diagram for Enemy\+:\begin{figure}[H]
 \doxysubsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\Hypertarget{class_enemy_af52bc9eb92fc1c15427ba95ecb6c4dd4}\label{class_enemy_af52bc9eb92fc1c15427ba95ecb6c4dd4}} 
-void {\bfseries Get\+Bot\+Position} ()
-\item 
-\mbox{\Hypertarget{class_enemy_aa47759637bf1ce400d1cf77c25b04fbc}\label{class_enemy_aa47759637bf1ce400d1cf77c25b04fbc}} 
-void {\bfseries Move\+Bot} (List$<$ \mbox{\hyperlink{class_node}{Node}} $>$ path)
-\end{DoxyCompactItemize}
+void \mbox{\hyperlink{class_enemy_af52bc9eb92fc1c15427ba95ecb6c4dd4}{Get\+Bot\+Position}} ()
+\begin{DoxyCompactList}\small\item\em A function that returns the matrix position of the bomb placed on the screen \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_enemy_aa47759637bf1ce400d1cf77c25b04fbc}{Move\+Bot}} (List$<$ \mbox{\hyperlink{class_node}{Node}} $>$ path)
+\begin{DoxyCompactList}\small\item\em Moves the bot on the screen given a path of logical map nodes \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsection*{Public Attributes}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\Hypertarget{class_enemy_a3ac4b23ef5e62d692e986e6faa180d6c}\label{class_enemy_a3ac4b23ef5e62d692e986e6faa180d6c}} 
-Rigidbody2D {\bfseries \+\_\+enemy\+Body}
-\item 
-\mbox{\Hypertarget{class_enemy_a0c22e3b96d3c5a4d5b278188b5ba3cfb}\label{class_enemy_a0c22e3b96d3c5a4d5b278188b5ba3cfb}} 
-int {\bfseries health}
-\item 
-\mbox{\Hypertarget{class_enemy_af92b14006687194bc07283a7b23d7819}\label{class_enemy_af92b14006687194bc07283a7b23d7819}} 
-int {\bfseries speed}
-\item 
-\mbox{\Hypertarget{class_enemy_acd95b76050856fc5ac6a70155b8bafbf}\label{class_enemy_acd95b76050856fc5ac6a70155b8bafbf}} 
-int {\bfseries radius}
-\item 
-\mbox{\Hypertarget{class_enemy_a45ab3d89fe65a48f0fd24ad3c6739ef4}\label{class_enemy_a45ab3d89fe65a48f0fd24ad3c6739ef4}} 
-int {\bfseries proximity}
-\item 
-\mbox{\Hypertarget{class_enemy_a12de6b62225b9d2a3af15a1fa732276f}\label{class_enemy_a12de6b62225b9d2a3af15a1fa732276f}} 
-int {\bfseries hit\+Score}
-\item 
-\mbox{\Hypertarget{class_enemy_a16c19801ae06bee2747adf9083eebc13}\label{class_enemy_a16c19801ae06bee2747adf9083eebc13}} 
-int\mbox{[}$\,$\mbox{]} {\bfseries action\+Probability}
-\item 
+Rigidbody2D \mbox{\hyperlink{class_enemy_a3ac4b23ef5e62d692e986e6faa180d6c}{\+\_\+enemy\+Body}}
+\begin{DoxyCompactList}\small\item\em The unity component that manages physics on the 2D plane scene. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{class_enemy_a0c22e3b96d3c5a4d5b278188b5ba3cfb}{health}}
+\begin{DoxyCompactList}\small\item\em An integer that represents the health of the bot \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{class_enemy_af92b14006687194bc07283a7b23d7819}{speed}}
+\begin{DoxyCompactList}\small\item\em An integer that represents the speed of the bot \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{class_enemy_acd95b76050856fc5ac6a70155b8bafbf}{radius}}
+\begin{DoxyCompactList}\small\item\em An integer that represents the radius of the explosion \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{class_enemy_a45ab3d89fe65a48f0fd24ad3c6739ef4}{proximity}}
+\begin{DoxyCompactList}\small\item\em An integer that stores the value of the bomb placed closer to the player \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{class_enemy_a12de6b62225b9d2a3af15a1fa732276f}{hit\+Score}}
+\begin{DoxyCompactList}\small\item\em An integer that stores the amount of times a bomb has hit the player \end{DoxyCompactList}\item 
+int\mbox{[}$\,$\mbox{]} \mbox{\hyperlink{class_enemy_a16c19801ae06bee2747adf9083eebc13}{action\+Probability}}
+\begin{DoxyCompactList}\small\item\em An array of ten that stores integers that range from zero to the amount of actions the bot can take, to be used as a probability array \end{DoxyCompactList}\item 
+Vector2\+Int \mbox{\hyperlink{class_enemy_a9a8097bfcd555638a1823b9afc1f23b9}{\+\_\+bot\+Matrix\+Pos}}
+\begin{DoxyCompactList}\small\item\em A vector that holds integers that represent the logical position of the bot in the map matrix \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+The controller class for the enemy AI, manages the different actions, data and components 
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_enemy_af52bc9eb92fc1c15427ba95ecb6c4dd4}\label{class_enemy_af52bc9eb92fc1c15427ba95ecb6c4dd4}} 
+\index{Enemy@{Enemy}!GetBotPosition@{GetBotPosition}}
+\index{GetBotPosition@{GetBotPosition}!Enemy@{Enemy}}
+\doxysubsubsection{\texorpdfstring{GetBotPosition()}{GetBotPosition()}}
+{\footnotesize\ttfamily void Enemy.\+Get\+Bot\+Position (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+A function that returns the matrix position of the bomb placed on the screen 
+
+\mbox{\Hypertarget{class_enemy_aa47759637bf1ce400d1cf77c25b04fbc}\label{class_enemy_aa47759637bf1ce400d1cf77c25b04fbc}} 
+\index{Enemy@{Enemy}!MoveBot@{MoveBot}}
+\index{MoveBot@{MoveBot}!Enemy@{Enemy}}
+\doxysubsubsection{\texorpdfstring{MoveBot()}{MoveBot()}}
+{\footnotesize\ttfamily void Enemy.\+Move\+Bot (\begin{DoxyParamCaption}\item[{List$<$ \mbox{\hyperlink{class_node}{Node}} $>$}]{path }\end{DoxyParamCaption})}
+
+
+
+Moves the bot on the screen given a path of logical map nodes 
+
+
+\begin{DoxyParams}{Parameters}
+{\em path} & A list of nodes to take as a path\\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Data Documentation}
 \mbox{\Hypertarget{class_enemy_a9a8097bfcd555638a1823b9afc1f23b9}\label{class_enemy_a9a8097bfcd555638a1823b9afc1f23b9}} 
-Vector2\+Int {\bfseries \+\_\+bot\+Matrix\+Pos}
-\end{DoxyCompactItemize}
+\index{Enemy@{Enemy}!\_botMatrixPos@{\_botMatrixPos}}
+\index{\_botMatrixPos@{\_botMatrixPos}!Enemy@{Enemy}}
+\doxysubsubsection{\texorpdfstring{\_botMatrixPos}{\_botMatrixPos}}
+{\footnotesize\ttfamily Vector2\+Int Enemy.\+\_\+bot\+Matrix\+Pos}
+
+
+
+A vector that holds integers that represent the logical position of the bot in the map matrix 
+
+\mbox{\Hypertarget{class_enemy_a3ac4b23ef5e62d692e986e6faa180d6c}\label{class_enemy_a3ac4b23ef5e62d692e986e6faa180d6c}} 
+\index{Enemy@{Enemy}!\_enemyBody@{\_enemyBody}}
+\index{\_enemyBody@{\_enemyBody}!Enemy@{Enemy}}
+\doxysubsubsection{\texorpdfstring{\_enemyBody}{\_enemyBody}}
+{\footnotesize\ttfamily Rigidbody2D Enemy.\+\_\+enemy\+Body}
+
+
+
+The unity component that manages physics on the 2D plane scene. 
+
+\mbox{\Hypertarget{class_enemy_a16c19801ae06bee2747adf9083eebc13}\label{class_enemy_a16c19801ae06bee2747adf9083eebc13}} 
+\index{Enemy@{Enemy}!actionProbability@{actionProbability}}
+\index{actionProbability@{actionProbability}!Enemy@{Enemy}}
+\doxysubsubsection{\texorpdfstring{actionProbability}{actionProbability}}
+{\footnotesize\ttfamily int \mbox{[}$\,$\mbox{]} Enemy.\+action\+Probability}
+
+
+
+An array of ten that stores integers that range from zero to the amount of actions the bot can take, to be used as a probability array 
+
+\mbox{\Hypertarget{class_enemy_a0c22e3b96d3c5a4d5b278188b5ba3cfb}\label{class_enemy_a0c22e3b96d3c5a4d5b278188b5ba3cfb}} 
+\index{Enemy@{Enemy}!health@{health}}
+\index{health@{health}!Enemy@{Enemy}}
+\doxysubsubsection{\texorpdfstring{health}{health}}
+{\footnotesize\ttfamily int Enemy.\+health}
+
+
+
+An integer that represents the health of the bot 
+
+\mbox{\Hypertarget{class_enemy_a12de6b62225b9d2a3af15a1fa732276f}\label{class_enemy_a12de6b62225b9d2a3af15a1fa732276f}} 
+\index{Enemy@{Enemy}!hitScore@{hitScore}}
+\index{hitScore@{hitScore}!Enemy@{Enemy}}
+\doxysubsubsection{\texorpdfstring{hitScore}{hitScore}}
+{\footnotesize\ttfamily int Enemy.\+hit\+Score}
+
+
+
+An integer that stores the amount of times a bomb has hit the player 
+
+\mbox{\Hypertarget{class_enemy_a45ab3d89fe65a48f0fd24ad3c6739ef4}\label{class_enemy_a45ab3d89fe65a48f0fd24ad3c6739ef4}} 
+\index{Enemy@{Enemy}!proximity@{proximity}}
+\index{proximity@{proximity}!Enemy@{Enemy}}
+\doxysubsubsection{\texorpdfstring{proximity}{proximity}}
+{\footnotesize\ttfamily int Enemy.\+proximity}
+
+
+
+An integer that stores the value of the bomb placed closer to the player 
+
+\mbox{\Hypertarget{class_enemy_acd95b76050856fc5ac6a70155b8bafbf}\label{class_enemy_acd95b76050856fc5ac6a70155b8bafbf}} 
+\index{Enemy@{Enemy}!radius@{radius}}
+\index{radius@{radius}!Enemy@{Enemy}}
+\doxysubsubsection{\texorpdfstring{radius}{radius}}
+{\footnotesize\ttfamily int Enemy.\+radius}
+
+
+
+An integer that represents the radius of the explosion 
+
+\mbox{\Hypertarget{class_enemy_af92b14006687194bc07283a7b23d7819}\label{class_enemy_af92b14006687194bc07283a7b23d7819}} 
+\index{Enemy@{Enemy}!speed@{speed}}
+\index{speed@{speed}!Enemy@{Enemy}}
+\doxysubsubsection{\texorpdfstring{speed}{speed}}
+{\footnotesize\ttfamily int Enemy.\+speed}
+
+
+
+An integer that represents the speed of the bot 
+
 
 
 The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}

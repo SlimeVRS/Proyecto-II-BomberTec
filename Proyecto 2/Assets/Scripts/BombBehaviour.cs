@@ -4,9 +4,18 @@ using System.Collections.Generic;
 using System.Runtime.CompilerServices;
 using UnityEngine;
 
+/// <summary>
+/// Class that controls the behaviour of the bomb objects used by the player and the bots
+/// </summary>
 public class BombBehaviour : MonoBehaviour
 {
+    /// <summary>
+    /// A float that represent the timer of the bomb
+    /// </summary>
     public float timer = 3f;
+    /// <summary>
+    /// A float that represents the radius of explosion
+    /// </summary>
     public float radius = 6f;
     private BoxCollider2D _horizontal;
     private BoxCollider2D _vertical;
@@ -27,6 +36,9 @@ public class BombBehaviour : MonoBehaviour
         _horizontal = list[1];
     }
 
+    /// <summary>
+    /// Changes the explosion radius after creation of the object
+    /// </summary>
     public void ChangeExplosionRadius()
     {
         _vertical.size = new Vector2(1,radius);
@@ -34,6 +46,9 @@ public class BombBehaviour : MonoBehaviour
     }
 
 
+    /// <summary>
+    /// Function that manages the explosion action of the bomb
+    /// </summary>
     public void Explode()
     {
 

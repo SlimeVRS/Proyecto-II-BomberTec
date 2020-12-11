@@ -7,6 +7,10 @@ using CodeMonkey.Utils;
 using Object = UnityEngine.Object;
 using Random = System.Random;
 
+/// <summary>
+/// The MapManager class handles all map related functions, from map generation to renderization on screen. It creates logical maps that handle pathfinding and backtracking algorithms that
+/// were requested for the project.
+/// </summary>
 public class MapManager
 {
     private int _height;
@@ -14,6 +18,9 @@ public class MapManager
     private float _cellSize;
     private int[,] mapArray;
     private readonly MapTile[,] _backtrackingMap;
+    /// <summary>
+    /// The size of the matrix that represents the logical map.
+    /// </summary>
     public readonly int _mapSize;
     private Node[,] _pathFinding;
     private GameObject destructible;
@@ -21,11 +28,16 @@ public class MapManager
 
     
 
+    /// <summary>
+    /// A getter for the logical map used to perform the pathfinding algorithm used in the game.
+    /// </summary>
+    /// <returns>A reference to a 11x11 matrix filled with Node objects</returns>
     public Node[,] GetPathfindingMap()
     {
         return _pathFinding;
     }
 
+    
     private void SetPathFindingMap()
     {
         _pathFinding = new Node[_height, _width];
@@ -44,12 +56,26 @@ public class MapManager
         }
     }
 
+    /// <summary>
+    /// Given a specific x y coordinate, returns a Node with information related to pathfinding data.
+    /// </summary>
+    /// <param name="x"> The x coordinate of the desired pathfinding map Node</param>
+    /// <param name="y"> The y coordinate of the desired pathfinding map Node</param>
+    /// <returns> The pathfinding Node on the specified x y position of the pathfinding map matrix</returns>
     public Node GetPathNode(int x, int y)
     {
         return _pathFinding[x, y];
     }
 
 
+    /// <summary>
+    /// A constructor and initializer for the MapManager class, creates the instance of an MapManager object and
+    /// initializes the basic attributes it needs to proceed with logical processes related to map management, both
+    /// visual and logical.
+    /// </summary>
+    /// <param name="cellSize"> The float size of the cells that will be drawn on screen as map tiles</param>
+    /// <param name="destructible"> A reference to the unity prefab that represents the destructible blocks in screen</param>
+    /// <param name="indestructible">A reference to the unity prefab that represents the destructible blocks in screen</param>
     public MapManager(float cellSize, GameObject destructible, GameObject indestructible)
     {
         this._width = 11;
@@ -128,6 +154,11 @@ public class MapManager
         }
     }
 
+    /// <summary>
+    /// The backtracking algorthim used to create a random map each time the game is executed. The never has closed rooms.
+    /// It's a modification of the depth first backtracker algorithm which essentially creates a random maze making use of
+    /// a Stack data structure to backtrack whenever a condition set by the programmer is not met.
+    /// </summary>
     public void RandomizeMap()
     {
         Stack backtrackingStack = new Stack();
@@ -228,11 +259,22 @@ public class MapManager
         return randomInt;
     }
 
+    /// <summary>
+    /// Converts an x,y position of the logical map into a screen position in the unity scene.
+    /// </summary>
+    /// <param name="x"> Integer that represents the x coordinate of the logical map</param>
+    /// <param name="y">Integer that represents the y coordinate of the logical map</param>
+    /// <returns> A Vector2 object, a two dimensional vector that contains the screen coordinates equivalent to the logical x,y position in the map matrix</returns>
     public Vector2 GetWorldPosition(int x, int y)
     {
         return new Vector2(x, y) * _cellSize;
     }
 
+    /// <summary>
+    /// Converts an Vector2 screen position of unity scene into a logical x,y position in the logical map matrix.
+    /// </summary>
+    /// <param name="worldPosition"> A vector2 object, a two dimensional vector that holds the coordinates of a screen position in the unity scene </param>
+    /// <returns>  The logical x,y position in the map matrix equivalent to the Vector2 coordinate on the unity scene</returns>
     public Vector2Int GetMatrixPosition(Vector2 worldPosition)
     {
         Vector2Int matrixPosition = new Vector2Int();
@@ -247,6 +289,10 @@ public class MapManager
             Quaternion.identity);
     }
     
+    /// <summary>
+    /// A debugging function that prints in console data of the generated random map
+    /// </summary>
+    /// <returns> A String containing information about the backtracking generated random map</returns>
     public override string ToString()
     {
         var mapStr = "";

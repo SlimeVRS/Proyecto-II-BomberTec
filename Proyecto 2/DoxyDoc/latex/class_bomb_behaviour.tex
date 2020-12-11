@@ -1,5 +1,10 @@
 \hypertarget{class_bomb_behaviour}{}\doxysection{Bomb\+Behaviour Class Reference}
 \label{class_bomb_behaviour}\index{BombBehaviour@{BombBehaviour}}
+
+
+Class that controls the behaviour of the bomb objects used by the player and the bots  
+
+
 Inheritance diagram for Bomb\+Behaviour\+:\begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -9,21 +14,68 @@ Inheritance diagram for Bomb\+Behaviour\+:\begin{figure}[H]
 \doxysubsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\Hypertarget{class_bomb_behaviour_afbbd1633b405cbd3f2f8667ba5ff3660}\label{class_bomb_behaviour_afbbd1633b405cbd3f2f8667ba5ff3660}} 
-void {\bfseries Change\+Explosion\+Radius} ()
-\item 
-\mbox{\Hypertarget{class_bomb_behaviour_a088be0ab79c6c7da93b71ed071c0cac3}\label{class_bomb_behaviour_a088be0ab79c6c7da93b71ed071c0cac3}} 
-void {\bfseries Explode} ()
-\end{DoxyCompactItemize}
+void \mbox{\hyperlink{class_bomb_behaviour_afbbd1633b405cbd3f2f8667ba5ff3660}{Change\+Explosion\+Radius}} ()
+\begin{DoxyCompactList}\small\item\em Changes the explosion radius after creation of the object \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_bomb_behaviour_a088be0ab79c6c7da93b71ed071c0cac3}{Explode}} ()
+\begin{DoxyCompactList}\small\item\em Function that manages the explosion action of the bomb \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsection*{Public Attributes}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\Hypertarget{class_bomb_behaviour_aa7b547ca90f04aa8dd155cc37b085954}\label{class_bomb_behaviour_aa7b547ca90f04aa8dd155cc37b085954}} 
-float {\bfseries timer} = 3f
-\item 
+float \mbox{\hyperlink{class_bomb_behaviour_aa7b547ca90f04aa8dd155cc37b085954}{timer}} = 3f
+\begin{DoxyCompactList}\small\item\em A float that represent the timer of the bomb \end{DoxyCompactList}\item 
+float \mbox{\hyperlink{class_bomb_behaviour_a201ce12649223db4766dc6ff97318831}{radius}} = 6f
+\begin{DoxyCompactList}\small\item\em A float that represents the radius of explosion \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Class that controls the behaviour of the bomb objects used by the player and the bots 
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_bomb_behaviour_afbbd1633b405cbd3f2f8667ba5ff3660}\label{class_bomb_behaviour_afbbd1633b405cbd3f2f8667ba5ff3660}} 
+\index{BombBehaviour@{BombBehaviour}!ChangeExplosionRadius@{ChangeExplosionRadius}}
+\index{ChangeExplosionRadius@{ChangeExplosionRadius}!BombBehaviour@{BombBehaviour}}
+\doxysubsubsection{\texorpdfstring{ChangeExplosionRadius()}{ChangeExplosionRadius()}}
+{\footnotesize\ttfamily void Bomb\+Behaviour.\+Change\+Explosion\+Radius (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Changes the explosion radius after creation of the object 
+
+\mbox{\Hypertarget{class_bomb_behaviour_a088be0ab79c6c7da93b71ed071c0cac3}\label{class_bomb_behaviour_a088be0ab79c6c7da93b71ed071c0cac3}} 
+\index{BombBehaviour@{BombBehaviour}!Explode@{Explode}}
+\index{Explode@{Explode}!BombBehaviour@{BombBehaviour}}
+\doxysubsubsection{\texorpdfstring{Explode()}{Explode()}}
+{\footnotesize\ttfamily void Bomb\+Behaviour.\+Explode (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Function that manages the explosion action of the bomb 
+
+
+
+\doxysubsection{Member Data Documentation}
 \mbox{\Hypertarget{class_bomb_behaviour_a201ce12649223db4766dc6ff97318831}\label{class_bomb_behaviour_a201ce12649223db4766dc6ff97318831}} 
-float {\bfseries radius} = 6f
-\end{DoxyCompactItemize}
+\index{BombBehaviour@{BombBehaviour}!radius@{radius}}
+\index{radius@{radius}!BombBehaviour@{BombBehaviour}}
+\doxysubsubsection{\texorpdfstring{radius}{radius}}
+{\footnotesize\ttfamily float Bomb\+Behaviour.\+radius = 6f}
+
+
+
+A float that represents the radius of explosion 
+
+\mbox{\Hypertarget{class_bomb_behaviour_aa7b547ca90f04aa8dd155cc37b085954}\label{class_bomb_behaviour_aa7b547ca90f04aa8dd155cc37b085954}} 
+\index{BombBehaviour@{BombBehaviour}!timer@{timer}}
+\index{timer@{timer}!BombBehaviour@{BombBehaviour}}
+\doxysubsubsection{\texorpdfstring{timer}{timer}}
+{\footnotesize\ttfamily float Bomb\+Behaviour.\+timer = 3f}
+
+
+
+A float that represent the timer of the bomb 
+
 
 
 The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}

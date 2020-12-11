@@ -3,6 +3,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// A pathfinding class that implements the A* algorithm.
+/// </summary>
 public class PathFinding
 {
     private MapManager _grid;
@@ -14,11 +17,18 @@ public class PathFinding
     
     
 
+    /// <summary>
+    /// Default constructor
+    /// </summary>
     public PathFinding()
     {
        
     }
     
+    /// <summary>
+    /// A debugging function that prints a path of nodes.
+    /// </summary>
+    /// <returns></returns>
     public override string ToString()
     {
         String pathString = " ";
@@ -30,6 +40,10 @@ public class PathFinding
         return pathString;
     }
 
+    /// <summary>
+    /// Sets the MapManager object to be used in order to create a path.
+    /// </summary>
+    /// <param name="gridMap"></param>
     public void SetMap(MapManager gridMap)
     {
         this._grid = gridMap;
@@ -55,6 +69,14 @@ public class PathFinding
         return obstacleList;
     }
 
+    /// <summary>
+    /// Finds the path between two given sets of coordinates using A* algorithm
+    /// </summary>
+    /// <param name="startX"> An integer that represents the x position of the starting node</param>
+    /// <param name="startY"> An integer that represents the y position of the starting node</param>
+    /// <param name="endX"> An integer that represents the x position of the end node</param>
+    /// <param name="endY"> An integer that represents the y position of the end node</param>
+    /// <returns> A list of nodes that represent the path to take</returns>
     public List<Node> FindPath(int startX, int startY, int endX, int endY)
         {
             Node startNode = _grid.GetPathNode(startX, startY);

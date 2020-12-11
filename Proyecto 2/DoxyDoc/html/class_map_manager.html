@@ -69,37 +69,267 @@ $(function() {
 <div class="title">MapManager Class Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
+
+<p>The <a class="el" href="class_map_manager.html" title="The MapManager class handles all map related functions, from map generation to renderization on scree...">MapManager</a> class handles all map related functions, from map generation to renderization on screen. It creates logical maps that handle pathfinding and backtracking algorithms that were requested for the project.  
+ <a href="class_map_manager.html#details">More...</a></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:aa86483ba12fb1c092455e970abe561ce"><td class="memItemLeft" align="right" valign="top"><a id="aa86483ba12fb1c092455e970abe561ce"></a>
-<a class="el" href="class_node.html">Node</a>[,]&#160;</td><td class="memItemRight" valign="bottom"><b>GetPathfindingMap</b> ()</td></tr>
+<tr class="memitem:aa86483ba12fb1c092455e970abe561ce"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_node.html">Node</a>[,]&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_map_manager.html#aa86483ba12fb1c092455e970abe561ce">GetPathfindingMap</a> ()</td></tr>
+<tr class="memdesc:aa86483ba12fb1c092455e970abe561ce"><td class="mdescLeft">&#160;</td><td class="mdescRight">A getter for the logical map used to perform the pathfinding algorithm used in the game.  <a href="class_map_manager.html#aa86483ba12fb1c092455e970abe561ce">More...</a><br /></td></tr>
 <tr class="separator:aa86483ba12fb1c092455e970abe561ce"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aecef04ee90c304d5e4a5216ae54bcb30"><td class="memItemLeft" align="right" valign="top"><a id="aecef04ee90c304d5e4a5216ae54bcb30"></a>
-<a class="el" href="class_node.html">Node</a>&#160;</td><td class="memItemRight" valign="bottom"><b>GetPathNode</b> (int x, int y)</td></tr>
+<tr class="memitem:aecef04ee90c304d5e4a5216ae54bcb30"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_node.html">Node</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_map_manager.html#aecef04ee90c304d5e4a5216ae54bcb30">GetPathNode</a> (int x, int y)</td></tr>
+<tr class="memdesc:aecef04ee90c304d5e4a5216ae54bcb30"><td class="mdescLeft">&#160;</td><td class="mdescRight">Given a specific x y coordinate, returns a <a class="el" href="class_node.html" title="A Node class used for pathfinding purposes, stores the relevant information for the A* algorithm exec...">Node</a> with information related to pathfinding data.  <a href="class_map_manager.html#aecef04ee90c304d5e4a5216ae54bcb30">More...</a><br /></td></tr>
 <tr class="separator:aecef04ee90c304d5e4a5216ae54bcb30"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a14801969fa732b5dd5eb44d7c252bd0e"><td class="memItemLeft" align="right" valign="top"><a id="a14801969fa732b5dd5eb44d7c252bd0e"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>MapManager</b> (float cellSize, GameObject destructible, GameObject indestructible)</td></tr>
+<tr class="memitem:a14801969fa732b5dd5eb44d7c252bd0e"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_map_manager.html#a14801969fa732b5dd5eb44d7c252bd0e">MapManager</a> (float cellSize, GameObject destructible, GameObject indestructible)</td></tr>
+<tr class="memdesc:a14801969fa732b5dd5eb44d7c252bd0e"><td class="mdescLeft">&#160;</td><td class="mdescRight">A constructor and initializer for the <a class="el" href="class_map_manager.html" title="The MapManager class handles all map related functions, from map generation to renderization on scree...">MapManager</a> class, creates the instance of an <a class="el" href="class_map_manager.html" title="The MapManager class handles all map related functions, from map generation to renderization on scree...">MapManager</a> object and initializes the basic attributes it needs to proceed with logical processes related to map management, both visual and logical.  <a href="class_map_manager.html#a14801969fa732b5dd5eb44d7c252bd0e">More...</a><br /></td></tr>
 <tr class="separator:a14801969fa732b5dd5eb44d7c252bd0e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8859736acdea6a3e00300168b0b8a8c0"><td class="memItemLeft" align="right" valign="top"><a id="a8859736acdea6a3e00300168b0b8a8c0"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>RandomizeMap</b> ()</td></tr>
+<tr class="memitem:a8859736acdea6a3e00300168b0b8a8c0"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_map_manager.html#a8859736acdea6a3e00300168b0b8a8c0">RandomizeMap</a> ()</td></tr>
+<tr class="memdesc:a8859736acdea6a3e00300168b0b8a8c0"><td class="mdescLeft">&#160;</td><td class="mdescRight">The backtracking algorthim used to create a random map each time the game is executed. The never has closed rooms. It's a modification of the depth first backtracker algorithm which essentially creates a random maze making use of a <a class="el" href="class_stack.html" title="A basic Stack data structure, a standard, very basic implementation created to use on a backtracking ...">Stack</a> data structure to backtrack whenever a condition set by the programmer is not met.  <a href="class_map_manager.html#a8859736acdea6a3e00300168b0b8a8c0">More...</a><br /></td></tr>
 <tr class="separator:a8859736acdea6a3e00300168b0b8a8c0"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a90c6541906920baf3ea244edd93f5ce4"><td class="memItemLeft" align="right" valign="top"><a id="a90c6541906920baf3ea244edd93f5ce4"></a>
-Vector2&#160;</td><td class="memItemRight" valign="bottom"><b>GetWorldPosition</b> (int x, int y)</td></tr>
+<tr class="memitem:a90c6541906920baf3ea244edd93f5ce4"><td class="memItemLeft" align="right" valign="top">Vector2&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_map_manager.html#a90c6541906920baf3ea244edd93f5ce4">GetWorldPosition</a> (int x, int y)</td></tr>
+<tr class="memdesc:a90c6541906920baf3ea244edd93f5ce4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Converts an x,y position of the logical map into a screen position in the unity scene.  <a href="class_map_manager.html#a90c6541906920baf3ea244edd93f5ce4">More...</a><br /></td></tr>
 <tr class="separator:a90c6541906920baf3ea244edd93f5ce4"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:adf8d16449457e99e4c2ad8d45d03aee9"><td class="memItemLeft" align="right" valign="top"><a id="adf8d16449457e99e4c2ad8d45d03aee9"></a>
-Vector2Int&#160;</td><td class="memItemRight" valign="bottom"><b>GetMatrixPosition</b> (Vector2 worldPosition)</td></tr>
+<tr class="memitem:adf8d16449457e99e4c2ad8d45d03aee9"><td class="memItemLeft" align="right" valign="top">Vector2Int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_map_manager.html#adf8d16449457e99e4c2ad8d45d03aee9">GetMatrixPosition</a> (Vector2 worldPosition)</td></tr>
+<tr class="memdesc:adf8d16449457e99e4c2ad8d45d03aee9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Converts an Vector2 screen position of unity scene into a logical x,y position in the logical map matrix.  <a href="class_map_manager.html#adf8d16449457e99e4c2ad8d45d03aee9">More...</a><br /></td></tr>
 <tr class="separator:adf8d16449457e99e4c2ad8d45d03aee9"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5963a12e9a435ce3f6f78f95e78f4c28"><td class="memItemLeft" align="right" valign="top"><a id="a5963a12e9a435ce3f6f78f95e78f4c28"></a>
-override string&#160;</td><td class="memItemRight" valign="bottom"><b>ToString</b> ()</td></tr>
+<tr class="memitem:a5963a12e9a435ce3f6f78f95e78f4c28"><td class="memItemLeft" align="right" valign="top">override string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_map_manager.html#a5963a12e9a435ce3f6f78f95e78f4c28">ToString</a> ()</td></tr>
+<tr class="memdesc:a5963a12e9a435ce3f6f78f95e78f4c28"><td class="mdescLeft">&#160;</td><td class="mdescRight">A debugging function that prints in console data of the generated random map  <a href="class_map_manager.html#a5963a12e9a435ce3f6f78f95e78f4c28">More...</a><br /></td></tr>
 <tr class="separator:a5963a12e9a435ce3f6f78f95e78f4c28"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
 Public Attributes</h2></td></tr>
-<tr class="memitem:a11fafbb90bb1e392cc5ef77fa2b262d5"><td class="memItemLeft" align="right" valign="top"><a id="a11fafbb90bb1e392cc5ef77fa2b262d5"></a>
-readonly int&#160;</td><td class="memItemRight" valign="bottom"><b>_mapSize</b></td></tr>
+<tr class="memitem:a11fafbb90bb1e392cc5ef77fa2b262d5"><td class="memItemLeft" align="right" valign="top">readonly int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_map_manager.html#a11fafbb90bb1e392cc5ef77fa2b262d5">_mapSize</a></td></tr>
+<tr class="memdesc:a11fafbb90bb1e392cc5ef77fa2b262d5"><td class="mdescLeft">&#160;</td><td class="mdescRight">The size of the matrix that represents the logical map.  <a href="class_map_manager.html#a11fafbb90bb1e392cc5ef77fa2b262d5">More...</a><br /></td></tr>
 <tr class="separator:a11fafbb90bb1e392cc5ef77fa2b262d5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>The <a class="el" href="class_map_manager.html" title="The MapManager class handles all map related functions, from map generation to renderization on scree...">MapManager</a> class handles all map related functions, from map generation to renderization on screen. It creates logical maps that handle pathfinding and backtracking algorithms that were requested for the project. </p>
+</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a id="a14801969fa732b5dd5eb44d7c252bd0e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a14801969fa732b5dd5eb44d7c252bd0e">&#9670;&nbsp;</a></span>MapManager()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">MapManager.MapManager </td>
+          <td>(</td>
+          <td class="paramtype">float&#160;</td>
+          <td class="paramname"><em>cellSize</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">GameObject&#160;</td>
+          <td class="paramname"><em>destructible</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">GameObject&#160;</td>
+          <td class="paramname"><em>indestructible</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>A constructor and initializer for the <a class="el" href="class_map_manager.html" title="The MapManager class handles all map related functions, from map generation to renderization on scree...">MapManager</a> class, creates the instance of an <a class="el" href="class_map_manager.html" title="The MapManager class handles all map related functions, from map generation to renderization on scree...">MapManager</a> object and initializes the basic attributes it needs to proceed with logical processes related to map management, both visual and logical. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">cellSize</td><td>The float size of the cells that will be drawn on screen as map tiles</td></tr>
+    <tr><td class="paramname">destructible</td><td>A reference to the unity prefab that represents the destructible blocks in screen</td></tr>
+    <tr><td class="paramname">indestructible</td><td>A reference to the unity prefab that represents the destructible blocks in screen</td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<h2 class="groupheader">Member Function Documentation</h2>
+<a id="adf8d16449457e99e4c2ad8d45d03aee9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#adf8d16449457e99e4c2ad8d45d03aee9">&#9670;&nbsp;</a></span>GetMatrixPosition()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">Vector2Int MapManager.GetMatrixPosition </td>
+          <td>(</td>
+          <td class="paramtype">Vector2&#160;</td>
+          <td class="paramname"><em>worldPosition</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Converts an Vector2 screen position of unity scene into a logical x,y position in the logical map matrix. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">worldPosition</td><td>A vector2 object, a two dimensional vector that holds the coordinates of a screen position in the unity scene </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>The logical x,y position in the map matrix equivalent to the Vector2 coordinate on the unity scene</dd></dl>
+
+</div>
+</div>
+<a id="aa86483ba12fb1c092455e970abe561ce"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa86483ba12fb1c092455e970abe561ce">&#9670;&nbsp;</a></span>GetPathfindingMap()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_node.html">Node</a> [,] MapManager.GetPathfindingMap </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>A getter for the logical map used to perform the pathfinding algorithm used in the game. </p>
+<dl class="section return"><dt>Returns</dt><dd>A reference to a 11x11 matrix filled with <a class="el" href="class_node.html" title="A Node class used for pathfinding purposes, stores the relevant information for the A* algorithm exec...">Node</a> objects</dd></dl>
+
+</div>
+</div>
+<a id="aecef04ee90c304d5e4a5216ae54bcb30"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aecef04ee90c304d5e4a5216ae54bcb30">&#9670;&nbsp;</a></span>GetPathNode()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_node.html">Node</a> MapManager.GetPathNode </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>x</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>y</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Given a specific x y coordinate, returns a <a class="el" href="class_node.html" title="A Node class used for pathfinding purposes, stores the relevant information for the A* algorithm exec...">Node</a> with information related to pathfinding data. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">x</td><td>The x coordinate of the desired pathfinding map <a class="el" href="class_node.html" title="A Node class used for pathfinding purposes, stores the relevant information for the A* algorithm exec...">Node</a></td></tr>
+    <tr><td class="paramname">y</td><td>The y coordinate of the desired pathfinding map <a class="el" href="class_node.html" title="A Node class used for pathfinding purposes, stores the relevant information for the A* algorithm exec...">Node</a></td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>The pathfinding <a class="el" href="class_node.html" title="A Node class used for pathfinding purposes, stores the relevant information for the A* algorithm exec...">Node</a> on the specified x y position of the pathfinding map matrix</dd></dl>
+
+</div>
+</div>
+<a id="a90c6541906920baf3ea244edd93f5ce4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a90c6541906920baf3ea244edd93f5ce4">&#9670;&nbsp;</a></span>GetWorldPosition()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">Vector2 MapManager.GetWorldPosition </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>x</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>y</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Converts an x,y position of the logical map into a screen position in the unity scene. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">x</td><td>Integer that represents the x coordinate of the logical map</td></tr>
+    <tr><td class="paramname">y</td><td>Integer that represents the y coordinate of the logical map</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>A Vector2 object, a two dimensional vector that contains the screen coordinates equivalent to the logical x,y position in the map matrix</dd></dl>
+
+</div>
+</div>
+<a id="a8859736acdea6a3e00300168b0b8a8c0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8859736acdea6a3e00300168b0b8a8c0">&#9670;&nbsp;</a></span>RandomizeMap()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void MapManager.RandomizeMap </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>The backtracking algorthim used to create a random map each time the game is executed. The never has closed rooms. It's a modification of the depth first backtracker algorithm which essentially creates a random maze making use of a <a class="el" href="class_stack.html" title="A basic Stack data structure, a standard, very basic implementation created to use on a backtracking ...">Stack</a> data structure to backtrack whenever a condition set by the programmer is not met. </p>
+
+</div>
+</div>
+<a id="a5963a12e9a435ce3f6f78f95e78f4c28"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5963a12e9a435ce3f6f78f95e78f4c28">&#9670;&nbsp;</a></span>ToString()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">override string MapManager.ToString </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>A debugging function that prints in console data of the generated random map </p>
+<dl class="section return"><dt>Returns</dt><dd>A String containing information about the backtracking generated random map</dd></dl>
+
+</div>
+</div>
+<h2 class="groupheader">Member Data Documentation</h2>
+<a id="a11fafbb90bb1e392cc5ef77fa2b262d5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a11fafbb90bb1e392cc5ef77fa2b262d5">&#9670;&nbsp;</a></span>_mapSize</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">readonly int MapManager._mapSize</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>The size of the matrix that represents the logical map. </p>
+
+</div>
+</div>
 <hr/>The documentation for this class was generated from the following file:<ul>
 <li>Assets/Scripts/MapManager.cs</li>
 </ul>

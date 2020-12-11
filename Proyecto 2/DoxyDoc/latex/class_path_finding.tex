@@ -1,17 +1,94 @@
 \hypertarget{class_path_finding}{}\doxysection{Path\+Finding Class Reference}
 \label{class_path_finding}\index{PathFinding@{PathFinding}}
+
+
+A pathfinding class that implements the A$\ast$ algorithm.  
+
+
 \doxysubsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\Hypertarget{class_path_finding_a84ef34f2d14a1004489cd53fb429aedc}\label{class_path_finding_a84ef34f2d14a1004489cd53fb429aedc}} 
-override string {\bfseries To\+String} ()
-\item 
-\mbox{\Hypertarget{class_path_finding_a26f577127b746f98d2145fee94940539}\label{class_path_finding_a26f577127b746f98d2145fee94940539}} 
-void {\bfseries Set\+Map} (\mbox{\hyperlink{class_map_manager}{Map\+Manager}} grid\+Map)
-\item 
+\mbox{\hyperlink{class_path_finding_a0ed53683ca4d06016fd9cf0d6bef845f}{Path\+Finding}} ()
+\begin{DoxyCompactList}\small\item\em Default constructor \end{DoxyCompactList}\item 
+override string \mbox{\hyperlink{class_path_finding_a84ef34f2d14a1004489cd53fb429aedc}{To\+String}} ()
+\begin{DoxyCompactList}\small\item\em A debugging function that prints a path of nodes. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_path_finding_a26f577127b746f98d2145fee94940539}{Set\+Map}} (\mbox{\hyperlink{class_map_manager}{Map\+Manager}} grid\+Map)
+\begin{DoxyCompactList}\small\item\em Sets the \mbox{\hyperlink{class_map_manager}{Map\+Manager}} object to be used in order to create a path. \end{DoxyCompactList}\item 
+List$<$ \mbox{\hyperlink{class_node}{Node}} $>$ \mbox{\hyperlink{class_path_finding_af53e628feb7234284ff0385d01015ac2}{Find\+Path}} (int startX, int startY, int endX, int endY)
+\begin{DoxyCompactList}\small\item\em Finds the path between two given sets of coordinates using A$\ast$ algorithm \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+A pathfinding class that implements the A$\ast$ algorithm. 
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_path_finding_a0ed53683ca4d06016fd9cf0d6bef845f}\label{class_path_finding_a0ed53683ca4d06016fd9cf0d6bef845f}} 
+\index{PathFinding@{PathFinding}!PathFinding@{PathFinding}}
+\index{PathFinding@{PathFinding}!PathFinding@{PathFinding}}
+\doxysubsubsection{\texorpdfstring{PathFinding()}{PathFinding()}}
+{\footnotesize\ttfamily Path\+Finding.\+Path\+Finding (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Default constructor 
+
+
+
+\doxysubsection{Member Function Documentation}
 \mbox{\Hypertarget{class_path_finding_af53e628feb7234284ff0385d01015ac2}\label{class_path_finding_af53e628feb7234284ff0385d01015ac2}} 
-List$<$ \mbox{\hyperlink{class_node}{Node}} $>$ {\bfseries Find\+Path} (int startX, int startY, int endX, int endY)
-\end{DoxyCompactItemize}
+\index{PathFinding@{PathFinding}!FindPath@{FindPath}}
+\index{FindPath@{FindPath}!PathFinding@{PathFinding}}
+\doxysubsubsection{\texorpdfstring{FindPath()}{FindPath()}}
+{\footnotesize\ttfamily List$<$\mbox{\hyperlink{class_node}{Node}}$>$ Path\+Finding.\+Find\+Path (\begin{DoxyParamCaption}\item[{int}]{startX,  }\item[{int}]{startY,  }\item[{int}]{endX,  }\item[{int}]{endY }\end{DoxyParamCaption})}
+
+
+
+Finds the path between two given sets of coordinates using A$\ast$ algorithm 
+
+
+\begin{DoxyParams}{Parameters}
+{\em startX} & An integer that represents the x position of the starting node\\
+\hline
+{\em startY} & An integer that represents the y position of the starting node\\
+\hline
+{\em endX} & An integer that represents the x position of the end node\\
+\hline
+{\em endY} & An integer that represents the y position of the end node\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A list of nodes that represent the path to take
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_path_finding_a26f577127b746f98d2145fee94940539}\label{class_path_finding_a26f577127b746f98d2145fee94940539}} 
+\index{PathFinding@{PathFinding}!SetMap@{SetMap}}
+\index{SetMap@{SetMap}!PathFinding@{PathFinding}}
+\doxysubsubsection{\texorpdfstring{SetMap()}{SetMap()}}
+{\footnotesize\ttfamily void Path\+Finding.\+Set\+Map (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_map_manager}{Map\+Manager}}}]{grid\+Map }\end{DoxyParamCaption})}
+
+
+
+Sets the \mbox{\hyperlink{class_map_manager}{Map\+Manager}} object to be used in order to create a path. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em grid\+Map} & \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_path_finding_a84ef34f2d14a1004489cd53fb429aedc}\label{class_path_finding_a84ef34f2d14a1004489cd53fb429aedc}} 
+\index{PathFinding@{PathFinding}!ToString@{ToString}}
+\index{ToString@{ToString}!PathFinding@{PathFinding}}
+\doxysubsubsection{\texorpdfstring{ToString()}{ToString()}}
+{\footnotesize\ttfamily override string Path\+Finding.\+To\+String (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+A debugging function that prints a path of nodes. 
+
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
 
 
 The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
