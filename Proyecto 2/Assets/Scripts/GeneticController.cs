@@ -171,7 +171,10 @@ public class GeneticController : MonoBehaviour
         }
     }
 
-    
+    /// <summary>
+    /// Check if the bot has empty values ​​and in case of having empty values this ​​adjust them
+    /// </summary>
+    /// <param name="currentBot">Enemy object</param>
     private void CheckEmptyValues(Enemy currentBot)
     {
         if (currentBot.health == 0)
@@ -192,6 +195,13 @@ public class GeneticController : MonoBehaviour
             currentBot.speed--;
         }
     }
+    /// <summary>
+    /// Recieves 3 Enemies and make a cross in their actions porbabilities to 
+    /// change the actions porbabilities for each bot in the pool 
+    /// </summary>
+    /// <param name="parent1">Enemy object</param>
+    /// <param name="parent2">Enemy object</param>
+    /// <param name="parent3">Enemy object</param>
     private void cross(Enemy parent1,Enemy parent2,Enemy parent3)
     {
         Enemy[] tempBotPool=new Enemy[7];
@@ -204,6 +214,12 @@ public class GeneticController : MonoBehaviour
         _pool[6].GetComponent<Enemy>().actionProbability=crossAux(parent1,parent2); //revisar el cruce     
         mutation();
     }
+    /// <summary>
+    /// Recieve 2 enemies and make a cross with their action probabilities 
+    /// </summary>
+    /// <param name="parent1">Enemy object</param>
+    /// <param name="parent2">Enemy object</param>
+    /// <returns></returns>
     private int[] crossAux(Enemy parent1, Enemy parent2)
     {
        int[] actions_parent1= parent1.actionProbability ;
@@ -216,6 +232,9 @@ public class GeneticController : MonoBehaviour
        return actions_parent2;
     }
 
+    /// <summary>
+    /// scrolls through the list of bots and mutates them with a 33,33333333% probability
+    /// </summary>
     private void mutation()
     {
         Random randRange = new Random();
@@ -230,6 +249,11 @@ public class GeneticController : MonoBehaviour
         }
     }
 
+
+    /// <summary>
+    /// Makes a bot place a bomb 
+    /// </summary>
+    /// <param name="botId">Integer</param>
     private void PlaceBomb(int botId)
     {
         Vector2Int playerPos = playerOne.playerMatrixPos;
@@ -248,11 +272,19 @@ public class GeneticController : MonoBehaviour
         
     }
 
+    /// <summary>
+    /// Calculate the fitnes based in the proximty and hitscore stat
+    /// </summary>
+    /// <param name="bot">Enemy object</param>
+    /// <returns>Integer</returns>
     private int fitnesAux(Enemy bot){
         int fit=bot.proximity-bot.hitScore;
         return fit;
     }
     
+    /// <summary>
+    /// Scroll the bots list and calculates the fitness of each to can choose the 3 bots with the higher fitness
+    /// </summary>
     private void fitnes(){
         Enemy bot1=null;
         Enemy bot2=null;
@@ -301,7 +333,10 @@ public class GeneticController : MonoBehaviour
         cross(bot1,bot2,bot3);
     }
     
-
+    /// <summary>
+    /// Makes a bot follow the player
+    /// </summary>
+    /// <param name="botId">Integer</param>
     private void ChasePlayer(int botId)
     {
         Vector2Int playerPos = playerOne.playerMatrixPos;
@@ -311,12 +346,16 @@ public class GeneticController : MonoBehaviour
         bot.MoveBot(path);
     }
 
+    /// <summary>
+    /// Makes a bot choose an action
+    /// </summary>
     private void ActionPerformer()
     {
         ChasePlayer(0);
     }
 
     // Update is called once per frame
+    
     void Update()
     {
        
