@@ -69,6 +69,7 @@ public class GeneticController : MonoBehaviour
             Debug.Log("NUEVO CICLO DEL GENETICO");
             //EJECUTAR LO RELEVANTE A LAS PRUEBAS DEL GENETICO DENTRO DE ESTE IF
             timer = geneticTime;
+            fitnes();
         }
     }
 
