@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using System.Numerics;
+using System.Timers;
 using UnityEditor.XR;
 using UnityEngine;
 using Quaternion = UnityEngine.Quaternion;
@@ -25,10 +26,11 @@ public class GeneticController : MonoBehaviour
     private CharacterManager playerOne;
     [SerializeField] private GameObject playerPrefab;
     [SerializeField] private GameObject bot;
-    private bool chase = true;
-    
-    
-    
+    private float timer;
+    private float geneticTime = 10f;
+
+
+
     // Start is called before the first frame update
     
     /// <summary>
@@ -52,12 +54,42 @@ public class GeneticController : MonoBehaviour
         
         _SpawnPlayer();
         RandomizeStarters();
+        RandomizeScores();
         PositionBots();
         _pathFinding = new PathFinding();
         _pathFinding.SetMap(map);
-       
-
+        
     }
+
+    private void GeneticLoop()
+    {
+        timer -= Time.deltaTime;
+        if (timer < 0)
+        {
+            Debug.Log("NUEVO CICLO DEL GENETICO");
+            //EJECUTAR LO RELEVANTE A LAS PRUEBAS DEL GENETICO DENTRO DE ESTE IF
+            timer = geneticTime;
+        }
+    }
+
+    private void RandomizeScores()
+    {
+        var distanceLimit = 15;
+        var hitLimit = 5;
+        Random randRange = new Random();
+
+        for (int bot = 0; bot < _pool.Length; bot++)
+        {
+            Enemy currentBot = _pool[bot].GetComponent<Enemy>();
+            var prox = 0;
+            var hit = 0;
+            hit = randRange.Next(0, hitLimit);
+            prox = randRange.Next(0,distanceLimit);
+            currentBot.proximity = prox;
+            currentBot.hitScore = hit;
+        }
+    }
+    
     /// <summary>
     /// Set the player 
     /// </summary>
@@ -70,6 +102,8 @@ public class GeneticController : MonoBehaviour
         playerOne.playerMatrixPos.y = 10;
 
     }
+    
+    
 
     /// <summary>
     /// Sets the game map in which the bots will be positioned
@@ -377,5 +411,6 @@ public class GeneticController : MonoBehaviour
     void Update()
     {       
         ActionPerformer();
+        GeneticLoop();
     }
 }
