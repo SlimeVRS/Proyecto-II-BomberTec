@@ -204,6 +204,15 @@ public class GeneticController : MonoBehaviour
             currentBot.speed--;
         }
     }
+    private void showChange(){
+        for (int i = 0;i<_pool.Length;i++){
+            Enemy bot=_pool[i].GetComponent<Enemy>();
+            
+
+        }
+    } 
+
+    
     /// <summary>
     /// Recieves 3 Enemies and make a cross in their actions porbabilities to 
     /// change the actions porbabilities for each bot in the pool 
@@ -366,8 +375,7 @@ public class GeneticController : MonoBehaviour
     // Update is called once per frame
     
     void Update()
-    {
-       
+    {       
         ActionPerformer();
     }
 }
