@@ -11,7 +11,6 @@ using Vector2 = UnityEngine.Vector2;
 public class CharacterManager : MonoBehaviour
 {
     public int health = 5;
-    public int currentHealth;
     public float speed = 3f;
     private Rigidbody2D _playerBody;
     public PlayerActions playerInput;
@@ -21,12 +20,12 @@ public class CharacterManager : MonoBehaviour
     private float _invincibleTime = 2f;
     private float _invincibleTimer;
     public Vector2Int playerMatrixPos;
-
-    public HealthBar healthBar;
+    public int currentHealth;
+    public StatusBar statusBar;
 
     private void Awake()
     {
-        playerInput = new PlayerActions();     
+        playerInput = new PlayerActions();
     }
 
     private void OnEnable()
@@ -44,7 +43,9 @@ public class CharacterManager : MonoBehaviour
     {
         _playerBody = GetComponent<Rigidbody2D>();
         currentHealth = health;
-        healthBar.SetMaxHealth(health, speed);
+        statusBar.gameObject.SetActive(currentHealth <= health);
+        statusBar.SetMaxHealth(health);
+        statusBar.SetHealth(currentHealth);
     }
     
     private void MoveOnPerformed(InputAction.CallbackContext context)
@@ -58,7 +59,6 @@ public class CharacterManager : MonoBehaviour
         if (_playerBody != null)
         {
             _playerBody.velocity = new Vector2(horizontal*speed*Time.fixedDeltaTime*100f,vertical*speed*Time.fixedDeltaTime*100f);
-            currentHealth -=1;
         }
         
         
@@ -140,8 +140,7 @@ public class CharacterManager : MonoBehaviour
 
             Debug.Log("COLLISION WITH INDESTRUCTIBLE BLOCK");        
         }
-
-
+        ReduceHealth();
     }
 
     public void ReduceHealth()
@@ -151,12 +150,11 @@ public class CharacterManager : MonoBehaviour
             return;
         }
         
-        health -= 1;
         currentHealth -= 1;
-        healthBar.SetMaxHealth(currentHealth, speed);
+        statusBar.SetHealth(currentHealth);
         _isInvincible = true;
         _invincibleTimer = _invincibleTime;
-        Debug.Log(health);
+        Debug.Log(currentHealth);
     }
 
     private void InvincibleTimeManager()
@@ -173,7 +171,7 @@ public class CharacterManager : MonoBehaviour
 
     private void CheckDeath()
     {
-        if (health == 0) Destroy(gameObject);
+        if (currentHealth == 0) Destroy(gameObject);
     }
 
     // Update is called once per frame

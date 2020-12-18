@@ -9,6 +9,7 @@ public class Enemy : MonoBehaviour
 {
     public Rigidbody2D _enemyBody;
     public int health;
+    public int currentHealth;
     public int speed;
     public int radius;
     public int proximity;
@@ -16,13 +17,16 @@ public class Enemy : MonoBehaviour
     public int[] actionProbability;
     private bool _isActive = false;
     public Vector2Int _botMatrixPos;
-    
+
+    public StatusBar statusBar;
     
     // Start is called before the first frame update
     void Start()
     {
-       
-
+        currentHealth = health;
+        statusBar.gameObject.SetActive(currentHealth<=health);
+        statusBar.SetMaxHealth(health);
+        statusBar.SetHealth(currentHealth);
     }
 
     private void OnEnable()
