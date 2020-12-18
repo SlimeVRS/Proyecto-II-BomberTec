@@ -140,7 +140,6 @@ public class CharacterManager : MonoBehaviour
 
             Debug.Log("COLLISION WITH INDESTRUCTIBLE BLOCK");        
         }
-        ReduceHealth();
     }
 
     public void ReduceHealth()
