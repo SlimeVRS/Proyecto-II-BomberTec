@@ -66,10 +66,11 @@ public class GeneticController : MonoBehaviour
         timer -= Time.deltaTime;
         if (timer < 0)
         {
-            Debug.Log("NUEVO CICLO DEL GENETICO");
+            /*Debug.Log("NUEVO CICLO DEL GENETICO");*/
             //EJECUTAR LO RELEVANTE A LAS PRUEBAS DEL GENETICO DENTRO DE ESTE IF
             timer = geneticTime;
             fitnes();
+            showChange();
         }
     }
 
@@ -434,7 +435,11 @@ public class GeneticController : MonoBehaviour
     /// </summary>
     private void ActionPerformer()
     {
-        ChasePlayer(0);
+        for (int botCount = 0; botCount < _pool.Length; botCount++)
+        {
+            ChasePlayer(botCount);
+        }
+        
     }
 
     // Update is called once per frame
