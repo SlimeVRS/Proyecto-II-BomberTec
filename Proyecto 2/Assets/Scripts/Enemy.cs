@@ -83,15 +83,18 @@ public class Enemy : MonoBehaviour
     /// <param name="path">A list of nodes to take as a path</param>
     public void MoveBot(List<Node> path)
     {
+        if (path.Count >= 2)
+        {
+            Vector3 target = new Vector3(path[1].GetX(),path[1].GetY(),0f) * 10f + new Vector3(10f, 10f,0f) * 0.5f;
+            /*Debug.Log("TARGET: "+target.x+", "+target.y);*/
+            ChangeTransform(target);
+        }
         
-        Vector3 target = new Vector3(path[1].GetX(),path[1].GetY(),0f) * 10f + new Vector3(10f, 10f,0f) * 0.5f;
-        /*Debug.Log("TARGET: "+target.x+", "+target.y);*/
-        ChangeTransform(target);
     }
 
     private void ChangeTransform(Vector3 target)
     {
-        transform.position = Vector3.MoveTowards(transform.position,target,10*Time.deltaTime);
+        transform.position = Vector3.MoveTowards(transform.position,target,5*Time.deltaTime*speed);
     }
     
 
