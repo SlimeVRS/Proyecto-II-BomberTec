@@ -242,7 +242,37 @@ public class GeneticController : MonoBehaviour
     private void showChange(){
         for (int i = 0;i<_pool.Length;i++){
             Enemy bot=_pool[i].GetComponent<Enemy>();
-            
+            int hide=0;
+            int pu=0;
+            int enem=0;
+            int bomb=0;
+            for (int action=0;action<bot.actionProbability.Length;action++){
+                if(bot.actionProbability[action]==1){
+                    hide++;
+                    continue;
+                }
+                if(bot.actionProbability[action]==2){
+                    pu++;
+                    continue;
+                }
+                if(bot.actionProbability[action]==3){
+                    enem++;
+                    continue;
+                }
+                if(bot.actionProbability[action]==4){
+                    bomb++;
+                    continue;
+                }
+            }
+            hide=hide*10;
+            pu=pu*10;
+            enem=enem*10;
+            bomb=bomb*10;
+            Debug.Log("Probabilidades del bot: "+i.ToString());
+            Debug.Log("El porcentaje de esconderse es de: "+hide.ToString());
+            Debug.Log("El porcentaje de buscar un Powe Up es de: "+pu.ToString());
+            Debug.Log("El porcentaje de buscar un enemigo es de: "+enem.ToString());
+            Debug.Log("El porcentaje de poner una bomba es de: "+bomb.ToString());
 
         }
     } 
