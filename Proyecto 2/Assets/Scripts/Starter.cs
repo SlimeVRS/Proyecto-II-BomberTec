@@ -20,15 +20,18 @@ public class Starter : MonoBehaviour
 
     [SerializeField] private GameObject botController;
 
+    [SerializeField] private bool isConstructing;
+
     private GeneticController _geneticController;
 
     private float _cellSize;
+    
 
     // Start is called before the first frame update
     void Start()
     {
         _cellSize = 10f;
-        _map = new MapManager( _cellSize, destructible,indestructible);
+        _map = new MapManager( _cellSize, destructible,indestructible, isConstructing);
         _geneticController = GameObject.Instantiate(botController).GetComponent<GeneticController>();
         _geneticController.SetMap(_map);
 

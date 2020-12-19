@@ -13,9 +13,9 @@ GameObject:
   - component: {fileID: 6792411494100292083}
   - component: {fileID: 4598066008563480598}
   - component: {fileID: 2840439036629105360}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Enemy
-  m_TagString: Untagged
+  m_TagString: Bot
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -144,7 +144,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 066ebbec29e69cc4d8909716313f7f3d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _enemyBody: {fileID: 0}
   health: 0
   speed: 0
   radius: 0
+  proximity: 0
+  hitScore: 0
   actionProbability: 
+  _botMatrixPos: {x: 0, y: 0}

@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Reflection;
+using System.Runtime.CompilerServices;
 using UnityEngine;
 using CodeMonkey.Utils;
 using Object = UnityEngine.Object;
@@ -25,8 +26,9 @@ public class MapManager
     private Node[,] _pathFinding;
     private GameObject destructible;
     private GameObject indestructible;
+    private bool isConstructing;
 
-    
+
 
     /// <summary>
     /// A getter for the logical map used to perform the pathfinding algorithm used in the game.
@@ -76,7 +78,7 @@ public class MapManager
     /// <param name="cellSize"> The float size of the cells that will be drawn on screen as map tiles</param>
     /// <param name="destructible"> A reference to the unity prefab that represents the destructible blocks in screen</param>
     /// <param name="indestructible">A reference to the unity prefab that represents the destructible blocks in screen</param>
-    public MapManager(float cellSize, GameObject destructible, GameObject indestructible)
+    public MapManager(float cellSize, GameObject destructible, GameObject indestructible, bool generation)
     {
         this._width = 11;
         this._height = 11;
@@ -84,6 +86,7 @@ public class MapManager
         this._cellSize = cellSize;
         this.destructible = destructible;
         this.indestructible = indestructible;
+        isConstructing = generation;
         mapArray = new int[_width, _height];
         _backtrackingMap = new MapTile[_width, _height];
         CreateDefaultMap();
@@ -91,6 +94,7 @@ public class MapManager
         SetSpawners();
         SetPathFindingMap();
         _GenerateStaticMap();
+        
         /*Debug.Log(ToString());*/
 
 
@@ -98,16 +102,16 @@ public class MapManager
         {
             for (int y = 0; y < mapArray.GetLength(1); y++)
             {
-                UtilsClass.CreateWorldText("(" + x + "," + y + ")", null,
+                /*UtilsClass.CreateWorldText("(" + x + "," + y + ")", null,
                     GetWorldPosition(x, y) + new Vector2(_cellSize, _cellSize) * 0.5f, 30, Color.white,
-                    TextAnchor.MiddleCenter);
-                Debug.DrawLine(GetWorldPosition(x, y), GetWorldPosition(x, y + 1), Color.white, 100f);
-                Debug.DrawLine(GetWorldPosition(x, y), GetWorldPosition(x + 1, y), Color.white, 100f);
+                    TextAnchor.MiddleCenter);*/
+                Debug.DrawLine(GetWorldPosition(x, y), GetWorldPosition(x, y + 1), Color.white, 1000f);
+                Debug.DrawLine(GetWorldPosition(x, y), GetWorldPosition(x + 1, y), Color.white, 1000f);
             }
         }
 
-        Debug.DrawLine(GetWorldPosition(0, _height), GetWorldPosition(_width, _height), Color.white, 100f);
-        Debug.DrawLine(GetWorldPosition(_width, 0), GetWorldPosition(_width, _height), Color.white, 100f);
+        Debug.DrawLine(GetWorldPosition(0, _height), GetWorldPosition(_width, _height), Color.white, 1000f);
+        Debug.DrawLine(GetWorldPosition(_width, 0), GetWorldPosition(_width, _height), Color.white, 1000f);
         
 
     }
@@ -315,9 +319,9 @@ public class MapManager
         {
             for (int y = 0; y < _width; y++)
             {
-                if (_backtrackingMap[x, y].TileType == 1)
+                if (_backtrackingMap[x, y].TileType == 1 && isConstructing)
                 {
-                    /*_placeBlock(x, y, destructible);*/
+                    _placeBlock(x, y, destructible);
                 }
 
                 if (_backtrackingMap[x, y].TileType == 2)

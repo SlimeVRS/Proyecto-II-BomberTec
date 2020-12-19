@@ -103,12 +103,12 @@ public class PathFinding
             while (_openList.Count > 0)
             {
                 Node currentNode = LowestFCost(_openList);
-                Debug.Log("CURRENT NODE: "+currentNode.GetX()+", "+currentNode.GetY());
-                Debug.Log("END NODE: "+endNode.GetX()+", "+endNode.GetY());
+                /*Debug.Log("CURRENT NODE: "+currentNode.GetX()+", "+currentNode.GetY());
+                Debug.Log("END NODE: "+endNode.GetX()+", "+endNode.GetY());*/
                 if (currentNode == endNode)
                 {
                     pathFound = CalculatedPath(endNode);
-                    Debug.Log(ToString());
+                    /*Debug.Log(ToString());*/
                     return pathFound;
                 }
                 _openList.Remove(currentNode);
